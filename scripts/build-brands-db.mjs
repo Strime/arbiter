@@ -10,6 +10,7 @@ import { mergeEntries, validateNoDuplicateKeys } from './merge.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CARREFOUR_HARVEST = join(__dirname, 'sources/harvest-carrefour.json');
+const AUCHAN_HARVEST = join(__dirname, 'sources/harvest-auchan.json');
 const MANUAL_OVERRIDES = join(__dirname, 'sources/manual-overrides.json');
 const OUTPUT = join(ROOT, 'src/features/origin-detection/data/datasources/local-brand-db/brands.json');
 const TODAY = '2026-05-25';
@@ -21,20 +22,23 @@ const main = async () => {
 
   // 1. Load source lists.
   const carrefour = await readJson(CARREFOUR_HARVEST);
+  const auchan = await readJson(AUCHAN_HARVEST);
   const manual = await readJson(MANUAL_OVERRIDES);
   const offTaxonomy = await fetchOffTaxonomy();
   const offEntries = extractBrandsFromTaxonomy(offTaxonomy);
   console.log(`  carrefour harvest : ${carrefour.brands.length}`);
+  console.log(`  auchan harvest    : ${auchan.brands.length}`);
   console.log(`  manual overrides  : ${manual.brands.length}`);
   console.log(`  off taxonomy      : ${offEntries.length} (${offEntries.filter((e) => e.wikidataId).length} with wikidataId)`);
 
   // 2. Build the input set for Wikidata enrichment.
-  //    - Names from Carrefour harvest (no IDs)
+  //    - Names from drive harvests (no IDs, ALL CAPS extracted from DOM)
   //    - OFF entries split: with-ID → fast path, without-ID → label fallback
   const offWithId = offEntries.filter((e) => e.wikidataId);
   const offWithoutId = offEntries.filter((e) => !e.wikidataId);
   const namesForLabelQuery = [
     ...carrefour.brands.map((s) => titleCase(s)),
+    ...auchan.brands.map((s) => titleCase(s)),
     ...offWithoutId.map((e) => e.name),
   ];
   // Dedup by normalized key.

@@ -41,7 +41,7 @@ const runSparql = async (query, { useCache = true, maxRetries = 3 } = {}) => {
       await writeCached(key, data);
       return data;
     }
-    if ([429, 503].includes(res.status) && attempt < maxRetries) {
+    if ([429, 502, 503, 504].includes(res.status) && attempt < maxRetries) {
       const wait = 2000 * Math.pow(2, attempt);
       console.warn(`[sparql] ${res.status}, retry in ${wait}ms (attempt ${attempt + 1})`);
       await sleep(wait);
