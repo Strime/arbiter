@@ -2,12 +2,15 @@
   all: initial;
 }
 
+/* ---------- Pastille ---------- */
+
 .arbiter-badge {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  margin: 4px;
+  gap: 6px;
+  padding: 5px 8px;
+  margin: 6px;
   border-radius: 999px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 11px;
@@ -15,9 +18,17 @@
   line-height: 1;
   color: #fff;
   background: #6b7280;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
   pointer-events: auto;
   cursor: help;
+  outline: none;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.arbiter-badge:hover,
+.arbiter-badge:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
 }
 
 .arbiter-badge--fr { background: #1e40af; }
@@ -26,11 +37,165 @@
 .arbiter-badge--other { background: #6b7280; }
 .arbiter-badge--unknown { background: #9ca3af; }
 
-.arbiter-badge__brand,
-.arbiter-badge__manufacturing {
-  display: inline-block;
+.arbiter-badge__flag {
+  display: inline-flex;
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  flex: 0 0 auto;
+}
+
+.arbiter-badge__flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .arbiter-badge__sep {
-  opacity: 0.6;
+  opacity: 0.7;
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* ---------- Tooltip ---------- */
+
+.arbiter-tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 220px;
+  padding: 12px;
+  background: #1f2937;
+  color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 140ms ease, transform 140ms ease;
+  z-index: 1;
+}
+
+.arbiter-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  background: #1f2937;
+  transform: rotate(45deg);
+  box-shadow: -1px -1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+.arbiter-badge:hover .arbiter-tooltip,
+.arbiter-badge:focus-visible .arbiter-tooltip,
+.arbiter-badge:focus-within .arbiter-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.arbiter-tooltip__section + .arbiter-tooltip__section {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arbiter-tooltip__header {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin-bottom: 5px;
+}
+
+.arbiter-tooltip__country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.arbiter-tooltip__country-flag {
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  flex: 0 0 auto;
+}
+
+.arbiter-tooltip__country-flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.arbiter-tooltip__parent {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #d1d5db;
+}
+
+.arbiter-tooltip__confidence {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.arbiter-tooltip__bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.arbiter-tooltip__bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: #34d399;
+  transition: width 200ms ease;
+}
+
+.arbiter-tooltip__bar-fill--low {
+  background: #f59e0b;
+}
+
+.arbiter-tooltip__confidence-value {
+  font-size: 10px;
+  font-weight: 600;
+  color: #d1d5db;
+  min-width: 28px;
+  text-align: right;
+}
+
+.arbiter-tooltip__source {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.arbiter-tooltip__estimated {
+  margin-top: 2px;
+  font-size: 10px;
+  font-style: italic;
+  color: #fbbf24;
+}
+
+.arbiter-tooltip__unknown {
+  font-size: 12px;
+  font-style: italic;
+  color: #9ca3af;
 }
