@@ -48,7 +48,9 @@ export class CarrefourAdapter implements SiteAdapter {
     const brand = (brandNode?.textContent ?? this.guessBrandFromTitle(title)).trim();
 
     const eanNode = node.querySelector<HTMLElement>(CARREFOUR_SELECTORS.ean);
-    const ean = eanNode?.dataset.ean ?? eanNode?.dataset.gtin ?? undefined;
+    const testid = node.dataset.testid;
+    const eanFromTestid = testid && /^\d{8,14}$/.test(testid) ? testid : undefined;
+    const ean = eanNode?.dataset.ean ?? eanNode?.dataset.gtin ?? eanFromTestid ?? undefined;
 
     const id = node.dataset.productId ?? ean ?? `${brand}::${title}`;
 
