@@ -12,6 +12,7 @@
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "compile": "tsc --noEmit",
+    "build:brands": "node scripts/build-brands-db.mjs",
     "postinstall": "wxt prepare"
   },
   "dependencies": {
