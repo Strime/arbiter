@@ -1,4 +1,5 @@
 import { BrandsFileSchema } from './schemas';
+import { normalizeBrandKey } from './normalize';
 import type { BrandEntryModel } from '../../models/brand-entry-model';
 import brandsJson from './brands.json';
 
@@ -10,7 +11,7 @@ export class LocalBrandDbLoader {
     const parsed = BrandsFileSchema.parse(brandsJson);
     const map = new Map<string, BrandEntryModel>();
     for (const entry of parsed.brands) {
-      map.set(entry.name.toLowerCase(), entry);
+      map.set(normalizeBrandKey(entry.name), entry);
     }
     this.cache = map;
     return map;

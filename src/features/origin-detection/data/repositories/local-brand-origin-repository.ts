@@ -1,6 +1,7 @@
 import type { BrandOrigin } from '../../domain/entities/brand-origin';
 import type { BrandOriginRepository } from '../../domain/repositories/brand-origin-repository';
 import type { LocalBrandDbLoader } from '../datasources/local-brand-db/loader';
+import { normalizeBrandKey } from '../datasources/local-brand-db/normalize';
 import type { BrandEntryToBrandOriginMapper } from '../mappers/brand-entry-to-brand-origin';
 
 export class LocalBrandOriginRepository implements BrandOriginRepository {
@@ -11,8 +12,7 @@ export class LocalBrandOriginRepository implements BrandOriginRepository {
 
   async findByBrandName(brand: string): Promise<BrandOrigin | null> {
     const map = this.loader.load();
-    const key = brand.toLowerCase().trim();
-    const entry = map.get(key);
+    const entry = map.get(normalizeBrandKey(brand));
     return entry ? this.mapper.toEntity(entry) : null;
   }
 }
