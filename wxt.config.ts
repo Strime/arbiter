@@ -15,6 +15,7 @@ export default defineConfig({
       'https://*.intermarche.com/*',
       'https://*.auchan.fr/*',
       'https://*.leclercdrive.fr/*',
+      'https://*.lidl.fr/*',
       'https://world.openfoodfacts.org/*',
     ],
     options_ui: {

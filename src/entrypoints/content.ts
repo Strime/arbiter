@@ -9,6 +9,7 @@ export default defineContentScript({
     '*://*.intermarche.com/*',
     '*://*.auchan.fr/*',
     '*://*.leclercdrive.fr/*',
+    '*://*.lidl.fr/*',
   ],
   runAt: 'document_idle',
   async main() {
