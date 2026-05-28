@@ -3,6 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchOffTaxonomy, extractBrandsFromTaxonomy } from './sources/fetch-off-top.mjs';
+import { fetchDetrumpezBrands, extractMappedEntries } from './sources/fetch-detrumpez.mjs';
 import { queryByIds, queryByLabels, batched } from './sources/wikidata-sparql.mjs';
 import { normalizeBrandKey } from './lib/normalize.mjs';
 import { mergeEntries, validateNoDuplicateKeys } from './merge.mjs';
@@ -26,10 +27,13 @@ const main = async () => {
   const manual = await readJson(MANUAL_OVERRIDES);
   const offTaxonomy = await fetchOffTaxonomy();
   const offEntries = extractBrandsFromTaxonomy(offTaxonomy);
+  const detrumpezRaw = await fetchDetrumpezBrands();
+  const detrumpezEntries = extractMappedEntries(detrumpezRaw);
   console.log(`  carrefour harvest : ${carrefour.brands.length}`);
   console.log(`  auchan harvest    : ${auchan.brands.length}`);
   console.log(`  manual overrides  : ${manual.brands.length}`);
   console.log(`  off taxonomy      : ${offEntries.length} (${offEntries.filter((e) => e.wikidataId).length} with wikidataId)`);
+  console.log(`  detrumpez         : ${detrumpezEntries.length} (mapped from ${detrumpezRaw.length} raw)`);
 
   // 2. Build the input set for Wikidata enrichment.
   //    - Names from drive harvests (no IDs, ALL CAPS extracted from DOM)
@@ -94,8 +98,12 @@ const main = async () => {
   }
   console.log(`  wikidata-by-label results with country: ${wikidataResults.length - beforeLabelCount}`);
 
-  // 4. Merge — manual overrides win, then dedup wikidata.
-  const merged = mergeEntries({ wikidata: wikidataResults, manualOverrides: manual.brands });
+  // 4. Merge — layered priority: wikidata < detrumpez < manual.
+  const merged = mergeEntries({
+    wikidata: wikidataResults,
+    detrumpez: detrumpezEntries,
+    manualOverrides: manual.brands,
+  });
   validateNoDuplicateKeys(merged);
 
   // Strip undefined fields for clean JSON.

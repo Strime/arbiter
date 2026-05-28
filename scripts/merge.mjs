@@ -14,14 +14,19 @@ const finalSort = (entries) =>
     return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
   });
 
-export const mergeEntries = ({ wikidata, manualOverrides }) => {
+export const mergeEntries = ({ wikidata, detrumpez = [], manualOverrides }) => {
   const byKey = new Map();
-  // Wikidata first.
+  // Layer 1: Wikidata (lowest priority — label-match noise expected).
   for (const e of wikidata) {
-    if (!e.country) continue; // skip entries without country — useless for badge logic
+    if (!e.country) continue;
     byKey.set(normalizeBrandKey(e.name), e);
   }
-  // Manual overrides win on conflict.
+  // Layer 2: detrumpez (curated, overrides Wikidata).
+  for (const e of detrumpez) {
+    if (!e.country) continue;
+    byKey.set(normalizeBrandKey(e.name), e);
+  }
+  // Layer 3: manual overrides (human source of truth, wins on conflict).
   for (const e of manualOverrides) {
     byKey.set(normalizeBrandKey(e.name), e);
   }
