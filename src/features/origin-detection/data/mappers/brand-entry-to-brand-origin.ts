@@ -7,8 +7,13 @@ export class BrandEntryToBrandOriginMapper {
     return {
       country: entry.country,
       parentCompany: entry.parentCompany,
-      source: entry.source satisfies OriginSource,
+      source: mapSource(entry.source),
       confidence: entry.confidence,
     };
   }
+}
+
+function mapSource(source: BrandEntryModel['source']): OriginSource {
+  if (source === 'detrumpez') return 'crowdsourced';
+  return source;
 }

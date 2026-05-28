@@ -5,6 +5,7 @@ export const BrandSourceSchema = z.enum([
   'wikidata',
   'openfoodfacts',
   'crowdsourced',
+  'detrumpez',
 ]);
 
 export const BrandEntrySchema = z.object({
