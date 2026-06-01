@@ -1,6 +1,11 @@
 import type { SiteAdapter, ProductCardListener } from '../../domain/entities/site-adapter';
 import type { RawProductCard } from '../../domain/entities/raw-product-card';
-import { INTERMARCHE_HOST_PATTERNS, INTERMARCHE_SELECTORS } from './intermarche-selectors';
+import {
+  INTERMARCHE_BRAND_MDD_SUFFIX,
+  INTERMARCHE_EAN_FROM_HREF,
+  INTERMARCHE_HOST_PATTERNS,
+  INTERMARCHE_SELECTORS,
+} from './intermarche-selectors';
 import type { MutationObserverHelper } from '../../../../core/observer/mutation-observer-helper';
 
 export class IntermarcheAdapter implements SiteAdapter {
@@ -41,27 +46,16 @@ export class IntermarcheAdapter implements SiteAdapter {
   private extractCard(node: HTMLElement): RawProductCard | null {
     const titleNode = node.querySelector<HTMLElement>(INTERMARCHE_SELECTORS.title);
     if (!titleNode) return null;
-    const title = (titleNode.textContent ?? titleNode.getAttribute('content') ?? '')
-      .replace(/\s+/g, ' ')
-      .trim();
+    const title = (titleNode.textContent ?? '').replace(/\s+/g, ' ').trim();
     if (!title) return null;
 
-    const brandNode = node.querySelector<HTMLElement>(INTERMARCHE_SELECTORS.brand);
-    const brandText =
-      brandNode?.getAttribute('content') ??
-      brandNode?.textContent ??
-      this.guessBrandFromTitle(title);
-    const brand = brandText.replace(/\s+/g, ' ').trim();
+    const brand = this.extractBrand(node) ?? this.guessBrandFromTitle(title);
 
-    const eanNode = node.querySelector<HTMLElement>(INTERMARCHE_SELECTORS.ean);
-    const ean =
-      eanNode?.getAttribute('content') ??
-      eanNode?.textContent?.trim() ??
-      eanNode?.dataset.ean ??
-      eanNode?.dataset.gtin ??
-      undefined;
+    const link = node.querySelector<HTMLAnchorElement>(INTERMARCHE_SELECTORS.productLink);
+    const href = link?.getAttribute('href') ?? '';
+    const ean = INTERMARCHE_EAN_FROM_HREF.exec(href)?.[1];
 
-    const id = node.dataset.productId ?? node.dataset.id ?? ean ?? `${brand}::${title}`;
+    const id = ean ?? `${brand}::${title}`;
 
     return {
       id,
@@ -71,6 +65,30 @@ export class IntermarcheAdapter implements SiteAdapter {
       rawText: (node.textContent ?? '').replace(/\s+/g, ' ').trim(),
       node,
     };
+  }
+
+  private extractBrand(node: HTMLElement): string | null {
+    const microdataNode = node.querySelector<HTMLElement>(INTERMARCHE_SELECTORS.brand);
+    if (microdataNode) {
+      const text = (microdataNode.getAttribute('content') ?? microdataNode.textContent ?? '').trim();
+      if (text) return this.cleanBrand(text);
+    }
+
+    const container = node.querySelector<HTMLElement>(INTERMARCHE_SELECTORS.brandContainer);
+    if (!container) return null;
+    const paragraphs = Array.from(container.querySelectorAll<HTMLParagraphElement>(':scope > p'));
+    const brandNode = paragraphs[paragraphs.length - 1];
+    const text = (brandNode?.textContent ?? '').trim();
+    if (!text) return null;
+    return this.cleanBrand(text);
+  }
+
+  private cleanBrand(raw: string): string {
+    return raw
+      .replace(INTERMARCHE_BRAND_MDD_SUFFIX, '')
+      .replace(/\s+/g, ' ')
+      .replace(/[,;]\s*$/, '')
+      .trim();
   }
 
   private guessBrandFromTitle(title: string): string {

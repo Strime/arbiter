@@ -1,12 +1,14 @@
 export const INTERMARCHE_SELECTORS = {
-  productCard:
-    'article[itemtype*="Product"], article.stime-card, [data-testid="product-tile"], .product-tile, li.product, article.product',
-  brand:
-    '[itemprop="brand"], [data-testid="product-brand"], .product-tile__brand, .stime-card__brand',
-  title:
-    '[itemprop="name"], [data-testid="product-title"], .product-tile__title, .stime-card__title, h2, h3',
-  ean: '[data-ean], [data-gtin], [itemprop="gtin13"], [itemprop="gtin"]',
+  productCard: '[data-testid="product-layout"]',
+  productLink: 'a[href*="/produit/"]',
+  title: 'h2.stime-product--details__title, [itemprop="name"]',
+  brandContainer: '.stime-product--details__summary > div:first-child',
+  brand: '[itemprop="brand"]',
 } as const;
+
+export const INTERMARCHE_EAN_FROM_HREF = /\/produit\/[^/?#]+\/(\d{8,14})(?:[/?#]|$)/;
+
+export const INTERMARCHE_BRAND_MDD_SUFFIX = /,?\s*une marque\s+intermarch[eé].*$/i;
 
 export const INTERMARCHE_HOST_PATTERNS: readonly RegExp[] = [
   /^https?:\/\/([a-z0-9-]+\.)?intermarche\.com\//,
