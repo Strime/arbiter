@@ -1160,6 +1160,7 @@
     {"name":"FiTNE","country":"FR","parentCompany":"L'Oréal","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"Fitness","country":"CH","parentCompany":"Nestlé","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"Five Guys","country":"US","parentCompany":"Five Guys Enterprises","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
+    {"name":"Fjord","country":"FR","parentCompany":"Danone","source":"manual","confidence":0.9,"addedAt":"2026-06-01"},
     {"name":"Flahavan’s","country":"IE","parentCompany":"Flahavan and sons limited","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"Flame baked","country":"GR","parentCompany":"Aldente GmbH","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"Flanby","country":"CH","parentCompany":"Nestlé","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
