@@ -15,13 +15,6 @@ const REGION_CLASS: Record<OriginRegion, string> = {
 
 const LOW_CONFIDENCE_THRESHOLD = 0.5;
 
-function worstRegion(a: OriginRegion, b: OriginRegion): OriginRegion {
-  const rank: Record<OriginRegion, number> = { FR: 0, EU: 1, OTHER: 2, US: 3, UNKNOWN: -1 };
-  if (rank[a] === -1) return b;
-  if (rank[b] === -1) return a;
-  return rank[a] >= rank[b] ? a : b;
-}
-
 function setFlagInto(host: HTMLElement, country: string | undefined): void {
   host.innerHTML = flagSvgFor(country);
 }
@@ -107,9 +100,8 @@ function renderSection(
 export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict): void {
   shadow.querySelectorAll('.arbiter-badge').forEach((n) => n.remove());
 
-  const composite = worstRegion(verdict.brandRegion, verdict.manufacturingRegion);
   const badge = document.createElement('div');
-  badge.className = `arbiter-badge ${REGION_CLASS[composite]}`;
+  badge.className = `arbiter-badge ${REGION_CLASS[verdict.brandRegion]}`;
   badge.tabIndex = 0;
   badge.setAttribute('role', 'img');
   badge.setAttribute('aria-label', ariaLabel(verdict));
@@ -118,16 +110,6 @@ export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict): void {
   brandFlag.className = 'arbiter-badge__flag';
   setFlagInto(brandFlag, verdict.brand?.country);
   badge.appendChild(brandFlag);
-
-  const sep = document.createElement('span');
-  sep.className = 'arbiter-badge__sep';
-  sep.textContent = '▸';
-  badge.appendChild(sep);
-
-  const mfgFlag = document.createElement('span');
-  mfgFlag.className = 'arbiter-badge__flag';
-  setFlagInto(mfgFlag, verdict.manufacturing?.country);
-  badge.appendChild(mfgFlag);
 
   const tooltip = document.createElement('div');
   tooltip.className = 'arbiter-tooltip';
