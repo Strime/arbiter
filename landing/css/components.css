@@ -1,0 +1,517 @@
+/* Composants réutilisables : boutons, chips, cartes, badge de démo. */
+
+/* ---------- Boutons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 140ms ease, border-color 140ms ease,
+    transform 140ms ease, box-shadow 140ms ease;
+}
+
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn--ghost {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn--ghost:hover {
+  border-color: var(--ink-faint);
+}
+
+/* Variantes pour fond sombre (bandeau final) */
+
+.btn--light {
+  background: #fff;
+  color: var(--ink);
+}
+
+.btn--light:hover {
+  background: var(--paper-tint);
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn--outline-light:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--sm {
+  padding: 0.55rem 1rem;
+  font-size: 0.88rem;
+}
+
+/* ---------- Chips (drives supportés) ---------- */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ---------- Cartes de contenu (concept, confidentialité) ---------- */
+
+.feature-card {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+  padding: 1.75rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.feature-card__icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.feature-card p:not([class]) {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.feature-card__example {
+  margin-top: 0.25rem;
+  padding: 0.7rem 0.9rem;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--paper-tint);
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+/* ---------- Étapes ---------- */
+
+.step {
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+
+.step__num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 750;
+  line-height: 1;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.step p:not([class]) {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+/* ---------- FAQ ---------- */
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+  transition: transform 160ms ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p:not([class]) {
+  padding-bottom: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+/* ======================================================================
+   Démo du hero — reconstruction fidèle du badge de l'extension
+   (mêmes couleurs, mêmes proportions que badge-injection/badge.css)
+   ====================================================================== */
+
+/* ---------- Fenêtre navigateur ---------- */
+
+.demo__frame {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.demo__chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper-tint);
+}
+
+.demo__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.demo__url {
+  margin-left: 0.75rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.demo__page {
+  padding: 1.5rem;
+}
+
+.demo__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.demo__caption {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+/* Rangée fantôme sous les produits : suggère la suite de la page
+   et donne de l'espace au tooltip épinglé. */
+.demo__skeleton {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  mask-image: linear-gradient(#000 10%, transparent 90%);
+  -webkit-mask-image: linear-gradient(#000 10%, transparent 90%);
+}
+
+.demo__skeleton span {
+  height: 130px;
+  border-radius: var(--radius-md);
+  background: var(--paper-tint);
+}
+
+/* ---------- Carte produit factice ---------- */
+
+.demo-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  text-align: left;
+}
+
+.demo-card:hover,
+.demo-card:focus-within {
+  z-index: 6;
+}
+
+.demo-card__media {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 118px;
+  border-radius: var(--radius-sm);
+  background: var(--paper-tint);
+  color: #c3cad6;
+}
+
+.demo-card__media svg {
+  width: 56px;
+  height: 56px;
+}
+
+.demo-card h3 {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.demo-card__price {
+  font-size: 0.98rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.demo-card__add {
+  justify-self: start;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* ---------- Pastille Arbiter (réplique) ---------- */
+
+.ab-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  color: #fff;
+  background: var(--badge-unknown);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  cursor: help;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.ab-badge:hover,
+.ab-badge:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.ab-badge--fr { background: var(--badge-fr); }
+.ab-badge--eu { background: var(--badge-eu); }
+.ab-badge--us { background: var(--badge-us); }
+
+.ab-badge__flag {
+  display: inline-flex;
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.ab-badge__flag svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- Tooltip (réplique) ---------- */
+
+.ab-tip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 220px;
+  padding: 12px;
+  background: #1f2937;
+  color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.ab-tip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  background: #1f2937;
+  transform: rotate(45deg);
+}
+
+.ab-badge:hover .ab-tip,
+.ab-badge:focus-visible .ab-tip,
+.ab-badge.is-open .ab-tip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variante épinglée : panneau toujours visible sous la pastille de la carte
+   vedette — c'est la démonstration du produit, ouverte en permanence. */
+.ab-tip--pinned {
+  top: 44px;
+  right: 8px;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.ab-tip__section {
+  display: block;
+}
+
+.ab-tip__section + .ab-tip__section {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ab-tip__header {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+}
+
+.ab-tip__country {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ab-tip__flag {
+  display: inline-flex;
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.ab-tip__flag svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ab-tip__parent {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: #d1d5db;
+}
+
+.ab-tip__confidence {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+}
+
+.ab-tip__bar {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.ab-tip__fill {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: #34d399;
+}
+
+.ab-tip__value {
+  min-width: 28px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #d1d5db;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ab-tip__source {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .ab-badge,
+  .ab-tip,
+  .faq-item summary::after {
+    transition: none;
+  }
+}
