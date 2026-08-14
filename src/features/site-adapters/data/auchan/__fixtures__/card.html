@@ -1,0 +1,27 @@
+<!--
+  FIXTURE construite à partir d'une capture LIVE de www.auchan.fr/recherche (2026-08-14).
+  Structure confirmée en live (79/79 cartes matchées par les sélecteurs actuels) :
+    - carte  : article.product-thumbnail[itemscope][itemtype=".../Product"]
+    - data-id est un UUID instable (non utilisé comme id, seulement en fallback)
+    - id fiable : code C<chiffres> extrait du href de la carte (pattern /pr-(C\d+)/)
+    - marque : [itemprop="brand"]
+    - le <p itemprop="name description"> contient la MARQUE en préfixe, suivie d'un
+      saut de ligne puis du titre réel — l'adapter retire ce préfixe.
+    - aucun EAN (\d{13}) trouvé dans le HTML des cartes.
+-->
+<article
+  class="product-thumbnail"
+  itemscope
+  itemtype="http://schema.org/Product"
+  data-id="8f14e45f-ceea-467e-9ecc-1e29e3a0b7c5"
+>
+  <a href="/nestle-dessert-tablette-de-chocolat-noir-patissier/pr-C1246750">
+    <img src="" alt="Nestlé Dessert Tablette de chocolat noir pâtissier" />
+  </a>
+  <div class="product-thumbnail__infos">
+    <span itemprop="brand">NESTLE DESSERT</span>
+    <p itemprop="name description">NESTLE DESSERT
+    Tablette de chocolat noir pâtissier 200g</p>
+  </div>
+  <div class="product-thumbnail__price">1,89 €</div>
+</article>

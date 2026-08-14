@@ -1,0 +1,41 @@
+<!--
+  FIXTURE construite à partir d'une capture LIVE de www.lidl.fr/q/search (2026-08-14).
+  Les deux variantes de tuile réellement observées cohabitent sur une même page de
+  résultats de recherche (48 tuiles mesurées : 40 data-grid-data + 8 data-gridbox-impression) :
+
+    1. div.odsc-tile[data-grid-data] — JSON brut. Champs utiles :
+       fullTitle, productId, erpNumber, brand{name, showBrand}.
+       Marque prise UNIQUEMENT si brand.showBrand === true et brand.name non vide.
+
+    2. div.product-grid-box.odsc-tile[data-gridbox-impression] — JSON URL-encodé
+       (decodeURIComponent avant JSON.parse). Champs utiles : id, name, brand.
+
+  ians (numéros d'article internes Lidl) ne sont PAS des EAN : l'EAN reste undefined
+  sur les pages de liste Lidl.
+
+  Échantillon source (attributs bruts) : voir capture live du 2026-08-14.
+-->
+
+<!-- Variante 1 : data-grid-data (JSON brut, brand.showBrand = true) -->
+<div
+  class="odsc-tile odsc-tile--variant-default odsc-tile--label-yellow tile-without-padding"
+  data-grid-data='{"fullTitle":"CONFISERIE FIRENZE Muffins aux pépites de chocolat","productId":10037536,"erpNumber":"10037536","brand":{"name":"CONFISERIE FIRENZE","url":"/q/search?q=confiserie+firenze","showBrand":true},"ians":["133392"],"canonicalPath":"/p/confiserie-firenze-muffins-aux-pepites-de-chocolat/p10037536"}'
+>
+  <div class="odsc-tile__inner">
+    <div class="odsc-tile__content">
+      <img src="" alt="Muffins aux pépites de chocolat" />
+    </div>
+  </div>
+</div>
+
+<!-- Variante 2 : data-gridbox-impression (JSON URL-encodé, brand présente) -->
+<div
+  class="odsc-tile odsc-tile--variant-borderless odsc-tile--label- product-grid-box"
+  data-gridbox-impression="%7B%22category%22%3A%22Biscuits%20ap%C3%A9ritifs%22%2C%22id%22%3A%2210038000%22%2C%22list%22%3A%22search%2Fbiscuit%22%2C%22name%22%3A%22Assortiment%20biscuits%20ap%C3%A9ritifs%20250g%22%2C%22position%22%3A2%2C%22price%22%3A1.99%2C%22sponsored%22%3Afalse%2C%22brand%22%3A%22ALLINI%22%7D"
+>
+  <div class="odsc-tile__inner">
+    <div class="odsc-tile__content">
+      <img src="" alt="Assortiment biscuits apéritifs 250g" />
+    </div>
+  </div>
+</div>
