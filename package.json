@@ -15,6 +15,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "eval:brands": "node scripts/measurements/eval-accuracy.mjs",
+    "e2e": "node scripts/e2e/smoke.mjs",
     "build:brands": "node scripts/build-brands-db.mjs",
     "postinstall": "wxt prepare"
   },
@@ -28,6 +29,8 @@
     "@types/react-dom": "^19.2.3",
     "@wxt-dev/module-react": "^1.1.5",
     "happy-dom": "^20.11.2",
+    "playwright": "^1.62.1",
+    "playwright-core": "^1.62.1",
     "typescript": "^5.9.3",
     "vitest": "^4.1.10",
     "wxt": "^0.20.26"
