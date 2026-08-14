@@ -10,6 +10,7 @@ import { CompositeManufacturingOriginRepository } from '../../features/origin-de
 
 export interface BackgroundContainer {
   readonly determineOriginVerdict: DetermineOriginVerdict;
+  readonly offCache: OffCache;
 }
 
 export function buildBackgroundContainer(): BackgroundContainer {
@@ -30,5 +31,6 @@ export function buildBackgroundContainer(): BackgroundContainer {
 
   return {
     determineOriginVerdict: new DetermineOriginVerdict(brandRepo, manufacturingRepo),
+    offCache,
   };
 }

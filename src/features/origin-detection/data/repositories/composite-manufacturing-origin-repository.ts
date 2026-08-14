@@ -17,11 +17,15 @@ export class CompositeManufacturingOriginRepository implements ManufacturingOrig
   ) {}
 
   async findForProduct(product: Product): Promise<ManufacturingOrigin | null> {
-    const text = `${product.title} ${product.rawText ?? ''}`;
-    const heuristic = this.heuristics.detect(text);
-    if (heuristic) return heuristic;
-    if (!product.ean) return null;
-    return this.fetchOff(product.ean);
+    try {
+      const text = `${product.title} ${product.rawText ?? ''}`;
+      const heuristic = this.heuristics.detect(text);
+      if (heuristic) return heuristic;
+      if (!product.ean) return null;
+      return await this.fetchOff(product.ean);
+    } catch {
+      return null;
+    }
   }
 
   private async fetchOff(ean: string): Promise<ManufacturingOrigin | null> {
@@ -41,8 +45,8 @@ export class CompositeManufacturingOriginRepository implements ManufacturingOrig
     if (cached.hit) {
       return cached.value ? this.offMapper.toEntity(cached.value) : null;
     }
-    const off = await this.offClient.fetchByEan(ean);
-    await this.offCache.set(ean, off);
-    return off ? this.offMapper.toEntity(off) : null;
+    const result = await this.offClient.fetchByEan(ean);
+    await this.offCache.set(ean, result);
+    return result.outcome === 'found' ? this.offMapper.toEntity(result.product) : null;
   }
 }
