@@ -39,3 +39,5 @@ jobs:
           name: store-zips-${{ github.ref_name }}
           path: .output/*.zip
           if-no-files-found: error
+          # .output est un dossier caché : exclu par défaut par upload-artifact v4
+          include-hidden-files: true
