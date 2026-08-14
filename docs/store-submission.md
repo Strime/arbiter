@@ -79,7 +79,19 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ### Firefox AMO
 - `npm run zip:firefox` → zip + `-sources.zip` (obligatoire, build minifié).
-  Ajouter dans les notes reviewer : `npm ci && npm run zip:firefox`, Node 22.
+- Pré-validé par `npx web-ext lint` (14 août 2026) : **0 erreur, 7 warnings**,
+  tous attendus — voir notes reviewer ci-dessous.
+- **Notes reviewer à coller telles quelles** :
+  > Build reproductible : Node 22, `npm ci && npm run zip:firefox` (WXT/Vite).
+  > Les warnings du linter proviennent des bibliothèques bundlées, pas du code
+  > applicatif : `DANGEROUS_EVAL` (Function constructor) vient de Zod v4
+  > (parsing optimisé) et `UNSAFE_VAR_ASSIGNMENT` (innerHTML) de react-dom —
+  > le code applicatif ne fait aucune assignation innerHTML interpolée
+  > (drapeaux construits via createElementNS, textes via textContent).
+  > Aucune collecte de données (`data_collection_permissions: ["none"]`),
+  > stockage 100 % local, deux endpoints réseau : world.openfoodfacts.org
+  > (lookup EAN en fallback) et strime.github.io (mise à jour quotidienne de
+  > la base de marques, fichier statique versionné).
 - Licence code : MIT (LICENSE à la racine).
 - Firefox Android : **décision V0 (14 août 2026) : exclu.** Non testé au
   tactile (le tooltip a un toggle au tap mais jamais validé sur mobile), sites

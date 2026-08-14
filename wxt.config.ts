@@ -25,7 +25,9 @@ export default defineConfig({
         gecko: {
           // Identité AMO — figée à la première soumission, ne plus changer ensuite.
           id: 'gaetan@alpsan.fr',
-          strict_min_version: '115.0',
+          // ≥140 requis : data_collection_permissions n'existe qu'à partir de
+          // Firefox 140 (web-ext lint KEY_FIREFOX_UNSUPPORTED_BY_MIN_VERSION).
+          strict_min_version: '140.0',
           // Aucune donnée transmise au développeur ; stockage 100 % local,
           // OpenFoodFacts appelé en fallback fonctionnel uniquement (cf. PRIVACY.md).
           data_collection_permissions: {
