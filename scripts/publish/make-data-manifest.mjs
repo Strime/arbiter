@@ -1,7 +1,13 @@
 #!/usr/bin/env node
-// Génère les artefacts de publication OTA de la brand DB :
-//   .output/data-publish/brands.json          (copie octet-à-octet de public/data/brands.json)
-//   .output/data-publish/brands-manifest.json (manifest conforme au contrat OTA)
+// Génère le site de données publié sur Strime/arbiter-data (gh-pages) :
+//   .output/data-publish/index.md                  (page d'accueil minimale)
+//   .output/data-publish/PRIVACY.md                (copie de la politique — servie
+//                                                   en /PRIVACY.html par Jekyll,
+//                                                   URL publique exigée par le CWS)
+//   .output/data-publish/data/brands.json          (copie octet-à-octet de public/data/brands.json)
+//   .output/data-publish/data/brands-manifest.json (manifest conforme au contrat OTA)
+//
+// Le repo de code étant privé, tout ce qui doit être public vit dans ce site.
 //
 // Contrat du manifest (docs/brands-db-ota-updates.md) :
 //   { schemaVersion, dataVersion, url, sha256, sizeBytes, minExtensionVersion, publishedAt }
@@ -19,7 +25,7 @@
 //   --min-ext-version : borne basse de version d'extension capable de consommer
 //                       ce fichier (défaut : 0.1.0).
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -27,7 +33,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..', '..');
 const INPUT = join(ROOT, 'public/data/brands.json');
 const OUT_DIR = join(ROOT, '.output/data-publish');
-const DATA_URL = 'https://strime.github.io/arbiter/data/brands.json';
+const DATA_URL = 'https://strime.github.io/arbiter-data/data/brands.json';
 const DEFAULT_MIN_EXT_VERSION = '0.1.0';
 
 const readArg = (name, fallback) => {
@@ -80,9 +86,33 @@ const main = async () => {
     publishedAt: now.toISOString(),
   };
 
-  await mkdir(OUT_DIR, { recursive: true });
-  await writeFile(join(OUT_DIR, 'brands.json'), bytes);
-  await writeFile(join(OUT_DIR, 'brands-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8');
+  // Sortie régénérée de zéro : des restes d'une structure précédente seraient
+  // publiés tels quels (keep_files: false ne filtre que côté branche cible).
+  await rm(OUT_DIR, { recursive: true, force: true });
+  await mkdir(join(OUT_DIR, 'data'), { recursive: true });
+  await writeFile(join(OUT_DIR, 'data', 'brands.json'), bytes);
+  await writeFile(
+    join(OUT_DIR, 'data', 'brands-manifest.json'),
+    `${JSON.stringify(manifest, null, 2)}\n`,
+    'utf-8',
+  );
+  await writeFile(join(OUT_DIR, 'PRIVACY.md'), await readFile(join(ROOT, 'PRIVACY.md')));
+  await writeFile(
+    join(OUT_DIR, 'index.md'),
+    [
+      '# Arbiter — données publiques',
+      '',
+      "Site de données de l'extension Arbiter (badge d'origine des produits",
+      'sur les drives français).',
+      '',
+      '- [Politique de confidentialité](PRIVACY.html)',
+      `- Base de marques : [manifest](data/brands-manifest.json) · [données](data/brands.json) — version \`${dataVersion}\``,
+      '',
+      'Publication automatique par la CI du projet ; aucun contenu éditorial ici.',
+      '',
+    ].join('\n'),
+    'utf-8',
+  );
 
   console.log('=== make-data-manifest ===');
   console.log(`  entrées       : ${parsed.brands.length}`);

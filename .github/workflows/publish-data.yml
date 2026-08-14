@@ -1,10 +1,12 @@
-# Publication OTA de la brand DB sur GitHub Pages (docs/brands-db-ota-updates.md, étape C).
+# Publication OTA de la brand DB (docs/brands-db-ota-updates.md, étape C).
 #
-# ⚠️ Étape manuelle UNIQUE avant le premier run : activer GitHub Pages sur le repo
-# (Settings → Pages → Deploy from a branch → branche `gh-pages`, dossier `/ (root)`).
-# La branche `gh-pages` est créée par le premier déploiement de ce workflow.
-# Ensuite : https://strime.github.io/arbiter/data/brands-manifest.json
-#           https://strime.github.io/arbiter/data/brands.json
+# Le code est privé : la publication part vers le repo PUBLIC dédié
+# Strime/arbiter-data (branche gh-pages), qui sert aussi PRIVACY.html.
+#   https://strime.github.io/arbiter-data/data/brands-manifest.json
+#   https://strime.github.io/arbiter-data/data/brands.json
+#   https://strime.github.io/arbiter-data/PRIVACY.html
+# Auth : deploy key en écriture sur arbiter-data, stockée dans le secret
+# ACTIONS_DEPLOY_KEY de ce repo.
 # Note : le CDN de Pages sert `max-age=600` → jusqu'à ~10 min de propagation.
 #
 # Déploiement CI-only : pas de push manuel sur gh-pages (c'est la barrière
@@ -19,7 +21,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   publish:
@@ -38,8 +40,8 @@ jobs:
       - run: node scripts/publish/make-data-manifest.mjs
       - uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          external_repository: Strime/arbiter-data
           publish_branch: gh-pages
           publish_dir: ./.output/data-publish
-          destination_dir: data
           keep_files: false

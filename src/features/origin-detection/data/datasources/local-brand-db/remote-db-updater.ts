@@ -7,7 +7,7 @@ export const BRANDS_DB_UPDATE_ALARM = 'arbiter.brands-db.update';
 export const BRANDS_DB_UPDATE_PERIOD_MINUTES = 24 * 60;
 export const BRANDS_DB_UPDATE_MAX_JITTER_MINUTES = 60;
 
-const MANIFEST_URL = 'https://strime.github.io/arbiter/data/brands-manifest.json';
+const MANIFEST_URL = 'https://strime.github.io/arbiter-data/data/brands-manifest.json';
 const FETCH_TIMEOUT_MS = 6_000;
 const MAX_DOWNLOAD_BYTES = 2 * 1024 * 1024;
 const MIN_PLAUSIBLE_RATIO = 0.8;

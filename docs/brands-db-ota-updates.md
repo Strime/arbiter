@@ -67,7 +67,10 @@ tourner. Le dispatch se fait par nom dans l'unique listener `onAlarm` existant.
 
 ### Étape B — overlay distant
 
-**Hébergement** : GitHub Pages du repo (`https://strime.github.io/arbiter/data/`).
+**Hébergement** : GitHub Pages du repo public dédié **Strime/arbiter-data**
+(`https://strime.github.io/arbiter-data/data/`) — le repo de code est privé,
+donc les données ET la politique de confidentialité (PRIVACY.html) sont servies
+par ce repo public, déployé exclusivement par la CI via deploy key.
 Gratuit, HTTPS, ETag (vérifié par test réel), CDN Fastly. Note debug : le CDN
 sert `max-age=600` — compter jusqu'à ~10 min de propagation après un déploiement.
 Alternative future : `data.alpsan.fr` (URL centralisée dans une constante, le
@@ -91,7 +94,7 @@ permission).
 {
   "schemaVersion": 1,
   "dataVersion": "2026-08-14.1",
-  "url": "https://strime.github.io/arbiter/data/brands.json",
+  "url": "https://strime.github.io/arbiter-data/data/brands.json",
   "sha256": "…",
   "sizeBytes": 512340,
   "minExtensionVersion": "0.1.0",

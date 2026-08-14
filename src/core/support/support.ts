@@ -5,7 +5,7 @@
 
 export const SUPPORT_EMAIL = 'sancassani.gaetan@gmail.com';
 
-export const PRIVACY_POLICY_URL = 'https://github.com/Strime/arbiter/blob/main/PRIVACY.md';
+export const PRIVACY_POLICY_URL = 'https://strime.github.io/arbiter-data/PRIVACY.html';
 
 export const OPENFOODFACTS_URL = 'https://world.openfoodfacts.org';
 export const ODBL_LICENSE_URL = 'https://opendatacommons.org/licenses/odbl/1-0/';

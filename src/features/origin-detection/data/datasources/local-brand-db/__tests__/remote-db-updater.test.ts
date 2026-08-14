@@ -5,8 +5,8 @@ import { compareExtensionVersions, runBrandsDbUpdate } from '../remote-db-update
 import { OVERLAY_DATA_KEY, OVERLAY_ETAG_KEY, OVERLAY_VERSION_KEY } from '../overlay-storage';
 import type { BrandsFile } from '../schemas';
 
-const MANIFEST_URL = 'https://strime.github.io/arbiter/data/brands-manifest.json';
-const DATA_URL = 'https://strime.github.io/arbiter/data/brands.json';
+const MANIFEST_URL = 'https://strime.github.io/arbiter-data/data/brands-manifest.json';
+const DATA_URL = 'https://strime.github.io/arbiter-data/data/brands.json';
 const BUNDLED_URL = 'chrome-extension://arbiter/data/brands.json';
 
 const sha256Of = (text: string): string => createHash('sha256').update(text, 'utf8').digest('hex');

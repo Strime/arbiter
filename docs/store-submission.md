@@ -42,8 +42,8 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 - `data_collection_permissions.required: ["none"]` (déjà dans le manifest Firefox).
 - CWS : déclarer la lecture de « website content » (cartes produits des drives,
   traitée localement) et la requête sortante OpenFoodFacts (EAN, fallback
-  fonctionnel). URL de politique de confidentialité : héberger `PRIVACY.md`
-  (GitHub Pages ou page du repo) et coller l'URL publique.
+  fonctionnel). URL de politique de confidentialité (servie par le repo public
+  arbiter-data) : `https://strime.github.io/arbiter-data/PRIVACY.html`.
 
 ## Justification des permissions (formulaire reviewer)
 
