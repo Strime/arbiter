@@ -12,8 +12,6 @@ L'origine est mesurée sur deux dimensions distinctes :
   labels AOP/AOC/IGP, données OpenFoodFacts sous licence ODbL).
 
 Chaque dimension est affichée avec un indice de confiance et sa source.
-Statut : pré-lancement — soumissions Chrome Web Store et Firefox Add-ons en
-préparation.
 
 ## Pages
 

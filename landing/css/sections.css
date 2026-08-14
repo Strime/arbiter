@@ -276,25 +276,6 @@
   margin-top: 0.5rem;
 }
 
-.cta-band__stores {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem;
-}
-
-.cta-band .chip {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.cta-band__note {
-  max-width: 46ch;
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
 .cta-band__trust {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
