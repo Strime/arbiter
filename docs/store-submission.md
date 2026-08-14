@@ -62,8 +62,11 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ## Assets à produire avant soumission
 
-- [ ] 3 à 5 screenshots 1280×800 (badge en situation sur 2-3 drives + popup).
-      CWS : minimum 1 ; AMO/Edge : recommandé.
+- [x] Screenshots 1280×800 : 2 produits (docs/store-assets/screenshot-auchan.png,
+      screenshot-lidl.png — badges réels calculés depuis brands.json, injectés
+      avec le rendu exact du badge sur les pages live du 14 août 2026).
+      À compléter si possible : Carrefour/Intermarché (bloqués Datadome en
+      session automatisée) + un cliché de la popup et du tooltip.
 - [ ] Icône 128 px : générée (`scripts/generate-icons.py`) — remplacer par un
       vrai branding si souhaité, AVANT la 1re soumission.
 - [ ] Email de contact vérifié sur le dashboard CWS.
@@ -78,12 +81,16 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 - `npm run zip:firefox` → zip + `-sources.zip` (obligatoire, build minifié).
   Ajouter dans les notes reviewer : `npm ci && npm run zip:firefox`, Node 22.
 - Licence code : MIT (LICENSE à la racine).
-- Firefox Android : **non testé** (tooltip au survol) — décocher la compatibilité
-  Android à la soumission, ou tester avant.
+- Firefox Android : **décision V0 (14 août 2026) : exclu.** Non testé au
+  tactile (le tooltip a un toggle au tap mais jamais validé sur mobile), sites
+  drive en responsive non vérifiés — décocher la compatibilité Android à la
+  soumission. À réévaluer en V0.x après un test réel.
 
 ### Edge Add-ons
-- Compte Microsoft Partner Center. Le zip Chrome est accepté tel quel.
-- Certification la plus lente des trois — soumettre en dernier, sans urgence.
+- **Décision V0 (14 août 2026) : soumission différée post-lancement.** Le zip
+  Chrome est accepté tel quel ; certification la plus lente des trois. À
+  soumettre une fois CWS + AMO stabilisés (retours utilisateurs intégrés).
+- Compte Microsoft Partner Center à créer le moment venu.
 
 ## Données tierces — obligations
 

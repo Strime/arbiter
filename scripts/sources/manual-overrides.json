@@ -1,224 +1,1763 @@
 {
   "version": 1,
   "brands": [
-    { "name": "1001 Delights", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "1664", "country": "FR", "parentCompany": "Carlsberg", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-25" },
-    { "name": "3 Monts", "country": "FR", "parentCompany": "Brasserie de Saint-Sylvestre", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Air Wick", "country": "GB", "parentCompany": "Reckitt", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Albal", "country": "DE", "parentCompany": "Melitta Group", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Ambre Solaire", "country": "FR", "parentCompany": "L'Oréal", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Ambrosi", "country": "IT", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Amora", "country": "FR", "parentCompany": "Unilever", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-25" },
-    { "name": "Andros", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Anosteke", "country": "FR", "parentCompany": "Brasserie du Pays Flamand", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Antartic", "country": "FR", "parentCompany": "Agromousquetaires (Intermarché)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Apericube", "country": "FR", "parentCompany": "Bel Group", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Ariel", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Auchan", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Auchan Le Traiteur", "country": "FR", "parentCompany": "Auchan", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Barilla", "country": "IT", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Bel", "country": "FR", "parentCompany": "Groupe Bel", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Belbake", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Bic", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Bigard", "country": "FR", "parentCompany": "Groupe Bigard", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Biotrend", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Bjorg", "country": "FR", "source": "manual", "confidence": 0.95, "addedAt": "2026-05-25" },
-    { "name": "Black & White", "country": "GB", "parentCompany": "Diageo", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Bledilait", "country": "FR", "parentCompany": "Danone", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Bonne Maman", "country": "FR", "parentCompany": "Andros", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Bonux", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Bud", "country": "US", "parentCompany": "Anheuser-Busch InBev", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Buffalo Trace", "country": "US", "parentCompany": "Sazerac", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Candia", "country": "FR", "parentCompany": "Sodiaal", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Candia Baby", "country": "FR", "parentCompany": "Sodiaal", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Carrefour", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Carrefour Classic'", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Carrefour Essential", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Carrefour Expert", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Carrefour Extra", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Carrefour Le Marché", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Carrefour Original", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Carrefour Sensation", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Carrefour Soft", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Casa Azzurra", "country": "IT", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Charal", "country": "FR", "parentCompany": "Groupe Bigard", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Chaussee aux Moines", "country": "FR", "parentCompany": "Lactalis", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Chêne d'Argent", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Chouffe", "country": "BE", "parentCompany": "Brasserie d'Achouffe", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Chupa Chups", "country": "ES", "parentCompany": "Perfetti Van Melle", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Cillit Bang", "country": "GB", "parentCompany": "Reckitt", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Coca-Cola", "country": "US", "parentCompany": "The Coca-Cola Company", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Coeur de Lion", "country": "FR", "parentCompany": "Savencia", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Cœur de Lion", "country": "FR", "parentCompany": "Savencia", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Colgate", "country": "US", "parentCompany": "Colgate-Palmolive", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Combino", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Cracotte", "country": "FR", "parentCompany": "Mondelez", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Cracottes", "country": "FR", "parentCompany": "Mondelez", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Crivit", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Cuvee des Trolls", "country": "BE", "parentCompany": "Brasserie Dubuisson", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Danao", "country": "FR", "parentCompany": "Danone", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Danette", "country": "FR", "parentCompany": "Danone", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Danone", "country": "FR", "parentCompany": "Danone S.A.", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Delichoc", "country": "US", "parentCompany": "Mondelez International", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Délisse", "country": "FR", "parentCompany": "Marque Repère (E.Leclerc)", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "DeLonghi", "country": "IT", "parentCompany": "De'Longhi S.p.A.", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Dessange", "country": "FR", "parentCompany": "Dessange International", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Dolce Vita", "country": "IT", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Doritos", "country": "US", "parentCompany": "PepsiCo", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Dove", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Eat Natural", "country": "IT", "parentCompany": "Ferrero", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Ecoiffier", "country": "FR", "parentCompany": "Ecoiffier", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Elle & Vire", "country": "FR", "parentCompany": "Savencia", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Entremont", "country": "FR", "parentCompany": "Sodiaal", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Eskiss", "country": "FR", "parentCompany": "Marque Repère (E.Leclerc)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Esmara", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Evian", "country": "FR", "parentCompany": "Danone S.A.", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Faire France", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Fairy", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Fanta", "country": "US", "parentCompany": "The Coca-Cola Company", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Favorina", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Febreze", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Findus", "country": "GB", "parentCompany": "Nomad Foods", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Finish", "country": "GB", "parentCompany": "Reckitt", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Fiorini", "country": "FR", "parentCompany": "Intermarché (Les Mousquetaires)", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Fjord", "country": "FR", "parentCompany": "Danone", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Florette", "country": "FR", "parentCompany": "Agrial", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Fulfil", "country": "IE", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Gallia", "country": "FR", "parentCompany": "Danone (Blédina)", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Garnier", "country": "FR", "parentCompany": "L'Oréal", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Garnier Ultra Doux", "country": "FR", "parentCompany": "L'Oréal", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Gillette", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Glade", "country": "US", "parentCompany": "SC Johnson", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Grand Mère", "country": "NL", "parentCompany": "JDE Peet's", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Grillmeister", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Häagen-Dazs", "country": "US", "parentCompany": "General Mills", "source": "manual", "confidence": 0.8, "addedAt": "2026-05-25" },
-    { "name": "Haribo", "country": "DE", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Head & Shoulders", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Heineken", "country": "NL", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Heinz", "country": "US", "parentCompany": "Kraft Heinz", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "HiPP", "country": "DE", "parentCompany": "HiPP GmbH", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "HiPP Biologique", "country": "DE", "parentCompany": "HiPP GmbH", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Hollywood", "country": "US", "parentCompany": "Mondelez", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Hugo Le Maraicher", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Innocent", "country": "US", "parentCompany": "The Coca-Cola Company", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-25" },
-    { "name": "Intermarché", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Itinéraire des Saveurs", "country": "FR", "parentCompany": "Intermarché (Les Mousquetaires)", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Jean Rozé", "country": "FR", "parentCompany": "Agromousquetaires (Intermarché)", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Jockey", "country": "FR", "parentCompany": "Danone", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Kellogg's", "country": "US", "parentCompany": "Kellanova", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Kinder", "country": "IT", "parentCompany": "Ferrero", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Kiri", "country": "FR", "parentCompany": "Groupe Bel", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Klein", "country": "DE", "parentCompany": "Theo Klein GmbH", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Knusperone", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "L'Angelys", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "L'Or", "country": "NL", "parentCompany": "JDE Peet's", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "L'Or Espresso", "country": "NL", "parentCompany": "JDE Peet's", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "L'Oréal", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "L'Oréal Paris", "country": "FR", "parentCompany": "L'Oréal", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "La Chouffe", "country": "BE", "parentCompany": "Brasserie d'Achouffe", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Labell", "country": "FR", "parentCompany": "Intermarché (Les Mousquetaires)", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Lactalis", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Lactel", "country": "FR", "parentCompany": "Lactalis", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Lavazza", "country": "IT", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Lay's", "country": "US", "parentCompany": "PepsiCo", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Le Gaulois", "country": "FR", "parentCompany": "LDC Groupe", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Leclerc", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Leffe", "country": "BE", "parentCompany": "AB InBev", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Lenor", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Lindt", "country": "CH", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Lipton", "country": "NL", "parentCompany": "Lipton Teas and Infusions", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Love & Green", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Lu", "country": "FR", "parentCompany": "Mondelez", "source": "manual", "confidence": 0.8, "addedAt": "2026-05-25" },
-    { "name": "LU Cracottes", "country": "FR", "parentCompany": "Mondelez", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "LU Petit Beurre", "country": "FR", "parentCompany": "Mondelez", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Lulu", "country": "FR", "parentCompany": "Mondelez", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Lupilu", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Lustucru", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Madrange", "country": "FR", "parentCompany": "Sigma Alimentos", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Magnum", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Maille", "country": "FR", "parentCompany": "Unilever", "source": "manual", "confidence": 0.7, "addedAt": "2026-05-25" },
-    { "name": "Maître", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Maître Coq", "country": "FR", "parentCompany": "LDC", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Malo", "country": "FR", "parentCompany": "Sill (Laiterie de Saint-Malo)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Mapa", "country": "FR", "parentCompany": "Hutchinson SA", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Materne", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Méo", "country": "FR", "parentCompany": "Cafés Méo", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Michel et Augustin", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Milka", "country": "US", "parentCompany": "Mondelez", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Modilac", "country": "FR", "parentCompany": "Sodilac", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Mon Fromager", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Mumm", "country": "FR", "parentCompany": "Pernod Ricard", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Nana", "country": "SE", "parentCompany": "Essity", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Nescafé", "country": "CH", "parentCompany": "Nestlé", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Nesquik", "country": "CH", "parentCompany": "Nestlé", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Nestlé", "country": "CH", "parentCompany": "Nestlé S.A.", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Netto", "country": "FR", "parentCompany": "Les Mousquetaires", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Nutella", "country": "IT", "parentCompany": "Ferrero", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Odyssée", "country": "FR", "parentCompany": "Intermarché (Les Mousquetaires)", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Omo", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Onno", "country": "FR", "parentCompany": "Agromousquetaires (Intermarché)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Oreo", "country": "US", "parentCompany": "Mondelez", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "P'tit Déli", "country": "FR", "parentCompany": "Marque Repère (E.Leclerc)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Panzani", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-25" },
-    { "name": "Parodontax", "country": "GB", "parentCompany": "Haleon", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Pasquier", "country": "FR", "parentCompany": "Brioche Pasquier", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Paysan Breton", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Pepsi", "country": "US", "parentCompany": "PepsiCo", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Perle de Lait", "country": "FR", "parentCompany": "Yoplait (Sodiaal)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Phebus", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Picot", "country": "FR", "parentCompany": "Lactalis", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Pilos", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Pilpa", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Pommette", "country": "FR", "parentCompany": "Intermarché (Les Mousquetaires)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Pouce", "country": "FR", "parentCompany": "Auchan", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Poulain", "country": "FR", "parentCompany": "Carambar & Co", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Président", "country": "FR", "parentCompany": "Lactalis", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Pringles", "country": "US", "parentCompany": "Kellanova", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Raffaello", "country": "IT", "parentCompany": "Ferrero", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Red Bull", "country": "AT", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Reflets de France", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Rexona", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Ricard", "country": "FR", "parentCompany": "Pernod Ricard", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Rowenta", "country": "FR", "parentCompany": "Groupe SEB", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Saint Agur", "country": "FR", "parentCompany": "Savencia", "source": "manual", "confidence": 1, "addedAt": "2026-08-14" },
-    { "name": "Saint Albray", "country": "FR", "parentCompany": "Savencia", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Saint Hubert", "country": "FR", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Saugella", "country": "US", "parentCompany": "Viatris", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Schweppes", "country": "JP", "parentCompany": "Suntory", "source": "manual", "confidence": 0.7, "addedAt": "2026-05-25" },
-    { "name": "Senseo", "country": "NL", "parentCompany": "JDE Peet's", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Sensodyne", "country": "GB", "parentCompany": "Haleon", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Silvercrest", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Simpl", "country": "FR", "parentCompany": "Carrefour", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Skip", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Skittles", "country": "US", "parentCompany": "Mars", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Socopa", "country": "FR", "parentCompany": "Groupe Bigard", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Sol & Mar", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Solero", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "St Albray", "country": "FR", "parentCompany": "Savencia", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "St Marc", "country": "GB", "parentCompany": "Reckitt Benckiser", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "St-Yorre", "country": "FR", "parentCompany": "Groupe Alma", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Starbucks", "country": "US", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Stella Artois", "country": "BE", "parentCompany": "AB InBev", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Swiffer", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Tadam", "country": "FR", "parentCompany": "Auchan", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Taillefine", "country": "FR", "parentCompany": "Danone", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Tic Tac", "country": "IT", "parentCompany": "Ferrero", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Tide", "country": "US", "parentCompany": "Procter & Gamble", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Timotei", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 0.8, "addedAt": "2026-05-25" },
-    { "name": "Tokapi", "country": "FR", "parentCompany": "Marque Repère (E.Leclerc)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Tripel Karmeliet", "country": "BE", "parentCompany": "Brouwerij Bosteels", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Tropicana", "country": "US", "parentCompany": "Tropicana Brands Group", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Turini", "country": "FR", "parentCompany": "Marque Repère (E.Leclerc)", "source": "manual", "confidence": 0.95, "addedAt": "2026-08-14" },
-    { "name": "Une Heure Pour Soi", "country": "FR", "parentCompany": "E.Leclerc", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "Ushuaïa", "country": "FR", "parentCompany": "L'Oréal", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Vanish", "country": "GB", "parentCompany": "Reckitt", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Vaseline", "country": "GB", "parentCompany": "Unilever", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Vitafit", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-27" },
-    { "name": "Vitasia", "country": "DE", "parentCompany": "Lidl Stiftung & Co. KG", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Vittel", "country": "FR", "parentCompany": "Nestlé", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Volandry", "country": "FR", "parentCompany": "Marque Repère (E.Leclerc)", "source": "manual", "confidence": 0.9, "addedAt": "2026-08-14" },
-    { "name": "VTech", "country": "HK", "parentCompany": "VTech Holdings", "source": "manual", "confidence": 0.9, "addedAt": "2026-06-01" },
-    { "name": "Woolite", "country": "GB", "parentCompany": "Reckitt", "source": "manual", "confidence": 1, "addedAt": "2026-05-25" },
-    { "name": "Yoplait", "country": "FR", "source": "manual", "confidence": 0.9, "addedAt": "2026-05-25" }
+    {
+      "name": "1001 Delights",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "1664",
+      "country": "FR",
+      "parentCompany": "Carlsberg",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "3 Monts",
+      "country": "FR",
+      "parentCompany": "Brasserie de Saint-Sylvestre",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Air Wick",
+      "country": "GB",
+      "parentCompany": "Reckitt",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Albal",
+      "country": "DE",
+      "parentCompany": "Melitta Group",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Ambre Solaire",
+      "country": "FR",
+      "parentCompany": "L'Oréal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Ambrosi",
+      "country": "IT",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Amora",
+      "country": "FR",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Andros",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Anosteke",
+      "country": "FR",
+      "parentCompany": "Brasserie du Pays Flamand",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Antartic",
+      "country": "FR",
+      "parentCompany": "Agromousquetaires (Intermarché)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Apericube",
+      "country": "FR",
+      "parentCompany": "Bel Group",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Ariel",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Auchan",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Auchan Le Traiteur",
+      "country": "FR",
+      "parentCompany": "Auchan",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Barilla",
+      "country": "IT",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Bel",
+      "country": "FR",
+      "parentCompany": "Groupe Bel",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Belbake",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Bic",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Bigard",
+      "country": "FR",
+      "parentCompany": "Groupe Bigard",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Biotrend",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Bjorg",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Black & White",
+      "country": "GB",
+      "parentCompany": "Diageo",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Bledilait",
+      "country": "FR",
+      "parentCompany": "Danone",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Bon Gelati",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Bonne Maman",
+      "country": "FR",
+      "parentCompany": "Andros",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Bonux",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Bud",
+      "country": "US",
+      "parentCompany": "Anheuser-Busch InBev",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Buffalo Trace",
+      "country": "US",
+      "parentCompany": "Sazerac",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Candia",
+      "country": "FR",
+      "parentCompany": "Sodiaal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Candia Baby",
+      "country": "FR",
+      "parentCompany": "Sodiaal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Carrefour",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Carrefour Classic'",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Carrefour Essential",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Carrefour Expert",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Carrefour Extra",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Carrefour Le Marché",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Carrefour Original",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Carrefour Sensation",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Carrefour Soft",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Casa Azzurra",
+      "country": "IT",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Charal",
+      "country": "FR",
+      "parentCompany": "Groupe Bigard",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Chaussee aux Moines",
+      "country": "FR",
+      "parentCompany": "Lactalis",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Chouffe",
+      "country": "BE",
+      "parentCompany": "Brasserie d'Achouffe",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Chupa Chups",
+      "country": "ES",
+      "parentCompany": "Perfetti Van Melle",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Chêne d'Argent",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Cillit Bang",
+      "country": "GB",
+      "parentCompany": "Reckitt",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Coca-Cola",
+      "country": "US",
+      "parentCompany": "The Coca-Cola Company",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Coeur de Lion",
+      "country": "FR",
+      "parentCompany": "Savencia",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Colgate",
+      "country": "US",
+      "parentCompany": "Colgate-Palmolive",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Combino",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Confiserie Firenze",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Cracotte",
+      "country": "FR",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Cracottes",
+      "country": "FR",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Crivit",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Cuvee des Trolls",
+      "country": "BE",
+      "parentCompany": "Brasserie Dubuisson",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Cœur de Lion",
+      "country": "FR",
+      "parentCompany": "Savencia",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Danao",
+      "country": "FR",
+      "parentCompany": "Danone",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Danette",
+      "country": "FR",
+      "parentCompany": "Danone",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Danone",
+      "country": "FR",
+      "parentCompany": "Danone S.A.",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Delichoc",
+      "country": "US",
+      "parentCompany": "Mondelez International",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "DeLonghi",
+      "country": "IT",
+      "parentCompany": "De'Longhi S.p.A.",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Dessange",
+      "country": "FR",
+      "parentCompany": "Dessange International",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Dolce Vita",
+      "country": "IT",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Doritos",
+      "country": "US",
+      "parentCompany": "PepsiCo",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Dove",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Délichoc",
+      "country": "IT",
+      "parentCompany": "Delacre (Ferrero Group)",
+      "source": "manual",
+      "confidence": 0.85,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Délisse",
+      "country": "FR",
+      "parentCompany": "Marque Repère (E.Leclerc)",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Eat Natural",
+      "country": "IT",
+      "parentCompany": "Ferrero",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Ecoiffier",
+      "country": "FR",
+      "parentCompany": "Ecoiffier",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Elle & Vire",
+      "country": "FR",
+      "parentCompany": "Savencia",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Entremont",
+      "country": "FR",
+      "parentCompany": "Sodiaal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Eskiss",
+      "country": "FR",
+      "parentCompany": "Marque Repère (E.Leclerc)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Esmara",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Evian",
+      "country": "FR",
+      "parentCompany": "Danone S.A.",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Faire France",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Fairy",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Fanta",
+      "country": "US",
+      "parentCompany": "The Coca-Cola Company",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Favorina",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Febreze",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Findus",
+      "country": "GB",
+      "parentCompany": "Nomad Foods",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Finish",
+      "country": "GB",
+      "parentCompany": "Reckitt",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Fiorini",
+      "country": "FR",
+      "parentCompany": "Intermarché (Les Mousquetaires)",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Fjord",
+      "country": "FR",
+      "parentCompany": "Danone",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Florette",
+      "country": "FR",
+      "parentCompany": "Agrial",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Fulfil",
+      "country": "IE",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Gallia",
+      "country": "FR",
+      "parentCompany": "Danone (Blédina)",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Garnier",
+      "country": "FR",
+      "parentCompany": "L'Oréal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Garnier Ultra Doux",
+      "country": "FR",
+      "parentCompany": "L'Oréal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Gillette",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Glade",
+      "country": "US",
+      "parentCompany": "SC Johnson",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Grand Mère",
+      "country": "NL",
+      "parentCompany": "JDE Peet's",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Grillmeister",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Haribo",
+      "country": "DE",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Head & Shoulders",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Heineken",
+      "country": "NL",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Heinz",
+      "country": "US",
+      "parentCompany": "Kraft Heinz",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "HiPP",
+      "country": "DE",
+      "parentCompany": "HiPP GmbH",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "HiPP Biologique",
+      "country": "DE",
+      "parentCompany": "HiPP GmbH",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Hollywood",
+      "country": "US",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Hugo Le Maraicher",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Häagen-Dazs",
+      "country": "US",
+      "parentCompany": "General Mills",
+      "source": "manual",
+      "confidence": 0.8,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Innocent",
+      "country": "US",
+      "parentCompany": "The Coca-Cola Company",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Intermarché",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Itinéraire des Saveurs",
+      "country": "FR",
+      "parentCompany": "Intermarché (Les Mousquetaires)",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Jean Rozé",
+      "country": "FR",
+      "parentCompany": "Agromousquetaires (Intermarché)",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Jockey",
+      "country": "FR",
+      "parentCompany": "Danone",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Kellogg's",
+      "country": "US",
+      "parentCompany": "Kellanova",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Kinder",
+      "country": "IT",
+      "parentCompany": "Ferrero",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Kiri",
+      "country": "FR",
+      "parentCompany": "Groupe Bel",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "KitKat",
+      "country": "CH",
+      "parentCompany": "Nestlé",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Klein",
+      "country": "DE",
+      "parentCompany": "Theo Klein GmbH",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Knusperone",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Krema",
+      "country": "FR",
+      "parentCompany": "Carambar & Co",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "L'Angelys",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "L'Or",
+      "country": "NL",
+      "parentCompany": "JDE Peet's",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "L'Or Espresso",
+      "country": "NL",
+      "parentCompany": "JDE Peet's",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "L'Oréal",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "L'Oréal Paris",
+      "country": "FR",
+      "parentCompany": "L'Oréal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "La Chouffe",
+      "country": "BE",
+      "parentCompany": "Brasserie d'Achouffe",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Labell",
+      "country": "FR",
+      "parentCompany": "Intermarché (Les Mousquetaires)",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Lactalis",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Lactel",
+      "country": "FR",
+      "parentCompany": "Lactalis",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Lavazza",
+      "country": "IT",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Lay's",
+      "country": "US",
+      "parentCompany": "PepsiCo",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Le Gaulois",
+      "country": "FR",
+      "parentCompany": "LDC Groupe",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Leclerc",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Leffe",
+      "country": "BE",
+      "parentCompany": "AB InBev",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Lenor",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Lindt",
+      "country": "CH",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Lipton",
+      "country": "NL",
+      "parentCompany": "Lipton Teas and Infusions",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Love & Green",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Lu",
+      "country": "FR",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 0.8,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "LU Cracottes",
+      "country": "FR",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "LU Petit Beurre",
+      "country": "FR",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Lulu",
+      "country": "FR",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Lupilu",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Lustucru",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Madrange",
+      "country": "FR",
+      "parentCompany": "Sigma Alimentos",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Magnum",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Maille",
+      "country": "FR",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 0.7,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Malo",
+      "country": "FR",
+      "parentCompany": "Sill (Laiterie de Saint-Malo)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Mapa",
+      "country": "FR",
+      "parentCompany": "Hutchinson SA",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Materne",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Maître",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Maître Coq",
+      "country": "FR",
+      "parentCompany": "LDC",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Michel et Augustin",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Milka",
+      "country": "US",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Modilac",
+      "country": "FR",
+      "parentCompany": "Sodilac",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Mon Fromager",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Mumm",
+      "country": "FR",
+      "parentCompany": "Pernod Ricard",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Méo",
+      "country": "FR",
+      "parentCompany": "Cafés Méo",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Nana",
+      "country": "SE",
+      "parentCompany": "Essity",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Nescafé",
+      "country": "CH",
+      "parentCompany": "Nestlé",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Nesquik",
+      "country": "CH",
+      "parentCompany": "Nestlé",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Nestlé",
+      "country": "CH",
+      "parentCompany": "Nestlé S.A.",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Netto",
+      "country": "FR",
+      "parentCompany": "Les Mousquetaires",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Nutella",
+      "country": "IT",
+      "parentCompany": "Ferrero",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Odyssée",
+      "country": "FR",
+      "parentCompany": "Intermarché (Les Mousquetaires)",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Omo",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Onno",
+      "country": "FR",
+      "parentCompany": "Agromousquetaires (Intermarché)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Oreo",
+      "country": "US",
+      "parentCompany": "Mondelez",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "P'tit Déli",
+      "country": "FR",
+      "parentCompany": "Marque Repère (E.Leclerc)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Panzani",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Parodontax",
+      "country": "GB",
+      "parentCompany": "Haleon",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Pasquier",
+      "country": "FR",
+      "parentCompany": "Brioche Pasquier",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Paysan Breton",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Pepsi",
+      "country": "US",
+      "parentCompany": "PepsiCo",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Perle de Lait",
+      "country": "FR",
+      "parentCompany": "Yoplait (Sodiaal)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Phebus",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Picot",
+      "country": "FR",
+      "parentCompany": "Lactalis",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Pilos",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Pilpa",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Pommette",
+      "country": "FR",
+      "parentCompany": "Intermarché (Les Mousquetaires)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Pouce",
+      "country": "FR",
+      "parentCompany": "Auchan",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Poulain",
+      "country": "FR",
+      "parentCompany": "Carambar & Co",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Pringles",
+      "country": "US",
+      "parentCompany": "Kellanova",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Président",
+      "country": "FR",
+      "parentCompany": "Lactalis",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Raffaello",
+      "country": "IT",
+      "parentCompany": "Ferrero",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Red Bull",
+      "country": "AT",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Reflets de France",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Rexona",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Ricard",
+      "country": "FR",
+      "parentCompany": "Pernod Ricard",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Rowenta",
+      "country": "FR",
+      "parentCompany": "Groupe SEB",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Saint Agur",
+      "country": "FR",
+      "parentCompany": "Savencia",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Saint Albray",
+      "country": "FR",
+      "parentCompany": "Savencia",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Saint Hubert",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Saugella",
+      "country": "US",
+      "parentCompany": "Viatris",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Schweppes",
+      "country": "JP",
+      "parentCompany": "Suntory",
+      "source": "manual",
+      "confidence": 0.7,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Senseo",
+      "country": "NL",
+      "parentCompany": "JDE Peet's",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Sensodyne",
+      "country": "GB",
+      "parentCompany": "Haleon",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Silvercrest",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Simpl",
+      "country": "FR",
+      "parentCompany": "Carrefour",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Skip",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Skittles",
+      "country": "US",
+      "parentCompany": "Mars",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Socopa",
+      "country": "FR",
+      "parentCompany": "Groupe Bigard",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Sol & Mar",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Solero",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "St Albray",
+      "country": "FR",
+      "parentCompany": "Savencia",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "St Marc",
+      "country": "GB",
+      "parentCompany": "Reckitt Benckiser",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "St-Yorre",
+      "country": "FR",
+      "parentCompany": "Groupe Alma",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Starbucks",
+      "country": "US",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Stella Artois",
+      "country": "BE",
+      "parentCompany": "AB InBev",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Swiffer",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Tadam",
+      "country": "FR",
+      "parentCompany": "Auchan",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Taillefine",
+      "country": "FR",
+      "parentCompany": "Danone",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Tic Tac",
+      "country": "IT",
+      "parentCompany": "Ferrero",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Tide",
+      "country": "US",
+      "parentCompany": "Procter & Gamble",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Timotei",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 0.8,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Tokapi",
+      "country": "FR",
+      "parentCompany": "Marque Repère (E.Leclerc)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Tripel Karmeliet",
+      "country": "BE",
+      "parentCompany": "Brouwerij Bosteels",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Tropicana",
+      "country": "US",
+      "parentCompany": "Tropicana Brands Group",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Turini",
+      "country": "FR",
+      "parentCompany": "Marque Repère (E.Leclerc)",
+      "source": "manual",
+      "confidence": 0.95,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Une Heure Pour Soi",
+      "country": "FR",
+      "parentCompany": "E.Leclerc",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "Ushuaïa",
+      "country": "FR",
+      "parentCompany": "L'Oréal",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Vanish",
+      "country": "GB",
+      "parentCompany": "Reckitt",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Vaseline",
+      "country": "GB",
+      "parentCompany": "Unilever",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Vitafit",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-27"
+    },
+    {
+      "name": "Vitasia",
+      "country": "DE",
+      "parentCompany": "Lidl Stiftung & Co. KG",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Vittel",
+      "country": "FR",
+      "parentCompany": "Nestlé",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Volandry",
+      "country": "FR",
+      "parentCompany": "Marque Repère (E.Leclerc)",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-08-14"
+    },
+    {
+      "name": "VTech",
+      "country": "HK",
+      "parentCompany": "VTech Holdings",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-06-01"
+    },
+    {
+      "name": "Woolite",
+      "country": "GB",
+      "parentCompany": "Reckitt",
+      "source": "manual",
+      "confidence": 1,
+      "addedAt": "2026-05-25"
+    },
+    {
+      "name": "Yoplait",
+      "country": "FR",
+      "source": "manual",
+      "confidence": 0.9,
+      "addedAt": "2026-05-25"
+    }
   ]
 }
