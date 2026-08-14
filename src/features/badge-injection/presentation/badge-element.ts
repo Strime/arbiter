@@ -1,9 +1,16 @@
+import { buildReportMailtoUrl } from '../../../core/support/support';
 import type { BrandOrigin } from '../../origin-detection/domain/entities/brand-origin';
 import type { ManufacturingOrigin } from '../../origin-detection/domain/entities/manufacturing-origin';
 import type { OriginRegion } from '../../origin-detection/domain/entities/origin';
 import type { OriginVerdict } from '../../origin-detection/domain/entities/origin-verdict';
-import { flagSvgFor } from './country-flags';
+import { flagElementFor } from './country-flags';
 import { SOURCE_LABEL_FR, countryNameFr } from './country-names';
+
+/** Infos produit nécessaires au lien « Signaler une erreur ». */
+export interface BadgeProductInfo {
+  readonly brand: string;
+  readonly ean?: string;
+}
 
 const REGION_CLASS: Record<OriginRegion, string> = {
   FR: 'arbiter-badge--fr',
@@ -16,7 +23,7 @@ const REGION_CLASS: Record<OriginRegion, string> = {
 const LOW_CONFIDENCE_THRESHOLD = 0.5;
 
 function setFlagInto(host: HTMLElement, country: string | undefined): void {
-  host.innerHTML = flagSvgFor(country);
+  host.replaceChildren(flagElementFor(country));
 }
 
 function ariaLabel(verdict: OriginVerdict): string {
@@ -97,7 +104,23 @@ function renderSection(
   return section;
 }
 
-export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict): void {
+const OPEN_CLASS = 'arbiter-badge--open';
+
+let tooltipIdCounter = 0;
+
+function renderReportLink(verdict: OriginVerdict, product: BadgeProductInfo): HTMLAnchorElement {
+  const link = document.createElement('a');
+  link.className = 'arbiter-tooltip__report';
+  link.href = buildReportMailtoUrl({
+    brand: product.brand,
+    ean: product.ean,
+    displayedVerdict: ariaLabel(verdict),
+  });
+  link.textContent = 'Signaler une erreur';
+  return link;
+}
+
+export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict, product: BadgeProductInfo): void {
   shadow.querySelectorAll('.arbiter-badge').forEach((n) => n.remove());
 
   const badge = document.createElement('div');
@@ -114,9 +137,32 @@ export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict): void {
   const tooltip = document.createElement('div');
   tooltip.className = 'arbiter-tooltip';
   tooltip.setAttribute('role', 'tooltip');
+  tooltip.id = `arbiter-tooltip-${++tooltipIdCounter}`;
+  badge.setAttribute('aria-describedby', tooltip.id);
   tooltip.appendChild(renderSection('Marque', verdict.brand, verdict.brand?.parentCompany));
   tooltip.appendChild(renderSection('Fabrication', verdict.manufacturing, undefined));
+  tooltip.appendChild(renderReportLink(verdict, product));
   badge.appendChild(tooltip);
+
+  // Toggle au clic/tap (tactile), en plus du hover/focus gérés en CSS.
+  // stopPropagation/preventDefault : la carte produit est souvent un lien.
+  badge.addEventListener('click', (event) => {
+    if (event.target instanceof Node && tooltip.contains(event.target)) {
+      // Clic sur le lien de signalement : laisser le mailto se déclencher,
+      // sans naviguer vers la fiche produit.
+      event.stopPropagation();
+      return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+    badge.classList.toggle(OPEN_CLASS);
+  });
+
+  badge.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    badge.classList.remove(OPEN_CLASS);
+    badge.blur();
+  });
 
   shadow.appendChild(badge);
 }

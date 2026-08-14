@@ -1,18 +1,35 @@
 import { buildContentContainer } from '../core/di/content-container';
+import { countBadgeHosts, removeAllBadgeHosts } from '../features/badge-injection/presentation/shadow-host';
+import { GetStatsMessageSchema, type StatsResponseMessage } from '../core/messaging/protocol';
 import type { SiteAdapter } from '../features/site-adapters/domain/entities/site-adapter';
 import type { ContentContainer } from '../core/di/content-container';
 
 export default defineContentScript({
   matches: [
-    '*://*.carrefour.fr/*',
-    '*://drive.carrefour.fr/*',
-    '*://*.intermarche.com/*',
-    '*://*.auchan.fr/*',
-    '*://*.leclercdrive.fr/*',
-    '*://*.lidl.fr/*',
+    'https://*.carrefour.fr/*',
+    'https://*.intermarche.com/*',
+    'https://*.auchan.fr/*',
+    'https://*.leclercdrive.fr/*',
+    'https://*.lidl.fr/*',
   ],
   runAt: 'document_idle',
   async main() {
+    // Enregistré de manière SYNCHRONE (avant tout await) : la popup interroge
+    // ce script via GET_STATS pour savoir si le site est supporté.
+    browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+      if (sender.id !== browser.runtime.id) return false;
+
+      const parsed = GetStatsMessageSchema.safeParse(message);
+      if (!parsed.success) return false;
+
+      const response: StatsResponseMessage = {
+        type: 'arbiter/stats-response',
+        payload: { badgeCount: countBadgeHosts() },
+      };
+      sendResponse(response);
+      return true;
+    });
+
     const container = buildContentContainer();
     const adapter = container.resolveAdapter.call(location.href);
     if (!adapter) {
@@ -32,29 +49,42 @@ export default defineContentScript({
       if (!teardown) return;
       teardown();
       teardown = null;
+      removeAllBadgeHosts();
     };
 
-    const initial = await container.getPreferences.call();
-    if (initial.enabled) start();
-    else console.info('[arbiter] disabled by user preferences');
-
+    let watchFired = false;
     container.preferencesRepository.watch((prefs) => {
+      watchFired = true;
       if (prefs.enabled) start();
       else stop();
     });
+
+    const initial = await container.getPreferences.call();
+    if (watchFired) return;
+    if (initial.enabled) start();
+    else console.info('[arbiter] disabled by user preferences');
   },
 });
+
+let adapterListenerFailureLogged = false;
 
 function attachAdapter(container: ContentContainer, adapter: SiteAdapter): () => void {
   return adapter.observe(document, async ({ type, card }) => {
     if (type !== 'added') return;
-    const verdict = await container.messagingClient.requestOrigin({
-      ean: card.ean,
-      brand: card.brand,
-      title: card.title,
-      rawText: card.rawText,
-    });
-    if (!verdict) return;
-    container.renderBadge.call({ card, verdict });
+    try {
+      const verdict = await container.messagingClient.requestOrigin({
+        ean: card.ean,
+        brand: card.brand,
+        title: card.title,
+        rawText: card.rawText,
+        brandGuessed: card.brandGuessed,
+      });
+      if (!verdict) return;
+      container.renderBadge.call({ card, verdict });
+    } catch (error) {
+      if (adapterListenerFailureLogged) return;
+      adapterListenerFailureLogged = true;
+      console.debug('[arbiter] card processing failed (extension context invalidated?)', error);
+    }
   });
 }

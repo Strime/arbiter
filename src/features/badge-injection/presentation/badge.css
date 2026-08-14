@@ -23,6 +23,20 @@
   cursor: help;
   outline: none;
   transition: transform 120ms ease, box-shadow 120ms ease;
+  animation: arbiter-badge-enter 120ms ease-out;
+}
+
+@keyframes arbiter-badge-enter {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arbiter-badge {
+    animation: none;
+    transition: none;
+  }
 }
 
 .arbiter-badge:hover,
@@ -97,9 +111,11 @@
 
 .arbiter-badge:hover .arbiter-tooltip,
 .arbiter-badge:focus-visible .arbiter-tooltip,
-.arbiter-badge:focus-within .arbiter-tooltip {
+.arbiter-badge:focus-within .arbiter-tooltip,
+.arbiter-badge--open .arbiter-tooltip {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .arbiter-tooltip__section + .arbiter-tooltip__section {
@@ -198,4 +214,18 @@
   font-size: 12px;
   font-style: italic;
   color: #9ca3af;
+}
+
+.arbiter-tooltip__report {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #93c5fd;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.arbiter-tooltip__report:hover,
+.arbiter-tooltip__report:focus-visible {
+  color: #bfdbfe;
 }

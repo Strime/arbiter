@@ -5,6 +5,7 @@ export const RequestOriginPayloadSchema = z.object({
   brand: z.string(),
   title: z.string(),
   rawText: z.string().optional(),
+  brandGuessed: z.boolean().optional(),
 });
 
 export const RequestOriginMessageSchema = z.object({
@@ -22,10 +23,12 @@ const OriginSourceSchema = z.enum([
 
 const OriginRegionSchema = z.enum(['FR', 'EU', 'US', 'OTHER', 'UNKNOWN']);
 
+const CountryCodeSchema = z.string().regex(/^[A-Z]{2}$/);
+
 export const OriginVerdictPayloadSchema = z.object({
   brand: z
     .object({
-      country: z.string(),
+      country: CountryCodeSchema,
       parentCompany: z.string().optional(),
       source: OriginSourceSchema,
       confidence: z.number(),
@@ -33,7 +36,7 @@ export const OriginVerdictPayloadSchema = z.object({
     .optional(),
   manufacturing: z
     .object({
-      country: z.string(),
+      country: CountryCodeSchema,
       source: OriginSourceSchema,
       confidence: z.number(),
     })
@@ -47,5 +50,18 @@ export const OriginResponseMessageSchema = z.object({
   payload: OriginVerdictPayloadSchema,
 });
 
+export const GetStatsMessageSchema = z.object({
+  type: z.literal('arbiter/get-stats'),
+});
+
+export const StatsResponseMessageSchema = z.object({
+  type: z.literal('arbiter/stats-response'),
+  payload: z.object({
+    badgeCount: z.number().int().nonnegative(),
+  }),
+});
+
 export type RequestOriginMessage = z.infer<typeof RequestOriginMessageSchema>;
 export type OriginResponseMessage = z.infer<typeof OriginResponseMessageSchema>;
+export type GetStatsMessage = z.infer<typeof GetStatsMessageSchema>;
+export type StatsResponseMessage = z.infer<typeof StatsResponseMessageSchema>;

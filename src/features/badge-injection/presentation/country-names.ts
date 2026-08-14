@@ -2,6 +2,7 @@ import type { OriginSource } from '../../origin-detection/domain/entities/origin
 
 export const COUNTRY_NAME_FR: Record<string, string> = {
   FR: 'France',
+  EU: 'Union européenne',
   AT: 'Autriche',
   BE: 'Belgique',
   BG: 'Bulgarie',
@@ -53,5 +54,5 @@ export const SOURCE_LABEL_FR: Record<OriginSource, string> = {
   wikidata: 'Wikidata',
   openfoodfacts: 'OpenFoodFacts',
   crowdsourced: 'Communauté',
-  heuristic: 'Heuristique',
+  heuristic: "Estimation d'après le texte du produit",
 };

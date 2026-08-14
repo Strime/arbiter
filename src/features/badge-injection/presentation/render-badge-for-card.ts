@@ -10,6 +10,9 @@ export class RenderBadgeForCard {
       return;
     }
     const shadow = this.shadowHostFactory.ensureHost(request.card.node);
-    renderBadge(shadow, request.verdict);
+    renderBadge(shadow, request.verdict, {
+      brand: request.card.brand,
+      ean: request.card.ean,
+    });
   }
 }
