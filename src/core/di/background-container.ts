@@ -1,5 +1,5 @@
 import { DetermineOriginVerdict } from '../../features/origin-detection/domain/use-cases/determine-origin-verdict';
-import { LocalBrandDbLoader } from '../../features/origin-detection/data/datasources/local-brand-db/loader';
+import { BrandDbProvider } from '../../features/origin-detection/data/datasources/local-brand-db/brand-db-provider';
 import { BrandEntryToBrandOriginMapper } from '../../features/origin-detection/data/mappers/brand-entry-to-brand-origin';
 import { LocalBrandOriginRepository } from '../../features/origin-detection/data/repositories/local-brand-origin-repository';
 import { TextOriginHeuristics } from '../../features/origin-detection/data/datasources/text-heuristics/heuristics';
@@ -14,9 +14,9 @@ export interface BackgroundContainer {
 }
 
 export function buildBackgroundContainer(): BackgroundContainer {
-  const brandLoader = new LocalBrandDbLoader();
+  const brandDbProvider = new BrandDbProvider();
   const brandMapper = new BrandEntryToBrandOriginMapper();
-  const brandRepo = new LocalBrandOriginRepository(brandLoader, brandMapper);
+  const brandRepo = new LocalBrandOriginRepository(brandDbProvider, brandMapper);
 
   const heuristics = new TextOriginHeuristics();
   const offClient = new OffClient();

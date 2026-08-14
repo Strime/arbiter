@@ -4,6 +4,12 @@ import {
   OFF_CACHE_PURGE_PERIOD_MINUTES,
 } from '../features/origin-detection/data/datasources/openfoodfacts/off-cache';
 import {
+  BRANDS_DB_UPDATE_ALARM,
+  BRANDS_DB_UPDATE_MAX_JITTER_MINUTES,
+  BRANDS_DB_UPDATE_PERIOD_MINUTES,
+  runBrandsDbUpdate,
+} from '../features/origin-detection/data/datasources/local-brand-db/remote-db-updater';
+import {
   RequestOriginMessageSchema,
   type OriginResponseMessage,
 } from '../core/messaging/protocol';
@@ -18,13 +24,21 @@ export default defineBackground(() => {
       .catch((error: unknown) => {
         console.error('[arbiter] onboarding tab creation failed', error);
       });
+    // Première vérification OTA dès l'install (l'alarme prendra le relais).
+    void runBrandsDbUpdate();
   });
 
   browser.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name !== OFF_CACHE_PURGE_ALARM) return;
-    container.offCache.purge().catch((error: unknown) => {
-      console.error('[arbiter] off-cache purge failed', error);
-    });
+    if (alarm.name === OFF_CACHE_PURGE_ALARM) {
+      container.offCache.purge().catch((error: unknown) => {
+        console.error('[arbiter] off-cache purge failed', error);
+      });
+      return;
+    }
+    if (alarm.name === BRANDS_DB_UPDATE_ALARM) {
+      // runBrandsDbUpdate ne rejette jamais (fallback silencieux interne).
+      void runBrandsDbUpdate();
+    }
   });
 
   // Un create() inconditionnel remplacerait l'alarme à chaque réveil du service
@@ -33,6 +47,17 @@ export default defineBackground(() => {
     if (existing) return;
     return browser.alarms.create(OFF_CACHE_PURGE_ALARM, {
       periodInMinutes: OFF_CACHE_PURGE_PERIOD_MINUTES,
+    });
+  });
+
+  // Même garde alarms.get() : le jitter (delayInMinutes aléatoire, étale la
+  // charge sur le CDN) n'est ainsi tiré qu'au premier create(), jamais re-tiré
+  // au réveil du service worker.
+  void browser.alarms.get(BRANDS_DB_UPDATE_ALARM).then((existing) => {
+    if (existing) return;
+    return browser.alarms.create(BRANDS_DB_UPDATE_ALARM, {
+      periodInMinutes: BRANDS_DB_UPDATE_PERIOD_MINUTES,
+      delayInMinutes: Math.random() * BRANDS_DB_UPDATE_MAX_JITTER_MINUTES,
     });
   });
 

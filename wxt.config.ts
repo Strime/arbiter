@@ -16,6 +16,9 @@ export default defineConfig({
       'https://*.leclercdrive.fr/*',
       'https://*.lidl.fr/*',
       'https://world.openfoodfacts.org/*',
+      // OTA brands.json (GitHub Pages) — défense en profondeur + transparence
+      // store ; WXT fusionne host_permissions dans permissions pour Firefox MV2.
+      'https://strime.github.io/*',
     ],
     ...(browser === 'firefox' && {
       browser_specific_settings: {
