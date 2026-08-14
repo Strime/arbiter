@@ -30,7 +30,7 @@ export const fetchOffTaxonomy = async ({ useCache = true } = {}) => {
   console.log(`[off] fetching ${OFF_TAXONOMY_URL}`);
   const res = await fetch(OFF_TAXONOMY_URL, {
     headers: {
-      'User-Agent': 'arbiter-brand-db-builder/0.1 (+https://github.com/Gaetan-S/arbiter)',
+      'User-Agent': 'cocarde-brand-db-builder/0.1 (+https://github.com/Gaetan-S/arbiter)',
       Accept: 'application/json',
     },
     redirect: 'follow',

@@ -133,7 +133,7 @@ describe('createCardObserver', () => {
 
     // L'extension a injecté son badge dans la carte.
     const badgeHost = document.createElement('div');
-    badgeHost.setAttribute('data-arbiter-badge', '');
+    badgeHost.setAttribute('data-cocarde-badge', '');
     card.appendChild(badgeHost);
 
     // Le site (SPA à scroll infini) recycle le même élément pour un autre produit.

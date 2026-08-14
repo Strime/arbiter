@@ -5,9 +5,9 @@ import './onboarding-app.css';
 export function OnboardingApp(): JSX.Element {
   return (
     <main className="onboarding">
-      <h1 className="onboarding__title">Bienvenue dans Arbiter</h1>
+      <h1 className="onboarding__title">Bienvenue dans Cocarde</h1>
       <p className="onboarding__intro">
-        Arbiter affiche l'origine des produits directement sur les pages de votre drive. Un badge
+        Cocarde affiche l'origine des produits directement sur les pages de votre drive. Un badge
         coloré apparaît sur chaque produit reconnu, pour vous aider à acheter en connaissance de
         cause.
       </p>

@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Génère public/icon/{16,32,48,96,128}.png — balance blanche sur fond bleu FR (#1e40af).
+"""Génère public/icon/{16,32,48,96,128}.png — la cocarde tricolore, plein cadre.
 
 Usage : python3 scripts/generate-icons.py
-Master 512 px anti-aliasé (supersampling x2 + LANCZOS), design volontairement
-massif pour rester lisible à 16 px.
+Master 1024 px anti-aliasé (downscale LANCZOS). Cercles concentriques aux
+couleurs du drapeau du badge (bleu #0055A4 au centre, blanc, rouge #EF4135 à
+l'extérieur — l'ordre de la cocarde française). Plein cadre, sans tuile : le
+bord extérieur est rouge, donc lisible sur fond clair comme sombre.
 """
 
 from PIL import Image, ImageDraw
@@ -11,35 +13,22 @@ from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "public" / "icon"
 SIZES = [16, 32, 48, 96, 128]
-BG = (30, 64, 175, 255)  # #1e40af — le bleu "FR" du badge
-FG = (255, 255, 255, 255)
+
+BLUE = (0, 85, 164, 255)    # #0055A4 — bleu du drapeau FR du badge
+WHITE = (255, 255, 255, 255)
+RED = (239, 65, 53, 255)    # #EF4135 — rouge du drapeau FR du badge
 
 S = 1024  # canevas de travail (supersample)
+C = S // 2
+# Rayons calibrés pour rester lisibles à 16 px (≈ 0.97 / 0.62 / 0.31 du rayon).
+R_RED = 496
+R_WHITE = 318
+R_BLUE = 159
+
 img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
 d = ImageDraw.Draw(img)
-
-# Fond : carré arrondi plein cadre
-d.rounded_rectangle([32, 32, S - 32, S - 32], radius=200, fill=BG)
-
-cx = S // 2
-beam_y = 340
-beam_w = 64
-
-# Pivot
-d.ellipse([cx - 56, 232, cx + 56, 344], fill=FG)
-# Fléau (barre horizontale)
-d.rounded_rectangle([200, beam_y - beam_w // 2, S - 200, beam_y + beam_w // 2], radius=beam_w // 2, fill=FG)
-# Colonne
-d.rounded_rectangle([cx - 32, beam_y, cx + 32, 800], radius=32, fill=FG)
-# Socle
-d.rounded_rectangle([320, 780, S - 320, 852], radius=36, fill=FG)
-
-# Plateaux : demi-disques suspendus aux extrémités du fléau
-for px in (256, S - 256):
-    # suspente
-    d.rounded_rectangle([px - 24, beam_y, px + 24, 480], radius=24, fill=FG)
-    # plateau (demi-disque, corde vers le haut)
-    d.pieslice([px - 140, 340, px + 140, 620], start=0, end=180, fill=FG)
+for radius, color in ((R_RED, RED), (R_WHITE, WHITE), (R_BLUE, BLUE)):
+    d.ellipse([C - radius, C - radius, C + radius, C + radius], fill=color)
 
 OUT.mkdir(parents=True, exist_ok=True)
 for size in SIZES:

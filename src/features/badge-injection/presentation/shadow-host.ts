@@ -1,7 +1,7 @@
 import badgeStyles from './badge.css?inline';
 
-const SHADOW_HOST_TAG = 'arbiter-badge-host';
-const SHADOW_HOST_MARKER = 'data-arbiter-badge';
+const SHADOW_HOST_TAG = 'cocarde-badge-host';
+const SHADOW_HOST_MARKER = 'data-cocarde-badge';
 
 interface InjectedHost {
   readonly card: HTMLElement;

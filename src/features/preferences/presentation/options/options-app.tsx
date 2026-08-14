@@ -23,7 +23,7 @@ export function OptionsApp(props: OptionsAppProps): JSX.Element {
 
   return (
     <main className="options">
-      <h1 className="options__title">Arbiter — Options</h1>
+      <h1 className="options__title">Cocarde — Options</h1>
 
       <section className="options__section">
         <h2 className="options__section-title">Affichage</h2>
@@ -69,7 +69,7 @@ export function OptionsApp(props: OptionsAppProps): JSX.Element {
         </ul>
       </section>
 
-      <footer className="options__footer">Arbiter v{version}</footer>
+      <footer className="options__footer">Cocarde v{version}</footer>
     </main>
   );
 }

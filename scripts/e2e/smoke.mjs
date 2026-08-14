@@ -25,7 +25,7 @@ const TARGETS = [
   { id: 'auchan', url: 'https://www.auchan.fr/recherche?text=chocolat', required: false },
 ];
 
-const profile = mkdtempSync(join(tmpdir(), 'arbiter-e2e-'));
+const profile = mkdtempSync(join(tmpdir(), 'cocarde-e2e-'));
 const ctx = await chromium.launchPersistentContext(profile, {
   // Chromium Playwright : le Chrome de marque ignore --load-extension depuis 2025.
   headless: false,
@@ -50,7 +50,7 @@ for (const t of TARGETS) {
   const page = await ctx.newPage();
   const logs = [];
   page.on('console', (m) => {
-    if (m.text().includes('[arbiter]')) logs.push(m.text());
+    if (m.text().includes('[cocarde]')) logs.push(m.text());
   });
   try {
     await page.goto(t.url, { waitUntil: 'domcontentloaded', timeout: 45_000 });
@@ -59,7 +59,7 @@ for (const t of TARGETS) {
       .click({ timeout: 5_000 }).catch(() => {});
     // laisser la chaîne complète tourner (observer → messaging → OFF éventuel)
     await page.waitForTimeout(8_000);
-    const badges = await page.evaluate(() => document.querySelectorAll('arbiter-badge-host[data-arbiter-badge]').length);
+    const badges = await page.evaluate(() => document.querySelectorAll('cocarde-badge-host[data-cocarde-badge]').length);
     const cards = await page.evaluate(() => document.querySelectorAll('[data-grid-data], [data-gridbox-impression], article.product-thumbnail').length);
     console.log(`${t.id} : ${badges} badge(s) rendus sur ${cards} carte(s) — logs: ${logs.join(' | ') || '(aucun)'}`);
     if (badges > 0) {

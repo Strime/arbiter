@@ -4,15 +4,17 @@ Checklist et textes prêts à coller pour Chrome Web Store, Firefox AMO, Edge Ad
 
 ## Identité (figée — ne plus changer après la 1re soumission)
 
-- Nom : **Arbiter** — disponibilité vérifiée (14 août 2026) : rien sur AMO,
-  deux homonymes confidentiels sans audience sur Chrome (« Arbiter — Recall
-  JIRA tickets », « Mail Arbiter »), pas de marque FR/UE bloquante trouvée
-  (marques US existantes : Elasticsearch « ARBITER » classe 42, ArbiterSports —
-  publics B2B éloignés, risque de confusion très faible). Reste : un coup d'œil
-  manuel TMview/INPI (2 min) et Edge au moment de la soumission.
-- **Nom de fiche recommandé** : « Arbiter — Origine des produits (FR/EU/US) »
-  (~35 caractères, < 45 max CWS) : « Arbiter » seul se noie dans les outils
-  d'arbitrage en recherche store, le suffixe indexe « origine »/« produits ».
+- Nom : **Cocarde** — décision du 14 août 2026, en remplacement d'« Arbiter »
+  (mot anglais, noyé dans les outils d'arbitrage en recherche store, n'évoquait
+  ni l'origine ni les courses). Vérification rapide (14 août 2026) : aucune
+  extension ni app grand public homonyme trouvée en recherche web (CWS/AMO).
+  Reste AVANT soumission : recherche directe dans les stores + contrôle
+  TMview/INPI (2 min) + Edge au moment venu.
+  (Historique : l'audit complet du 14 août 2026 portait sur « Arbiter » —
+  AMO vide, deux homonymes confidentiels sur Chrome, marques US éloignées.)
+- **Nom de fiche recommandé** : « Cocarde — Origine des produits (FR/EU/US) »
+  (41 caractères, < 45 max CWS) : le suffixe indexe « origine »/« produits »
+  en recherche store.
 - id Firefox (`browser_specific_settings.gecko.id`) : `gaetan@alpsan.fr`
   — modifiable tant qu'aucune soumission AMO n'a eu lieu, plus jamais ensuite.
 - Version : gérée par `package.json` (`version`), propagée par WXT.
@@ -27,7 +29,7 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ## Description longue (base commune)
 
-> Arbiter ajoute un badge d'origine sur les produits des drives Carrefour,
+> Cocarde ajoute un badge d'origine sur les produits des drives Carrefour,
 > Intermarché, Auchan, Leclerc et Lidl.
 >
 > L'origine est mesurée sur deux dimensions distinctes :
@@ -75,7 +77,7 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ### Chrome Web Store
 - Compte développeur (5 $ une fois), fiche + formulaire données + privacy URL.
-- Upload : `npm run zip` → `.output/arbiter-<version>-chrome.zip`.
+- Upload : `npm run zip` → `.output/cocarde-<version>-chrome.zip`.
 
 ### Firefox AMO
 - `npm run zip:firefox` → zip + `-sources.zip` (obligatoire, build minifié).

@@ -40,7 +40,7 @@
   text-decoration: none;
 }
 
-.brand img {
+.brand svg {
   width: 26px;
   height: 26px;
 }
@@ -227,7 +227,7 @@
 }
 
 .cta-band .eyebrow {
-  color: #9db1e8;
+  color: #9bbfe4;
 }
 
 .cta-band h2 {

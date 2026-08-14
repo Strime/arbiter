@@ -2,8 +2,8 @@
  * Design tokens — unique source de vérité visuelle de la landing.
  *
  * Thème clair unique, assumé : chaque surface peint son fond explicitement.
- * L'accent est le bleu du badge FR de l'extension — l'identité graphique
- * vient du produit lui-même, pas d'une charte externe.
+ * L'accent est le bleu de la cocarde (= bleu du drapeau FR du badge) —
+ * l'identité graphique vient du produit lui-même, pas d'une charte externe.
  */
 :root {
   /* Encre & fonds (neutres biaisés bleu, accordés à l'accent) */
@@ -14,10 +14,10 @@
   --paper-tint: #f3f5f9;
   --line: #e3e7ee;
 
-  /* Accent (= couleur du badge FR) */
-  --accent: #1e40af;
-  --accent-hover: #17348f;
-  --accent-soft: #e9edf9;
+  /* Accent (= bleu de la cocarde) */
+  --accent: #0055a4;
+  --accent-hover: #00458a;
+  --accent-soft: #e6eef8;
 
   /* Sémantique badge — réservée à la démo, jamais utilisée comme accent de page */
   --badge-fr: #1e40af;

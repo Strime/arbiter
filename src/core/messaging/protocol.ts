@@ -9,7 +9,7 @@ export const RequestOriginPayloadSchema = z.object({
 });
 
 export const RequestOriginMessageSchema = z.object({
-  type: z.literal('arbiter/request-origin'),
+  type: z.literal('cocarde/request-origin'),
   payload: RequestOriginPayloadSchema,
 });
 
@@ -46,16 +46,16 @@ export const OriginVerdictPayloadSchema = z.object({
 });
 
 export const OriginResponseMessageSchema = z.object({
-  type: z.literal('arbiter/origin-response'),
+  type: z.literal('cocarde/origin-response'),
   payload: OriginVerdictPayloadSchema,
 });
 
 export const GetStatsMessageSchema = z.object({
-  type: z.literal('arbiter/get-stats'),
+  type: z.literal('cocarde/get-stats'),
 });
 
 export const StatsResponseMessageSchema = z.object({
-  type: z.literal('arbiter/stats-response'),
+  type: z.literal('cocarde/stats-response'),
   payload: z.object({
     badgeCount: z.number().int().nonnegative(),
   }),

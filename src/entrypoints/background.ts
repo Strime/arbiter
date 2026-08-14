@@ -22,7 +22,7 @@ export default defineBackground(() => {
     browser.tabs
       .create({ url: browser.runtime.getURL('/onboarding.html') })
       .catch((error: unknown) => {
-        console.error('[arbiter] onboarding tab creation failed', error);
+        console.error('[cocarde] onboarding tab creation failed', error);
       });
     // Première vérification OTA dès l'install (l'alarme prendra le relais).
     void runBrandsDbUpdate();
@@ -31,7 +31,7 @@ export default defineBackground(() => {
   browser.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === OFF_CACHE_PURGE_ALARM) {
       container.offCache.purge().catch((error: unknown) => {
-        console.error('[arbiter] off-cache purge failed', error);
+        console.error('[cocarde] off-cache purge failed', error);
       });
       return;
     }
@@ -71,7 +71,7 @@ export default defineBackground(() => {
       .call(parsed.data.payload)
       .then((verdict) => {
         const response: OriginResponseMessage = {
-          type: 'arbiter/origin-response',
+          type: 'cocarde/origin-response',
           payload: {
             brand: verdict.brand,
             manufacturing: verdict.manufacturing,
@@ -82,7 +82,7 @@ export default defineBackground(() => {
         sendResponse(response);
       })
       .catch((error: unknown) => {
-        console.error('[arbiter] determine-origin failed', error);
+        console.error('[cocarde] determine-origin failed', error);
         sendResponse(null);
       });
 

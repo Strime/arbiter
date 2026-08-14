@@ -2,7 +2,7 @@ import type { ProductCardListener } from '../domain/entities/site-adapter';
 import type { RawProductCard } from '../domain/entities/raw-product-card';
 import type { MutationObserverHelper } from '../../../core/observer/mutation-observer-helper';
 
-const BADGE_HOST_MARKER = 'data-arbiter-badge';
+const BADGE_HOST_MARKER = 'data-cocarde-badge';
 
 interface CardObserverOptions {
   readonly observerHelper: MutationObserverHelper;

@@ -34,7 +34,7 @@ bloqueurs de pub), aucune donnée utilisateur envoyée.
 └──────────────────────────────────────────────────┘
                      │  alarme quotidienne (background)
                      ▼
-   storage.local  arbiter.brands-db:{version,data}
+   storage.local  cocarde.brands-db:{version,data}
                      │
                      ▼
    BrandDbProvider : overlay storage si valide, sinon bundle
@@ -132,7 +132,7 @@ Sémantique des versions (pour éviter toute divergence) :
      de `max(DB bundlée, overlay précédemment appliqué)` — comparer au seul
      bundle figé laisserait passer un gros recul une fois la vraie DB devenue
      bien plus grosse que le bundle de la dernière release.
-4. Écriture `storage.local` sous `arbiter.brands-db:` (~500 Ko ; Chrome :
+4. Écriture `storage.local` sous `cocarde.brands-db:` (~500 Ko ; Chrome :
    quota 10 Mo sans limite par item — `QUOTA_BYTES_PER_ITEM` n'existe que pour
    `storage.sync` ; Firefox : quota géré par le storage manager du profil,
    plus généreux — très large marge dans les deux cas, en cohabitation avec le

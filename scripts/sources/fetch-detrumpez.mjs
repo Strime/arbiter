@@ -33,7 +33,7 @@ export const fetchDetrumpezBrands = async ({ useCache = true } = {}) => {
   console.log(`[detrumpez] fetching ${SOURCE_URL}`);
   const res = await fetch(SOURCE_URL, {
     headers: {
-      'User-Agent': 'arbiter-brand-db-builder/0.1 (+https://github.com/Gaetan-S/arbiter)',
+      'User-Agent': 'cocarde-brand-db-builder/0.1 (+https://github.com/Gaetan-S/arbiter)',
       Accept: 'application/json',
     },
   });

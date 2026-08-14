@@ -1,9 +1,9 @@
-# Landing page Arbiter
+# Landing page Cocarde
 
 Site vitrine statique — aucun build, aucune dépendance.
 
-**En ligne : https://arbiter-extension.web.app** (Firebase Hosting, projet
-`arbiter-extension` — le même projet portera Auth/Firestore/Functions en V1).
+**En ligne : https://cocarde-extension.web.app** (Firebase Hosting, projet
+`cocarde-extension` — le même projet portera Auth/Firestore/Functions en V1).
 
 ## Déployer
 
@@ -31,7 +31,7 @@ landing/
 ├── css/
 │   ├── tokens.css      # design tokens — SEULE source de vérité (couleurs, typo, rythme)
 │   ├── base.css        # reset léger, @font-face, typographie, utilitaires
-│   ├── components.css  # boutons, chips, cartes, réplique du badge Arbiter
+│   ├── components.css  # boutons, chips, cartes, réplique du badge Cocarde
 │   └── sections.css    # mise en page section par section + responsive
 ├── js/
 │   └── main.js         # amélioration progressive (header, reveal, tap des badges)

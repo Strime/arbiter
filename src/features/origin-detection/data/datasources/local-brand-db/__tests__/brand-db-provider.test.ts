@@ -4,7 +4,7 @@ import { BrandDbProvider, resetBrandDbProviderCacheForTests } from '../brand-db-
 import { OVERLAY_DATA_KEY, OVERLAY_VERSION_KEY } from '../overlay-storage';
 import type { BrandsFile } from '../schemas';
 
-const BUNDLED_URL = 'chrome-extension://arbiter/data/brands.json';
+const BUNDLED_URL = 'chrome-extension://cocarde/data/brands.json';
 
 const entry = (name: string, country: string): BrandsFile['brands'][number] => ({
   name,
@@ -32,7 +32,7 @@ describe('BrandDbProvider', () => {
     fakeBrowser.reset();
     resetBrandDbProviderCacheForTests();
     fakeBrowser.runtime.getURL = ((path: string) =>
-      `chrome-extension://arbiter${path}`) as typeof fakeBrowser.runtime.getURL;
+      `chrome-extension://cocarde${path}`) as typeof fakeBrowser.runtime.getURL;
     fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       if (String(input) === BUNDLED_URL) return new Response(JSON.stringify(BUNDLED_FILE));
       throw new Error(`unexpected fetch: ${String(input)}`);

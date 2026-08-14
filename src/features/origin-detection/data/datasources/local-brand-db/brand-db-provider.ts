@@ -41,7 +41,7 @@ export class BrandDbProvider {
       // Échec de lecture (asset ou storage) : Map vide, jamais d'erreur
       // sortante, et pas de mémoïsation de l'échec (retente au prochain appel).
       cachedMap = null;
-      console.debug('[arbiter] brand-db load failed', error);
+      console.debug('[cocarde] brand-db load failed', error);
       return new Map<string, BrandEntryModel>();
     });
     return cachedMap;
