@@ -45,3 +45,6 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./.output/data-publish
           keep_files: false
+          # Sans ça l'action pose un .nojekyll : les .md ne seraient jamais
+          # convertis et /PRIVACY.html (URL exigée par le CWS) n'existerait pas.
+          enable_jekyll: true
