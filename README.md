@@ -1,6 +1,6 @@
 # Arbiter
 
-Extension cross-browser qui affiche l'origine des produits (marque + fabrication) sur les sites de drive français — Carrefour, Intermarché, Auchan, Leclerc. But : favoriser FR/EU, éviter US.
+Extension cross-browser qui affiche l'origine des produits (marque + fabrication) sur les sites de drive français — Carrefour, Intermarché, Auchan, Leclerc, Lidl. But : favoriser FR/EU, éviter US.
 
 L'origine est mesurée sur **deux dimensions distinctes** :
 - **Marque** : nationalité de l'entreprise propriétaire (Head & Shoulders = US, même fabriqué en Belgique).
@@ -10,7 +10,7 @@ L'origine est mesurée sur **deux dimensions distinctes** :
 
 - [WXT](https://wxt.dev/) + Vite + React 19 + TypeScript strict
 - [Zod](https://zod.dev/) pour la validation runtime de toute donnée externe
-- Cross-browser : Chrome MV3, Firefox MV3, Edge MV3
+- Cross-browser : Chrome MV3, Firefox MV2 (cible par défaut de WXT 0.20), Edge MV3
 - V0 : 100% local (chrome.storage + brand DB bundled + OpenFoodFacts via background)
 - V1 (roadmap) : Firebase Auth + Firestore + Cloud Functions
 
@@ -72,10 +72,11 @@ Règles non négociables :
 
 | Site | Statut V0 |
 |---|---|
-| Carrefour Drive | adapter en place (sélecteurs à valider sur DOM réel) |
-| Intermarché Drive | à venir |
-| Auchan Drive | à venir |
-| Leclerc Drive | à venir |
+| Carrefour Drive | adapter calibré sur DOM réel |
+| Intermarché Drive | adapter calibré sur DOM réel |
+| Auchan Drive | adapter en place — sélecteurs spéculatifs, jamais validés en live |
+| Leclerc Drive | adapter en place — sélecteurs spéculatifs, jamais validés en live |
+| Lidl | adapter en place (pas d'EAN extrait → pas de fallback OpenFoodFacts) |
 
 ## Roadmap
 
