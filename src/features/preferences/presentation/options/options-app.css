@@ -1,0 +1,58 @@
+@import '../theme.css';
+
+.options {
+  max-width: 640px;
+  margin: 24px auto;
+  padding: 16px;
+}
+
+.options__title {
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.options__section {
+  margin-bottom: 24px;
+}
+
+.options__section-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--arbiter-muted);
+}
+
+.options__toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.options__muted {
+  color: var(--arbiter-muted);
+  font-size: 13px;
+}
+
+.options__about {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.options__about li {
+  margin-top: 6px;
+}
+
+.options__footer {
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid var(--arbiter-border);
+  font-size: 12px;
+  color: var(--arbiter-muted);
+}

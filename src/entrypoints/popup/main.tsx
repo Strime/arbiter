@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       getPreferences={container.getPreferences}
       updatePreferences={container.updatePreferences}
       repository={container.preferencesRepository}
+      messagingClient={container.messagingClient}
     />
   </React.StrictMode>,
 );

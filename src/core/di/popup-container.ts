@@ -1,3 +1,4 @@
+import { MessagingClient } from '../messaging/client';
 import { ChromePreferencesRepository } from '../../features/preferences/data/repositories/chrome-preferences-repository';
 import { GetPreferences } from '../../features/preferences/domain/use-cases/get-preferences';
 import { UpdatePreferences } from '../../features/preferences/domain/use-cases/update-preferences';
@@ -7,6 +8,7 @@ export interface PopupContainer {
   readonly getPreferences: GetPreferences;
   readonly updatePreferences: UpdatePreferences;
   readonly preferencesRepository: PreferencesRepository;
+  readonly messagingClient: MessagingClient;
 }
 
 export function buildPopupContainer(): PopupContainer {
@@ -15,5 +17,6 @@ export function buildPopupContainer(): PopupContainer {
     getPreferences: new GetPreferences(repo),
     updatePreferences: new UpdatePreferences(repo),
     preferencesRepository: repo,
+    messagingClient: new MessagingClient(),
   };
 }

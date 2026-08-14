@@ -1,0 +1,35 @@
+/* Jetons de thème partagés par la popup, les options et l'onboarding.
+   Fond ET couleur de texte explicites, avec variante sombre. */
+
+:root {
+  --arbiter-bg: #ffffff;
+  --arbiter-fg: #111827;
+  --arbiter-muted: #6b7280;
+  --arbiter-border: #e5e7eb;
+  --arbiter-surface: #f3f4f6;
+  --arbiter-link: #1d4ed8;
+  --arbiter-ok: #15803d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --arbiter-bg: #111827;
+    --arbiter-fg: #f9fafb;
+    --arbiter-muted: #9ca3af;
+    --arbiter-border: #374151;
+    --arbiter-surface: #1f2937;
+    --arbiter-link: #93c5fd;
+    --arbiter-ok: #4ade80;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--arbiter-bg);
+  color: var(--arbiter-fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+a {
+  color: var(--arbiter-link);
+}
