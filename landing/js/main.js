@@ -48,7 +48,19 @@
     if (event.target instanceof Element && event.target.closest('.ab-badge')) return;
     badges.forEach(close);
   });
+
+  /* WCAG 1.4.13 « dismissible » : Échap masque aussi les tooltips affichés
+     par hover/focus pur CSS ; blur/mouseleave réarment le badge. */
   window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') badges.forEach(close);
+    if (event.key !== 'Escape') return;
+    badges.forEach((badge) => {
+      close(badge);
+      badge.classList.add('is-dismissed');
+    });
+  });
+  badges.forEach((badge) => {
+    ['blur', 'mouseleave'].forEach((type) =>
+      badge.addEventListener(type, () => badge.classList.remove('is-dismissed'))
+    );
   });
 })();

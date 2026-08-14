@@ -1,9 +1,12 @@
 /* Socle : reset léger, typographie, rythme des sections, utilitaires. */
 
+/* Fonte variable instanciée aux plages réellement utilisées par la page
+   (wght 400–750, opsz 12–48) : −15 % de poids, rendu identique.
+   Renommer le fichier à chaque régénération : servi en cache immutable 1 an. */
 @font-face {
   font-family: 'Bricolage Grotesque';
-  src: url('../assets/fonts/bricolage-grotesque-latin.woff2') format('woff2');
-  font-weight: 400 800;
+  src: url('../assets/fonts/bricolage-grotesque-latin-v2.woff2') format('woff2');
+  font-weight: 400 750;
   font-stretch: 100%;
   font-display: swap;
 }

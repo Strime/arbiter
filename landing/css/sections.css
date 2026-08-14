@@ -179,6 +179,34 @@
   color: var(--ink);
 }
 
+/* ---------- En conditions réelles ---------- */
+
+.proof__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.proof__item {
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.proof__item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.proof__item figcaption {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
 /* ---------- Étapes ---------- */
 
 .steps__grid {
@@ -248,9 +276,34 @@
   margin-top: 0.5rem;
 }
 
+.cta-band__stores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.cta-band .chip {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cta-band__note {
+  max-width: 46ch;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
 .cta-band__trust {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
+}
+
+/* Le focus bleu #0055a4 est illisible sur le fond sombre (2,4:1) :
+   on reprend le bleu clair de l'eyebrow du bandeau (9,1:1). */
+.cta-band :focus-visible {
+  outline-color: #9bbfe4;
 }
 
 /* ---------- Footer ---------- */
@@ -299,7 +352,8 @@
 @media (max-width: 900px) {
   .concept__grid,
   .privacy__grid,
-  .steps__grid {
+  .steps__grid,
+  .proof__grid {
     grid-template-columns: 1fr;
     max-width: 560px;
     margin-inline: auto;

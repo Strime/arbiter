@@ -9,7 +9,7 @@
   /* Encre & fonds (neutres biaisés bleu, accordés à l'accent) */
   --ink: #131a26;
   --ink-soft: #4b5565;
-  --ink-faint: #8b93a2;
+  --ink-faint: #667080; /* AA : 5,0:1 sur --paper, 4,6:1 sur --paper-tint */
   --paper: #ffffff;
   --paper-tint: #f3f5f9;
   --line: #e3e7ee;

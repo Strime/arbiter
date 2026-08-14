@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page introuvable — Cocarde</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <style>
+    .nf {
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: 1.25rem;
+      text-align: center;
+      padding: var(--gutter);
+    }
+    .nf svg { width: 72px; height: 72px; }
+    .nf p { color: var(--ink-soft); max-width: 40ch; }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <svg viewBox="0 0 128 128" aria-hidden="true">
+      <circle cx="64" cy="64" r="62" fill="#EF4135"/>
+      <circle cx="64" cy="64" r="40" fill="#fff"/>
+      <circle cx="64" cy="64" r="20" fill="#0055A4"/>
+    </svg>
+    <h1>Page introuvable</h1>
+    <p>Cette page n’existe pas — mais l’origine de vos produits, elle, est à un clic.</p>
+    <a class="btn btn--primary" href="/">Retour à l’accueil</a>
+  </main>
+</body>
+</html>

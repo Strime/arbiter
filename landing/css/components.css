@@ -299,7 +299,7 @@
   height: 84px;
 }
 
-.demo-card h3 {
+.demo-card__title {
   font-family: var(--font-body);
   font-size: 0.86rem;
   font-weight: 500;
@@ -406,6 +406,17 @@
 .ab-badge.is-open .ab-tip {
   opacity: 1;
   transform: translateY(0);
+  /* WCAG 1.4.13 « hoverable » : le tip étant enfant du bouton, le survoler
+     maintient :hover — le panneau reste lisible sous le pointeur. */
+  pointer-events: auto;
+}
+
+/* WCAG 1.4.13 « dismissible » : Échap masque le tooltip même affiché par
+   hover/focus pur CSS (classe posée par main.js, retirée au blur/mouseleave). */
+.ab-badge.is-dismissed .ab-tip {
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
 }
 
 /* Variante épinglée : panneau toujours visible sous la pastille de la carte

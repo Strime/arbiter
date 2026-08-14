@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cocarde-extension.web.app/sitemap.xml

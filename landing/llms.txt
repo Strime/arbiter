@@ -1,0 +1,26 @@
+# Cocarde
+
+> Extension navigateur (Chrome, Firefox) qui affiche l'origine des produits —
+> FR, EU, US — sur les drives français : Carrefour, Intermarché, Auchan,
+> Leclerc et Lidl. Gratuite, open source (MIT), 100 % locale : aucune donnée
+> collectée, aucun tracker.
+
+L'origine est mesurée sur deux dimensions distinctes :
+- **Marque** : nationalité de l'entreprise propriétaire de la marque
+  (groupes inclus — ex. Head & Shoulders → Procter & Gamble, États-Unis).
+- **Fabrication** : lieu physique de production (mentions « Origine : … »,
+  labels AOP/AOC/IGP, données OpenFoodFacts sous licence ODbL).
+
+Chaque dimension est affichée avec un indice de confiance et sa source.
+Statut : pré-lancement — soumissions Chrome Web Store et Firefox Add-ons en
+préparation.
+
+## Pages
+
+- [Accueil](https://cocarde-extension.web.app/) : présentation, démo du badge,
+  captures réelles, FAQ.
+- [Politique de confidentialité](https://strime.github.io/arbiter-data/PRIVACY.html)
+
+## Contact
+
+- E-mail : sancassani.gaetan@gmail.com
