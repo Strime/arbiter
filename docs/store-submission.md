@@ -7,7 +7,7 @@ Checklist et textes prêts à coller pour Chrome Web Store, Firefox AMO, Edge Ad
 - Nom : **Arbiter** — ⚠️ vérifier la disponibilité du nom sur les 3 stores avant
   de figer (nom générique, collisions possibles) ; sinon prévoir « Arbiter — origine
   des produits ».
-- id Firefox (`browser_specific_settings.gecko.id`) : `arbiter@sancassani.dev`
+- id Firefox (`browser_specific_settings.gecko.id`) : `gaetan@alpsan.fr`
   — modifiable tant qu'aucune soumission AMO n'a eu lieu, plus jamais ensuite.
 - Version : gérée par `package.json` (`version`), propagée par WXT.
 

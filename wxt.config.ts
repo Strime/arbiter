@@ -21,7 +21,7 @@ export default defineConfig({
       browser_specific_settings: {
         gecko: {
           // Identité AMO — figée à la première soumission, ne plus changer ensuite.
-          id: 'arbiter@sancassani.dev',
+          id: 'gaetan@alpsan.fr',
           strict_min_version: '115.0',
           // Aucune donnée transmise au développeur ; stockage 100 % local,
           // OpenFoodFacts appelé en fallback fonctionnel uniquement (cf. PRIVACY.md).
