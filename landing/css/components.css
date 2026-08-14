@@ -292,12 +292,11 @@
   height: 118px;
   border-radius: var(--radius-sm);
   background: var(--paper-tint);
-  color: #c3cad6;
 }
 
 .demo-card__media svg {
-  width: 56px;
-  height: 56px;
+  width: 84px;
+  height: 84px;
 }
 
 .demo-card h3 {
