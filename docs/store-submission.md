@@ -4,9 +4,15 @@ Checklist et textes prêts à coller pour Chrome Web Store, Firefox AMO, Edge Ad
 
 ## Identité (figée — ne plus changer après la 1re soumission)
 
-- Nom : **Arbiter** — ⚠️ vérifier la disponibilité du nom sur les 3 stores avant
-  de figer (nom générique, collisions possibles) ; sinon prévoir « Arbiter — origine
-  des produits ».
+- Nom : **Arbiter** — disponibilité vérifiée (14 août 2026) : rien sur AMO,
+  deux homonymes confidentiels sans audience sur Chrome (« Arbiter — Recall
+  JIRA tickets », « Mail Arbiter »), pas de marque FR/UE bloquante trouvée
+  (marques US existantes : Elasticsearch « ARBITER » classe 42, ArbiterSports —
+  publics B2B éloignés, risque de confusion très faible). Reste : un coup d'œil
+  manuel TMview/INPI (2 min) et Edge au moment de la soumission.
+- **Nom de fiche recommandé** : « Arbiter — Origine des produits (FR/EU/US) »
+  (~35 caractères, < 45 max CWS) : « Arbiter » seul se noie dans les outils
+  d'arbitrage en recherche store, le suffixe indexe « origine »/« produits ».
 - id Firefox (`browser_specific_settings.gecko.id`) : `gaetan@alpsan.fr`
   — modifiable tant qu'aucune soumission AMO n'a eu lieu, plus jamais ensuite.
 - Version : gérée par `package.json` (`version`), propagée par WXT.
@@ -83,5 +89,11 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 - **OpenFoodFacts (ODbL)** : attribution requise → présente dans PRIVACY.md,
   la description store et le tooltip (« source : OpenFoodFacts »).
-- **detrumpez-vous (~93 % de brands.json)** : ⚠️ vérifier la licence du repo
-  source et créditer dans le README avant publication. Point juridique restant.
+- **DeTrumpez-vous (~92 % de brands.json)** : tranché (14 août 2026) — le repo
+  source [Sacha213/detrumpez-vous](https://github.com/Sacha213/detrumpez-vous)
+  est sous **GPL-3.0**, données incluses. Notre redistribution est autorisée
+  avec : attribution (faite sur l'index d'arbiter-data), dataset dérivé publié
+  sous GPL-3.0 (LICENSE-DATA sur le site de données), mention de modification.
+  Le code de l'extension reste MIT (agrégat, GPLv3 §5) — un fichier de données
+  statique lu à l'exécution ne contamine pas le code. Optionnel : issue de
+  courtoisie chez l'auteur pour le prévenir de la réutilisation.

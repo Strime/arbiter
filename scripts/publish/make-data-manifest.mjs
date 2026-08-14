@@ -100,6 +100,10 @@ const main = async () => {
   // front matter YAML — sans lui, les .md sont servis bruts et /PRIVACY.html
   // n'existe pas. Thème Primer natif Pages pour un rendu lisible.
   await writeFile(join(OUT_DIR, '_config.yml'), 'theme: jekyll-theme-primer\ntitle: Arbiter\n', 'utf-8');
+  // brands.json est dérivé à ~92 % de DeTrumpez-vous (GPL-3.0) : le dataset
+  // publié porte la GPL-3.0 (copyleft), le code de l'extension reste MIT
+  // (agrégat, GPLv3 §5).
+  await writeFile(join(OUT_DIR, 'LICENSE-DATA'), await readFile(join(__dirname, 'LICENSE-DATA')));
   const privacy = await readFile(join(ROOT, 'PRIVACY.md'), 'utf-8');
   await writeFile(
     join(OUT_DIR, 'PRIVACY.md'),
@@ -120,6 +124,20 @@ const main = async () => {
       '',
       '- [Politique de confidentialité](PRIVACY.html)',
       `- Base de marques : [manifest](data/brands-manifest.json) · [données](data/brands.json) — version \`${dataVersion}\``,
+      '',
+      '## Sources et licence des données',
+      '',
+      'La base de marques (`data/brands.json`) est une œuvre dérivée de la liste',
+      '`assets/brandlist.json` du projet [DeTrumpez-vous](https://github.com/Sacha213/detrumpez-vous)',
+      'de Sacha213, distribuée sous licence',
+      '[GNU GPL v3.0](https://github.com/Sacha213/detrumpez-vous/blob/main/LICENSE).',
+      "Environ 92 % des entrées en proviennent ; elles ont été filtrées, remappées et",
+      'fusionnées avec d autres sources (Wikidata CC0, ajouts manuels) par le projet',
+      'Arbiter — modifications 2026. Conformément à la GPL v3, `data/brands.json`',
+      'est distribué sous licence **GPL-3.0** ([LICENSE-DATA](LICENSE-DATA)).',
+      "Les données d'origine de fabrication proviennent en partie",
+      "d'[OpenFoodFacts](https://world.openfoodfacts.org) (© les contributeurs",
+      'OpenFoodFacts, licence ODbL).',
       '',
       'Publication automatique par la CI du projet ; aucun contenu éditorial ici.',
       '',
