@@ -27,8 +27,13 @@ export default defineBackground(() => {
     });
   });
 
-  void browser.alarms.create(OFF_CACHE_PURGE_ALARM, {
-    periodInMinutes: OFF_CACHE_PURGE_PERIOD_MINUTES,
+  // Un create() inconditionnel remplacerait l'alarme à chaque réveil du service
+  // worker et réinitialiserait son décompte — elle pourrait ne jamais sonner.
+  void browser.alarms.get(OFF_CACHE_PURGE_ALARM).then((existing) => {
+    if (existing) return;
+    return browser.alarms.create(OFF_CACHE_PURGE_ALARM, {
+      periodInMinutes: OFF_CACHE_PURGE_PERIOD_MINUTES,
+    });
   });
 
   browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
