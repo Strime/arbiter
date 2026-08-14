@@ -96,10 +96,23 @@ const main = async () => {
     `${JSON.stringify(manifest, null, 2)}\n`,
     'utf-8',
   );
-  await writeFile(join(OUT_DIR, 'PRIVACY.md'), await readFile(join(ROOT, 'PRIVACY.md')));
+  // Jekyll (GitHub Pages) ne convertit en HTML que les fichiers portant un
+  // front matter YAML — sans lui, les .md sont servis bruts et /PRIVACY.html
+  // n'existe pas. Thème Primer natif Pages pour un rendu lisible.
+  await writeFile(join(OUT_DIR, '_config.yml'), 'theme: jekyll-theme-primer\ntitle: Arbiter\n', 'utf-8');
+  const privacy = await readFile(join(ROOT, 'PRIVACY.md'), 'utf-8');
+  await writeFile(
+    join(OUT_DIR, 'PRIVACY.md'),
+    `---\ntitle: Politique de confidentialité — Arbiter\n---\n\n${privacy}`,
+    'utf-8',
+  );
   await writeFile(
     join(OUT_DIR, 'index.md'),
     [
+      '---',
+      'title: Arbiter — données publiques',
+      '---',
+      '',
       '# Arbiter — données publiques',
       '',
       "Site de données de l'extension Arbiter (badge d'origine des produits",
