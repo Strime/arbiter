@@ -1,0 +1,27 @@
+<!--
+  FIXTURE SYNTHÉTIQUE — pas une capture réelle.
+  DOM minimal construit à la main d'après les sélecteurs actuels de
+  intermarche-selectors.ts :
+    - carte   : [data-testid="product-layout"]
+    - lien    : a[href*="/produit/"] (EAN extrait du href, 8 à 14 chiffres)
+    - titre   : h2.stime-product--details__title
+    - marque  : .stime-product--details__summary > div:first-child, dernier <p>
+                (suffixe MDD « , une marque Intermarché » retiré par l'adapter)
+  À remplacer par une capture réelle du DOM de intermarche.com dès que
+  possible (les classes/structures du site évoluent régulièrement).
+-->
+<div data-testid="product-layout">
+  <a href="/produit/lait-demi-ecreme-uht-bio-1l/3560070976478">
+    <img src="" alt="Lait demi-écrémé UHT bio 1L" />
+  </a>
+  <div class="stime-product--details">
+    <h2 class="stime-product--details__title">Lait demi-écrémé UHT bio 1L</h2>
+    <div class="stime-product--details__summary">
+      <div>
+        <p>Bouteille de 1L</p>
+        <p>Pâturages, une marque Intermarché</p>
+      </div>
+      <div class="stime-product--details__price">0,99 €</div>
+    </div>
+  </div>
+</div>
