@@ -11,6 +11,7 @@ lerna-debug.log*
 
 node_modules
 .output
+.firebase/
 stats.html
 stats-*.json
 .wxt

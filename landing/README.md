@@ -1,7 +1,19 @@
 # Landing page Arbiter
 
-Site vitrine statique — aucun build, aucune dépendance. Déployable tel quel
-(GitHub Pages, Netlify, n'importe quel serveur de fichiers).
+Site vitrine statique — aucun build, aucune dépendance.
+
+**En ligne : https://arbiter-extension.web.app** (Firebase Hosting, projet
+`arbiter-extension` — le même projet portera Auth/Firestore/Functions en V1).
+
+## Déployer
+
+```bash
+firebase deploy --only hosting
+```
+
+La config est à la racine du repo : `firebase.json` (répertoire public =
+`landing/`, cache immutable 1 an sur les fontes, 24 h sur css/js/png, 5 min
+sur le HTML) et `.firebaserc` (projet par défaut).
 
 ## Aperçu local
 
