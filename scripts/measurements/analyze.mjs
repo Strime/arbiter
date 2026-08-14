@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
-const BRANDS_PATH = path.join(ROOT, '..', '..', 'src', 'features', 'origin-detection', 'data', 'datasources', 'local-brand-db', 'brands.json');
+const BRANDS_PATH = path.join(ROOT, '..', '..', 'public', 'data', 'brands.json');
 
 const DIACRITICS = /[̀-ͯ]/g;
 const NON_ALPHANUM = /[^a-z0-9]/g;

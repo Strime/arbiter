@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchOffTaxonomy, extractBrandsFromTaxonomy } from './sources/fetch-off-top.mjs';
@@ -14,7 +14,9 @@ const CARREFOUR_HARVEST = join(__dirname, 'sources/harvest-carrefour.json');
 const AUCHAN_HARVEST = join(__dirname, 'sources/harvest-auchan.json');
 const MANUAL_OVERRIDES = join(__dirname, 'sources/manual-overrides.json');
 const EXCLUSIONS = join(__dirname, 'sources/exclusions.json');
-const OUTPUT = join(ROOT, 'src/features/origin-detection/data/datasources/local-brand-db/brands.json');
+// Chemin canonique de la DB bundlée : copiée telle quelle à la racine du zip par WXT
+// (servie à /data/brands.json), et publiée à l'identique sur gh-pages par le job publish-data.
+const OUTPUT = join(ROOT, 'public/data/brands.json');
 const TODAY = '2026-05-25';
 
 const readJson = async (p) => JSON.parse(await readFile(p, 'utf-8'));
@@ -128,6 +130,7 @@ const main = async () => {
     .join(',\n');
   const rendered = `{\n  "version": 1,\n  "brands": [\n${jsonBody}\n  ]\n}\n`;
 
+  await mkdir(dirname(OUTPUT), { recursive: true });
   await writeFile(OUTPUT, rendered, 'utf-8');
 
   // Stats.

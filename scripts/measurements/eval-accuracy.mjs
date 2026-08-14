@@ -8,11 +8,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const BRANDS_PATH = path.join(
-  __dirname, '..', '..',
-  'src/features/origin-detection/data/datasources/local-brand-db/brands.json',
-);
+const BRANDS_PATH = path.join(__dirname, '..', '..', 'public/data/brands.json');
 const GROUND_TRUTH_PATH = path.join(__dirname, 'ground-truth.json');
+
+// Mode gate (--gate) : utilisé en CI (publish-data) comme garde de non-régression.
+// Sort en code 1 si couverture < 95 % ou précision pays < 98 % sur les cas certains.
+const GATE_MODE = process.argv.includes('--gate');
+const GATE_MIN_COVERAGE = 0.95;
+const GATE_MIN_COUNTRY_PRECISION = 0.98;
 
 // Réplique de src/features/origin-detection/data/datasources/local-brand-db/normalize.ts
 const DIACRITICS = /[̀-ͯ]/g;
@@ -118,4 +121,20 @@ console.log('');
 console.log(`--- cas incertains en désaccord (info, hors métriques) (${uncertainHits.length}) ---`);
 for (const d of uncertainHits) {
   console.log(`  ${d.brand.padEnd(28)} attendu ${d.expected.padEnd(9)} obtenu ${d.got.padEnd(9)} [${d.source}] ${d.note}`);
+}
+
+if (GATE_MODE) {
+  const coverage = certain.length === 0 ? 0 : hits / certain.length;
+  const countryPrecision = hits === 0 ? 0 : countryOk / hits;
+  const coverageOk = coverage >= GATE_MIN_COVERAGE;
+  const precisionOk = countryPrecision >= GATE_MIN_COUNTRY_PRECISION;
+  console.log('');
+  console.log('=== gate ===');
+  console.log(`couverture     : ${pct(hits, certain.length)} (seuil ≥ ${GATE_MIN_COVERAGE * 100}%) → ${coverageOk ? 'OK' : 'ÉCHEC'}`);
+  console.log(`précision pays : ${pct(countryOk, hits)} (seuil ≥ ${GATE_MIN_COUNTRY_PRECISION * 100}%) → ${precisionOk ? 'OK' : 'ÉCHEC'}`);
+  if (!coverageOk || !precisionOk) {
+    console.error('gate : ÉCHEC — publication bloquée');
+    process.exit(1);
+  }
+  console.log('gate : OK');
 }

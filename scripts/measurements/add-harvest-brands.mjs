@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const PATH = path.resolve('src/features/origin-detection/data/datasources/local-brand-db/brands.json');
+const PATH = path.resolve('public/data/brands.json');
 const TODAY = '2026-06-01';
 
 const additions = [

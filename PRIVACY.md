@@ -39,6 +39,18 @@ transmise.
 Les données d'origine issues d'OpenFoodFacts sont © les contributeurs
 OpenFoodFacts, sous licence ODbL.
 
+## Mise à jour des données de marques
+
+L'extension embarque une base de données de marques (marque → pays d'origine).
+Pour la maintenir à jour sans attendre une nouvelle version de l'extension, elle
+télécharge quotidiennement un fichier statique versionné depuis
+`strime.github.io` (GitHub Pages, l'hébergement du projet). Cette requête ne
+contient **aucune donnée** : pas de paramètre, pas d'identifiant, rien sur votre
+navigation — c'est le téléchargement d'un fichier public identique pour tous les
+utilisateurs. Comme pour tout téléchargement web (et tout CDN), l'hébergeur voit
+votre adresse IP. Le fichier téléchargé est stocké localement via
+`browser.storage.local`.
+
 ## Permissions demandées
 
 | Permission | Usage |
@@ -46,6 +58,7 @@ OpenFoodFacts, sous licence ODbL.
 | `storage` | Préférences + cache local |
 | Accès aux sites de drive listés | Afficher le badge d'origine sur les pages produits |
 | `world.openfoodfacts.org` | Requête produit par code-barres, en fallback |
+| `strime.github.io` | Téléchargement quotidien de la base de marques mise à jour (fichier statique, aucune donnée envoyée) |
 
 ## Contact
 

@@ -1,0 +1,45 @@
+# Publication OTA de la brand DB sur GitHub Pages (docs/brands-db-ota-updates.md, étape C).
+#
+# ⚠️ Étape manuelle UNIQUE avant le premier run : activer GitHub Pages sur le repo
+# (Settings → Pages → Deploy from a branch → branche `gh-pages`, dossier `/ (root)`).
+# La branche `gh-pages` est créée par le premier déploiement de ce workflow.
+# Ensuite : https://strime.github.io/arbiter/data/brands-manifest.json
+#           https://strime.github.io/arbiter/data/brands.json
+# Note : le CDN de Pages sert `max-age=600` → jusqu'à ~10 min de propagation.
+#
+# Déploiement CI-only : pas de push manuel sur gh-pages (c'est la barrière
+# d'intégrité réelle, le sha256 du manifest ne couvre que le transit).
+name: Publish data
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sources/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build:brands
+      # Gate de non-régression : échec (exit 1) si couverture < 95 %
+      # ou précision pays < 98 % sur les cas certains de ground-truth.json.
+      - run: npm run eval:brands -- --gate
+      - run: node scripts/publish/make-data-manifest.mjs
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./.output/data-publish
+          destination_dir: data
+          keep_files: false

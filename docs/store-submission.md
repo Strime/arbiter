@@ -52,6 +52,7 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 | `storage` | Stocke localement les préférences utilisateur et un cache 7 jours des réponses OpenFoodFacts. |
 | `*.carrefour.fr`, `*.intermarche.com`, `*.auchan.fr`, `*.leclercdrive.fr`, `*.lidl.fr` | Injection du badge d'origine sur les cartes produits des drives. Domaines entiers requis : SPA à routage client, les chemins des pages produits ne sont pas stables. |
 | `world.openfoodfacts.org` | Requête produit par code-barres (EAN) en fallback quand l'origine n'est pas déterminable localement. |
+| `strime.github.io` | Téléchargement quotidien de la base de marques mise à jour (GitHub Pages du projet). Fichier statique versionné, identique pour tous les utilisateurs ; aucune donnée utilisateur envoyée. |
 
 ## Assets à produire avant soumission
 
