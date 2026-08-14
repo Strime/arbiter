@@ -13,6 +13,7 @@ const ROOT = join(__dirname, '..');
 const CARREFOUR_HARVEST = join(__dirname, 'sources/harvest-carrefour.json');
 const AUCHAN_HARVEST = join(__dirname, 'sources/harvest-auchan.json');
 const MANUAL_OVERRIDES = join(__dirname, 'sources/manual-overrides.json');
+const EXCLUSIONS = join(__dirname, 'sources/exclusions.json');
 const OUTPUT = join(ROOT, 'src/features/origin-detection/data/datasources/local-brand-db/brands.json');
 const TODAY = '2026-05-25';
 
@@ -25,6 +26,7 @@ const main = async () => {
   const carrefour = await readJson(CARREFOUR_HARVEST);
   const auchan = await readJson(AUCHAN_HARVEST);
   const manual = await readJson(MANUAL_OVERRIDES);
+  const exclusions = await readJson(EXCLUSIONS);
   const offTaxonomy = await fetchOffTaxonomy();
   const offEntries = extractBrandsFromTaxonomy(offTaxonomy);
   const detrumpezRaw = await fetchDetrumpezBrands();
@@ -32,6 +34,7 @@ const main = async () => {
   console.log(`  carrefour harvest : ${carrefour.brands.length}`);
   console.log(`  auchan harvest    : ${auchan.brands.length}`);
   console.log(`  manual overrides  : ${manual.brands.length}`);
+  console.log(`  exclusions        : ${exclusions.exclusions.length}`);
   console.log(`  off taxonomy      : ${offEntries.length} (${offEntries.filter((e) => e.wikidataId).length} with wikidataId)`);
   console.log(`  detrumpez         : ${detrumpezEntries.length} (mapped from ${detrumpezRaw.length} raw)`);
 
@@ -98,11 +101,12 @@ const main = async () => {
   }
   console.log(`  wikidata-by-label results with country: ${wikidataResults.length - beforeLabelCount}`);
 
-  // 4. Merge — layered priority: wikidata < detrumpez < manual.
+  // 4. Merge — layered priority: wikidata < detrumpez < manual, puis exclusions (retrait).
   const merged = mergeEntries({
     wikidata: wikidataResults,
     detrumpez: detrumpezEntries,
     manualOverrides: manual.brands,
+    exclusions: exclusions.exclusions.map((e) => e.name),
   });
   validateNoDuplicateKeys(merged);
 

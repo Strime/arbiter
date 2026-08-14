@@ -14,7 +14,7 @@ const finalSort = (entries) =>
     return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
   });
 
-export const mergeEntries = ({ wikidata, detrumpez = [], manualOverrides }) => {
+export const mergeEntries = ({ wikidata, detrumpez = [], manualOverrides, exclusions = [] }) => {
   const byKey = new Map();
   // Layer 1: Wikidata (lowest priority — label-match noise expected).
   for (const e of wikidata) {
@@ -29,6 +29,11 @@ export const mergeEntries = ({ wikidata, detrumpez = [], manualOverrides }) => {
   // Layer 3: manual overrides (human source of truth, wins on conflict).
   for (const e of manualOverrides) {
     byKey.set(normalizeBrandKey(e.name), e);
+  }
+  // Layer 4: exclusions — generic product words that are not brands. Removed last so they
+  // win over every source, including manual.
+  for (const name of exclusions) {
+    byKey.delete(normalizeBrandKey(name));
   }
   return finalSort([...byKey.values()]);
 };

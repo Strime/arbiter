@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "note": "Clés retirées de la base générée, quelle que soit la source. Ce sont des noms génériques de produits (pas des marques) : avec le fallback brandGuessed (premier mot du titre), une clé générique produit des faux positifs massifs. Appliqué en dernière couche du merge — gagne sur manual, detrumpez et wikidata.",
+  "exclusions": [
+    { "name": "Petit Beurre", "reason": "Nom générique de biscuit (le produit LU s'appelle 'LU Petit Beurre'), pas une marque." },
+    { "name": "Cappuccino", "reason": "Nom générique de boisson café, pas une marque." },
+    { "name": "Bio", "reason": "Mention générique d'étiquetage ; l'entrée detrumpez (Aldi Süd, DE) est un faux ami en contexte FR." },
+    { "name": "Bonjour", "reason": "Mot courant français ; ancienne marque Nestlé disparue des rayons FR." },
+    { "name": "Orange", "reason": "L'entrée detrumpez vise l'opérateur télécom ; sur un site alimentaire, 'Orange' est un fruit/arôme." },
+    { "name": "Tradition", "reason": "Mot générique (baguette Tradition…) ; l'entrée detrumpez vise un jus canadien absent des rayons FR." },
+    { "name": "Extra", "reason": "Adjectif générique très fréquent en tête de titre ('Extra fin', 'Extra moelleux') ; le chewing-gum Mars est marginal en FR." },
+    { "name": "Premium", "reason": "Adjectif générique ; l'entrée detrumpez (crackers Mondelez US) est absente des rayons FR." },
+    { "name": "Royal", "reason": "Adjectif générique ('Royal gorgonzola'…) ; l'entrée detrumpez (desserts Mondelez US) est absente des rayons FR." },
+    { "name": "Selection", "reason": "Mot générique ('Sélection de fromages'…) ; l'entrée detrumpez vise la MDD de Metro Canada, absente en FR." },
+    { "name": "DUO", "reason": "Mot générique très fréquent en tête de titre ('Duo de…') ; l'entrée detrumpez vise une colle à faux-cils US." },
+    { "name": "Kids", "reason": "Mot générique ; les produits L'Oréal Kids sont titrés 'L'Oréal Kids', jamais 'Kids' seul." }
+  ]
+}
