@@ -2,6 +2,8 @@ import type { SiteAdapter, ProductCardListener } from '../../domain/entities/sit
 import type { RawProductCard } from '../../domain/entities/raw-product-card';
 import { AUCHAN_HOST_PATTERNS, AUCHAN_SELECTORS } from './auchan-selectors';
 import type { MutationObserverHelper } from '../../../../core/observer/mutation-observer-helper';
+import { createCardObserver } from '../create-card-observer';
+import { guessBrandFromTitle } from '../guess-brand-from-title';
 
 export class AuchanAdapter implements SiteAdapter {
   readonly id = 'auchan';
@@ -13,28 +15,12 @@ export class AuchanAdapter implements SiteAdapter {
   }
 
   observe(root: Document, listener: ProductCardListener): () => void {
-    const seen = new WeakSet<HTMLElement>();
-
-    const emitForCard = (node: HTMLElement): void => {
-      if (seen.has(node)) return;
-      const card = this.extractCard(node);
-      if (!card) return;
-      seen.add(node);
-      listener({ type: 'added', card });
-    };
-
-    const scanRoot = (subtree: ParentNode): void => {
-      subtree.querySelectorAll<HTMLElement>(AUCHAN_SELECTORS.productCard).forEach(emitForCard);
-    };
-
-    scanRoot(root);
-
-    return this.observerHelper.observe(root.body, (records) => {
-      for (const record of records) {
-        record.addedNodes.forEach((added) => {
-          if (added instanceof HTMLElement) scanRoot(added);
-        });
-      }
+    return createCardObserver({
+      observerHelper: this.observerHelper,
+      cardSelector: AUCHAN_SELECTORS.productCard,
+      extractCard: (node) => this.extractCard(node),
+      root,
+      listener,
     });
   }
 
@@ -44,7 +30,9 @@ export class AuchanAdapter implements SiteAdapter {
     if (!rawNameText) return null;
 
     const brandNode = node.querySelector<HTMLElement>(AUCHAN_SELECTORS.brand);
-    const brand = (brandNode?.textContent ?? this.guessBrandFromText(rawNameText)).trim();
+    const brandFromDom = (brandNode?.textContent ?? '').trim();
+    const brand = brandFromDom || (guessBrandFromTitle(rawNameText) ?? '');
+    const brandGuessed = !brandFromDom && brand.length > 0;
 
     // Strip brand prefix from rawNameText when present to derive a clean title.
     let title = rawNameText;
@@ -60,14 +48,10 @@ export class AuchanAdapter implements SiteAdapter {
       id,
       ean: undefined,
       brand,
+      brandGuessed,
       title,
       rawText: (node.textContent ?? '').replace(/\s+/g, ' ').trim(),
       node,
     };
-  }
-
-  private guessBrandFromText(text: string): string {
-    const firstToken = text.split(/\s+/)[0] ?? '';
-    return firstToken;
   }
 }

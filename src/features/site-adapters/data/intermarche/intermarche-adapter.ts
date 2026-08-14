@@ -7,6 +7,8 @@ import {
   INTERMARCHE_SELECTORS,
 } from './intermarche-selectors';
 import type { MutationObserverHelper } from '../../../../core/observer/mutation-observer-helper';
+import { createCardObserver } from '../create-card-observer';
+import { guessBrandFromTitle } from '../guess-brand-from-title';
 
 export class IntermarcheAdapter implements SiteAdapter {
   readonly id = 'intermarche';
@@ -18,28 +20,12 @@ export class IntermarcheAdapter implements SiteAdapter {
   }
 
   observe(root: Document, listener: ProductCardListener): () => void {
-    const seen = new WeakSet<HTMLElement>();
-
-    const emitForCard = (node: HTMLElement): void => {
-      if (seen.has(node)) return;
-      const card = this.extractCard(node);
-      if (!card) return;
-      seen.add(node);
-      listener({ type: 'added', card });
-    };
-
-    const scanRoot = (subtree: ParentNode): void => {
-      subtree.querySelectorAll<HTMLElement>(INTERMARCHE_SELECTORS.productCard).forEach(emitForCard);
-    };
-
-    scanRoot(root);
-
-    return this.observerHelper.observe(root.body, (records) => {
-      for (const record of records) {
-        record.addedNodes.forEach((added) => {
-          if (added instanceof HTMLElement) scanRoot(added);
-        });
-      }
+    return createCardObserver({
+      observerHelper: this.observerHelper,
+      cardSelector: INTERMARCHE_SELECTORS.productCard,
+      extractCard: (node) => this.extractCard(node),
+      root,
+      listener,
     });
   }
 
@@ -49,7 +35,9 @@ export class IntermarcheAdapter implements SiteAdapter {
     const title = (titleNode.textContent ?? '').replace(/\s+/g, ' ').trim();
     if (!title) return null;
 
-    const brand = this.extractBrand(node) ?? this.guessBrandFromTitle(title);
+    const brandFromDom = this.extractBrand(node);
+    const brand = brandFromDom ?? guessBrandFromTitle(title) ?? '';
+    const brandGuessed = brandFromDom === null && brand.length > 0;
 
     const link = node.querySelector<HTMLAnchorElement>(INTERMARCHE_SELECTORS.productLink);
     const href = link?.getAttribute('href') ?? '';
@@ -61,6 +49,7 @@ export class IntermarcheAdapter implements SiteAdapter {
       id,
       ean,
       brand,
+      brandGuessed,
       title,
       rawText: (node.textContent ?? '').replace(/\s+/g, ' ').trim(),
       node,
@@ -89,9 +78,5 @@ export class IntermarcheAdapter implements SiteAdapter {
       .replace(/\s+/g, ' ')
       .replace(/[,;]\s*$/, '')
       .trim();
-  }
-
-  private guessBrandFromTitle(title: string): string {
-    return title.split(/\s+/)[0] ?? '';
   }
 }

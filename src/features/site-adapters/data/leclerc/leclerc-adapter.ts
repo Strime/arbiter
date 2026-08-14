@@ -2,6 +2,8 @@ import type { SiteAdapter, ProductCardListener } from '../../domain/entities/sit
 import type { RawProductCard } from '../../domain/entities/raw-product-card';
 import { LECLERC_HOST_PATTERNS, LECLERC_SELECTORS } from './leclerc-selectors';
 import type { MutationObserverHelper } from '../../../../core/observer/mutation-observer-helper';
+import { createCardObserver } from '../create-card-observer';
+import { guessBrandFromTitle } from '../guess-brand-from-title';
 
 export class LeclercAdapter implements SiteAdapter {
   readonly id = 'leclerc';
@@ -13,28 +15,12 @@ export class LeclercAdapter implements SiteAdapter {
   }
 
   observe(root: Document, listener: ProductCardListener): () => void {
-    const seen = new WeakSet<HTMLElement>();
-
-    const emitForCard = (node: HTMLElement): void => {
-      if (seen.has(node)) return;
-      const card = this.extractCard(node);
-      if (!card) return;
-      seen.add(node);
-      listener({ type: 'added', card });
-    };
-
-    const scanRoot = (subtree: ParentNode): void => {
-      subtree.querySelectorAll<HTMLElement>(LECLERC_SELECTORS.productCard).forEach(emitForCard);
-    };
-
-    scanRoot(root);
-
-    return this.observerHelper.observe(root.body, (records) => {
-      for (const record of records) {
-        record.addedNodes.forEach((added) => {
-          if (added instanceof HTMLElement) scanRoot(added);
-        });
-      }
+    return createCardObserver({
+      observerHelper: this.observerHelper,
+      cardSelector: LECLERC_SELECTORS.productCard,
+      extractCard: (node) => this.extractCard(node),
+      root,
+      listener,
     });
   }
 
@@ -52,11 +38,11 @@ export class LeclercAdapter implements SiteAdapter {
     if (!title) return null;
 
     const brandNode = node.querySelector<HTMLElement>(LECLERC_SELECTORS.brand);
-    const brandText =
-      brandNode?.getAttribute('content') ??
-      brandNode?.textContent ??
-      this.guessBrandFromTitle(title);
-    const brand = brandText.replace(/\s+/g, ' ').trim();
+    const brandFromDom = (brandNode?.getAttribute('content') ?? brandNode?.textContent ?? '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const brand = brandFromDom || (guessBrandFromTitle(title) ?? '');
+    const brandGuessed = !brandFromDom && brand.length > 0;
 
     const eanNode = node.querySelector<HTMLElement>(LECLERC_SELECTORS.ean);
     const ean =
@@ -72,13 +58,10 @@ export class LeclercAdapter implements SiteAdapter {
       id,
       ean,
       brand,
+      brandGuessed,
       title,
       rawText: (node.textContent ?? '').replace(/\s+/g, ' ').trim(),
       node,
     };
-  }
-
-  private guessBrandFromTitle(title: string): string {
-    return title.split(/\s+/)[0] ?? '';
   }
 }
