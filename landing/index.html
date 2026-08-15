@@ -311,19 +311,43 @@
             grilles produits d’Auchan Drive et de Lidl.
           </p>
         </div>
-        <div class="proof__grid">
-          <figure class="proof__item reveal">
-            <img src="assets/screenshot-auchan.webp" width="740" height="480"
-                 loading="lazy" decoding="async"
-                 alt="Grille produits d’Auchan Drive avec les badges d’origine sur chaque carte produit">
-            <figcaption>Auchan Drive</figcaption>
-          </figure>
-          <figure class="proof__item reveal">
-            <img src="assets/screenshot-lidl.webp" width="740" height="480"
-                 loading="lazy" decoding="async"
-                 alt="Grille produits de Lidl avec les badges d’origine sur chaque carte produit">
-            <figcaption>Lidl</figcaption>
-          </figure>
+        <div class="carousel reveal" data-carousel>
+          <button class="carousel__nav carousel__nav--prev" type="button" aria-label="Capture précédente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel__track" tabindex="0" aria-label="Captures d’écran des drives supportés">
+            <figure class="carousel__slide">
+              <div class="demo__frame">
+                <div class="demo__chrome" aria-hidden="true">
+                  <span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span>
+                  <span class="demo__url">auchan.fr</span>
+                </div>
+                <img src="assets/screenshot-auchan.webp" width="740" height="480"
+                     loading="lazy" decoding="async"
+                     alt="Grille produits d’Auchan Drive avec les badges d’origine sur chaque carte produit">
+              </div>
+              <figcaption>Auchan Drive</figcaption>
+            </figure>
+            <figure class="carousel__slide">
+              <div class="demo__frame">
+                <div class="demo__chrome" aria-hidden="true">
+                  <span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span>
+                  <span class="demo__url">lidl.fr</span>
+                </div>
+                <img src="assets/screenshot-lidl.webp" width="740" height="480"
+                     loading="lazy" decoding="async"
+                     alt="Grille produits de Lidl avec les badges d’origine sur chaque carte produit">
+              </div>
+              <figcaption>Lidl</figcaption>
+            </figure>
+          </div>
+          <button class="carousel__nav carousel__nav--next" type="button" aria-label="Capture suivante">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+          <div class="carousel__dots">
+            <button class="carousel__dot" type="button" aria-label="Aller à la capture 1 — Auchan Drive" aria-current="true"></button>
+            <button class="carousel__dot" type="button" aria-label="Aller à la capture 2 — Lidl" aria-current="false"></button>
+          </div>
         </div>
       </div>
     </section>

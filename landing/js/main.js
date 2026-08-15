@@ -63,4 +63,32 @@
       badge.addEventListener(type, () => badge.classList.remove('is-dismissed'))
     );
   });
+
+  /* Carrousel des captures : le défilement est natif (scroll-snap) ;
+     flèches et puces ne font que piloter scrollTo. */
+  const carousel = document.querySelector('[data-carousel]');
+  if (carousel) {
+    const track = carousel.querySelector('.carousel__track');
+    const slides = [...track.children];
+    const dots = [...carousel.querySelectorAll('.carousel__dot')];
+    const prev = carousel.querySelector('.carousel__nav--prev');
+    const next = carousel.querySelector('.carousel__nav--next');
+    const behavior = reduced ? 'auto' : 'smooth';
+    const index = () => Math.round(track.scrollLeft / track.clientWidth);
+    const goTo = (i) => {
+      const target = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: target * track.clientWidth, behavior });
+    };
+    prev.addEventListener('click', () => goTo(index() - 1));
+    next.addEventListener('click', () => goTo(index() + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    const sync = () => {
+      const i = index();
+      dots.forEach((dot, j) => dot.setAttribute('aria-current', String(i === j)));
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    };
+    sync();
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+  }
 })();
