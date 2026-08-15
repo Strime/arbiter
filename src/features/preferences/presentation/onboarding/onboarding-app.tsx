@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { PRIVACY_POLICY_URL, SUPPORTED_SITES_FR } from '../../../../core/support/support';
+import { PRIVACY_POLICY_URL, SUPPORTED_SITES_FR } from '../../../../core/observer/support';
 import './onboarding-app.css';
 
 export function OnboardingApp(): JSX.Element {

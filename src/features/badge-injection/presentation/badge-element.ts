@@ -1,4 +1,4 @@
-import { buildReportMailtoUrl } from '../../../core/support/support';
+import { buildReportMailtoUrl } from '../../../core/observer/support';
 import type { BrandOrigin } from '../../origin-detection/domain/entities/brand-origin';
 import type { ManufacturingOrigin } from '../../origin-detection/domain/entities/manufacturing-origin';
 import type { OriginRegion } from '../../origin-detection/domain/entities/origin';

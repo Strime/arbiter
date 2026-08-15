@@ -64,11 +64,13 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ## Assets à produire avant soumission
 
-- [x] Screenshots 1280×800 : 2 produits (docs/store-assets/screenshot-auchan.png,
-      screenshot-lidl.png — badges réels calculés depuis brands.json, injectés
-      avec le rendu exact du badge sur les pages live du 14 août 2026).
-      À compléter si possible : Carrefour/Intermarché (bloqués Datadome en
-      session automatisée) + un cliché de la popup et du tooltip.
+- [x] Screenshots 1280×800 : 3 produits (docs/store-assets/screenshot-carrefour.png
+      — 15 août 2026 —, screenshot-auchan.png, screenshot-lidl.png — badges
+      réels calculés depuis brands.json, injectés avec le rendu exact du badge
+      sur les pages live). Intermarché et Leclerc Drive re-testés le
+      15 août 2026 : toujours bloqués par captcha Datadome en session
+      automatisée — à capturer manuellement si souhaité. À compléter si
+      possible : un cliché de la popup et du tooltip.
 - [ ] Icône 128 px : générée (`scripts/generate-icons.py`) — remplacer par un
       vrai branding si souhaité, AVANT la 1re soumission.
 - [ ] Email de contact vérifié sur le dashboard CWS.

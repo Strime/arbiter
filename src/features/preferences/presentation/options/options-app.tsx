@@ -5,7 +5,7 @@ import {
   OPENFOODFACTS_URL,
   PRIVACY_POLICY_URL,
   buildReportMailtoUrl,
-} from '../../../../core/support/support';
+} from '../../../../core/observer/support';
 import type { GetPreferences } from '../../domain/use-cases/get-preferences';
 import type { UpdatePreferences } from '../../domain/use-cases/update-preferences';
 import type { PreferencesRepository } from '../../domain/repositories/preferences-repository';

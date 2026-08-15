@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import { usePreferences } from './hooks/use-preferences';
 import { useActiveTab, type ActiveTabStatus } from './hooks/use-active-tab';
-import { SUPPORTED_SITES_FR, buildReportMailtoUrl } from '../../../../core/support/support';
+import { SUPPORTED_SITES_FR, buildReportMailtoUrl } from '../../../../core/observer/support';
 import type { GetPreferences } from '../../domain/use-cases/get-preferences';
 import type { UpdatePreferences } from '../../domain/use-cases/update-preferences';
 import type { PreferencesRepository } from '../../domain/repositories/preferences-repository';
