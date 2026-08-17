@@ -6,11 +6,17 @@ Site vitrine statique — aucun build, aucune dépendance.
 `cocarde-extension` — le même projet portera Auth/Firestore/Functions en V1).
 
 > **Renommage Coquade (17 août 2026)** : la marque visible est « Coquade » ;
-> les noms techniques ne bougent pas (décision du 17 août : projet Firebase
-> `cocarde-extension`, repos GitHub `arbiter` / `arbiter-data`, package
-> `arbiter`). Une fois coquade.fr enregistré : le brancher en domaine custom
-> sur ce site Hosting, mettre à jour canonical/og:url/sitemap/robots dans ces
-> fichiers, et laisser l'URL web.app rediriger.
+> les noms techniques restent sur `arbiter` (repos GitHub, package). Le projet
+> Firebase `cocarde-extension` héberge deux sites servis à l'identique par
+> `firebase deploy --only hosting` (cibles dans `.firebaserc`, config dupliquée
+> par cible dans `firebase.json` — garder les deux blocs synchronisés) :
+> - `arbiter-landing.web.app` — site au nom technique, **c'est ici qu'il faut
+>   brancher coquade.fr en domaine custom** (console Firebase → Hosting) ;
+> - `cocarde-extension.web.app` — site historique, conservé le temps de la
+>   transition.
+>
+> Une fois coquade.fr actif : mettre à jour canonical/og:url/sitemap/robots
+> dans ces fichiers, puis faire rediriger les URLs web.app.
 
 ## Déployer
 

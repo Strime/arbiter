@@ -1,5 +1,13 @@
 {
   "projects": {
     "default": "cocarde-extension"
+  },
+  "targets": {
+    "cocarde-extension": {
+      "hosting": {
+        "cocarde": ["cocarde-extension"],
+        "arbiter": ["arbiter-landing"]
+      }
+    }
   }
 }
