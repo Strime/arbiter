@@ -8,10 +8,18 @@ export const BrandSourceSchema = z.enum([
   'detrumpez',
 ]);
 
+// Doctrine des deux pays :
+// - `country` : pays d'origine de la marque (siège historique, rattachement
+//   perçu par le consommateur). Salomon = FR, Lu = FR.
+// - `parentCountry` : pays du groupe propriétaire ULTIME (tête de la chaîne de
+//   détention, pas le parent intermédiaire). Salomon = CN (Anta via Amer
+//   Sports), Lu = US (Mondelez). Absent quand la marque est indépendante ou
+//   que la détention est inconnue.
 export const BrandEntrySchema = z.object({
   name: z.string().min(1),
   country: z.string().length(2),
   parentCompany: z.string().optional(),
+  parentCountry: z.string().length(2).optional(),
   source: BrandSourceSchema,
   confidence: z.number().min(0).max(1),
   addedAt: z.string(),

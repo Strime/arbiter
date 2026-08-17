@@ -3,7 +3,7 @@
   "brands": [
     {"name":"'Z Bregov","country":"HR","parentCompany":"Vindija d.d.","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"1001 Delights","country":"DE","parentCompany":"Lidl Stiftung & Co. KG","source":"manual","confidence":0.9,"addedAt":"2026-05-27"},
-    {"name":"1664","country":"FR","parentCompany":"Carlsberg","source":"manual","confidence":0.9,"addedAt":"2026-05-25"},
+    {"name":"1664","country":"FR","parentCompany":"Carlsberg","parentCountry":"DK","source":"manual","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"1664 0.0%","country":"DK","parentCompany":"Carlsberg Group","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"1664 Blonde","country":"DK","parentCompany":"Carlsberg Group","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"3 Monts","country":"FR","parentCompany":"Brasserie de Saint-Sylvestre","source":"manual","confidence":0.9,"addedAt":"2026-06-01"},
@@ -2026,7 +2026,7 @@
     {"name":"Łowicz","country":"PL","parentCompany":"Maspex Wadowice Group","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"Loyal","country":"US","parentCompany":"Mars","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
     {"name":"Loyd","country":"PL","parentCompany":"Mokate S.A.","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},
-    {"name":"Lu","country":"FR","parentCompany":"Mondelez","source":"manual","confidence":0.8,"addedAt":"2026-05-25"},
+    {"name":"Lu","country":"FR","parentCompany":"Mondelez","parentCountry":"US","source":"manual","confidence":0.8,"addedAt":"2026-05-25"},
     {"name":"LU Cracottes","country":"FR","parentCompany":"Mondelez","source":"manual","confidence":0.9,"addedAt":"2026-08-14"},
     {"name":"LU Petit Beurre","country":"FR","parentCompany":"Mondelez","source":"manual","confidence":0.9,"addedAt":"2026-08-14"},
     {"name":"Lubella","country":"PL","parentCompany":"MW Food","source":"detrumpez","confidence":0.9,"addedAt":"2026-05-25"},

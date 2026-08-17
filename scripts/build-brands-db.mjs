@@ -116,6 +116,7 @@ const main = async () => {
   const cleaned = merged.map((e) => {
     const o = { name: e.name, country: e.country };
     if (e.parentCompany) o.parentCompany = e.parentCompany;
+    if (e.parentCountry) o.parentCountry = e.parentCountry;
     o.source = e.source;
     o.confidence = e.confidence;
     o.addedAt = e.addedAt;

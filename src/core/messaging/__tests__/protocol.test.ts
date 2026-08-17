@@ -9,6 +9,7 @@ const validVerdict = {
   manufacturing: { country: 'EU', source: 'heuristic', confidence: 0.85 },
   brandRegion: 'FR',
   manufacturingRegion: 'EU',
+  ownershipRegion: 'UNKNOWN',
 };
 
 describe('OriginVerdictPayloadSchema', () => {
@@ -21,8 +22,26 @@ describe('OriginVerdictPayloadSchema', () => {
     const result = OriginVerdictPayloadSchema.safeParse({
       brandRegion: 'UNKNOWN',
       manufacturingRegion: 'UNKNOWN',
+      ownershipRegion: 'UNKNOWN',
     });
     expect(result.success).toBe(true);
+  });
+
+  it('accepte un brand avec parentCountry ISO-2', () => {
+    const result = OriginVerdictPayloadSchema.safeParse({
+      ...validVerdict,
+      brand: { ...validVerdict.brand, parentCompany: 'Anta Sports', parentCountry: 'CN' },
+      ownershipRegion: 'OTHER',
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it("rejette un parentCountry hors format ISO-2 ('Chine')", () => {
+    const result = OriginVerdictPayloadSchema.safeParse({
+      ...validVerdict,
+      brand: { ...validVerdict.brand, parentCountry: 'Chine' },
+    });
+    expect(result.success).toBe(false);
   });
 
   it("rejette country 'France' (nom complet)", () => {

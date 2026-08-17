@@ -30,6 +30,7 @@ export const OriginVerdictPayloadSchema = z.object({
     .object({
       country: CountryCodeSchema,
       parentCompany: z.string().optional(),
+      parentCountry: CountryCodeSchema.optional(),
       source: OriginSourceSchema,
       confidence: z.number(),
     })
@@ -43,6 +44,7 @@ export const OriginVerdictPayloadSchema = z.object({
     .optional(),
   brandRegion: OriginRegionSchema,
   manufacturingRegion: OriginRegionSchema,
+  ownershipRegion: OriginRegionSchema,
 });
 
 export const OriginResponseMessageSchema = z.object({

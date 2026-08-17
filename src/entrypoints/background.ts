@@ -77,6 +77,7 @@ export default defineBackground(() => {
             manufacturing: verdict.manufacturing,
             brandRegion: verdict.brandRegion,
             manufacturingRegion: verdict.manufacturingRegion,
+            ownershipRegion: verdict.ownershipRegion,
           },
         };
         sendResponse(response);

@@ -6,6 +6,13 @@ import type { BrandOriginRepository } from '../../repositories/brand-origin-repo
 import type { ManufacturingOriginRepository } from '../../repositories/manufacturing-origin-repository';
 
 const FR_BRAND: BrandOrigin = { country: 'FR', source: 'manual', confidence: 0.9 };
+const FR_BRAND_CN_OWNED: BrandOrigin = {
+  country: 'FR',
+  parentCompany: 'Anta Sports',
+  parentCountry: 'CN',
+  source: 'manual',
+  confidence: 0.9,
+};
 const ES_MANUFACTURING: ManufacturingOrigin = {
   country: 'ES',
   source: 'openfoodfacts',
@@ -37,6 +44,32 @@ describe('DetermineOriginVerdict', () => {
     expect(verdict.brandRegion).toBe('FR');
     expect(verdict.manufacturing).toEqual(ES_MANUFACTURING);
     expect(verdict.manufacturingRegion).toBe('EU');
+    expect(verdict.ownershipRegion).toBe('UNKNOWN');
+  });
+
+  it('calcule ownershipRegion depuis parentCountry sans renverser brandRegion', async () => {
+    const useCase = new DetermineOriginVerdict(
+      brandRepoReturning(FR_BRAND_CN_OWNED),
+      manufacturingRepoReturning(null),
+    );
+
+    const verdict = await useCase.call(PRODUCT);
+
+    // Cas Salomon : marque FR, propriétaire ultime CN — les deux signaux coexistent.
+    expect(verdict.brandRegion).toBe('FR');
+    expect(verdict.ownershipRegion).toBe('OTHER');
+    expect(verdict.brand?.parentCountry).toBe('CN');
+  });
+
+  it('laisse ownershipRegion à UNKNOWN quand parentCountry est absent', async () => {
+    const useCase = new DetermineOriginVerdict(
+      brandRepoReturning(FR_BRAND),
+      manufacturingRepoReturning(null),
+    );
+
+    const verdict = await useCase.call(PRODUCT);
+
+    expect(verdict.ownershipRegion).toBe('UNKNOWN');
   });
 
   it('multiplie la confiance marque par 0.7 quand brandGuessed=true', async () => {

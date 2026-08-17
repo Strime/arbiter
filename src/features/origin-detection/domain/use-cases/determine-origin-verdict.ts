@@ -28,6 +28,7 @@ export class DetermineOriginVerdict {
       manufacturing: manufacturing ?? undefined,
       brandRegion,
       manufacturingRegion: regionOf(manufacturing?.country),
+      ownershipRegion: regionOf(brand?.parentCountry),
     };
   }
 

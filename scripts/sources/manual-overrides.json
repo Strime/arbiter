@@ -13,6 +13,7 @@
       "name": "1664",
       "country": "FR",
       "parentCompany": "Carlsberg",
+      "parentCountry": "DK",
       "source": "manual",
       "confidence": 0.9,
       "addedAt": "2026-05-25"
@@ -1039,6 +1040,7 @@
       "name": "Lu",
       "country": "FR",
       "parentCompany": "Mondelez",
+      "parentCountry": "US",
       "source": "manual",
       "confidence": 0.8,
       "addedAt": "2026-05-25"

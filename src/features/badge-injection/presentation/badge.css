@@ -73,6 +73,24 @@
   line-height: 1;
 }
 
+/* Mini-drapeau du propriétaire ultime (capital étranger d'une marque FR/EU). */
+.cocarde-badge__owner-flag {
+  display: inline-flex;
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  opacity: 0.9;
+  flex: 0 0 auto;
+}
+
+.cocarde-badge__owner-flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* ---------- Tooltip ---------- */
 
 .cocarde-tooltip {
@@ -159,8 +177,26 @@
 
 .cocarde-tooltip__parent {
   margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 11px;
   color: #d1d5db;
+}
+
+.cocarde-tooltip__parent-flag {
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  flex: 0 0 auto;
+}
+
+.cocarde-tooltip__parent-flag svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .cocarde-tooltip__confidence {

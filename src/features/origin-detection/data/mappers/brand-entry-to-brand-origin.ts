@@ -7,6 +7,7 @@ export class BrandEntryToBrandOriginMapper {
     return {
       country: entry.country,
       parentCompany: entry.parentCompany,
+      parentCountry: entry.parentCountry,
       source: mapSource(entry.source),
       confidence: entry.confidence,
     };

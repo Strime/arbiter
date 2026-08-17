@@ -29,13 +29,32 @@ function setFlagInto(host: HTMLElement, country: string | undefined): void {
 function ariaLabel(verdict: OriginVerdict): string {
   const brand = verdict.brand ? countryNameFr(verdict.brand.country) : 'inconnue';
   const mfg = verdict.manufacturing ? countryNameFr(verdict.manufacturing.country) : 'inconnue';
-  return `Marque ${brand}, fabrication ${mfg}`;
+  const owner = verdict.brand?.parentCountry
+    ? `, détenue par ${verdict.brand.parentCompany ?? 'un groupe'} (${countryNameFr(verdict.brand.parentCountry)})`
+    : '';
+  return `Marque ${brand}${owner}, fabrication ${mfg}`;
+}
+
+/** Actionnariat de la marque : nom du groupe et/ou pays du propriétaire ultime. */
+interface OwnershipInfo {
+  readonly company?: string;
+  readonly country?: string;
+}
+
+// Marqueur « capital étranger » sur la pastille : marque FR/EU dont le
+// propriétaire ultime est hors UE. Une détention intra-UE n'est signalée que
+// dans le tooltip.
+function hasForeignOwnership(verdict: OriginVerdict): boolean {
+  return (
+    (verdict.brandRegion === 'FR' || verdict.brandRegion === 'EU') &&
+    (verdict.ownershipRegion === 'US' || verdict.ownershipRegion === 'OTHER')
+  );
 }
 
 function renderSection(
   title: string,
   origin: BrandOrigin | ManufacturingOrigin | undefined,
-  parentCompany: string | undefined,
+  ownership: OwnershipInfo | undefined,
 ): HTMLElement {
   const section = document.createElement('section');
   section.className = 'cocarde-tooltip__section';
@@ -64,10 +83,20 @@ function renderSection(
   country.appendChild(name);
   section.appendChild(country);
 
-  if (parentCompany) {
+  if (ownership && (ownership.company || ownership.country)) {
     const parent = document.createElement('div');
     parent.className = 'cocarde-tooltip__parent';
-    parent.textContent = parentCompany;
+    if (ownership.country) {
+      const parentFlag = document.createElement('span');
+      parentFlag.className = 'cocarde-tooltip__parent-flag';
+      setFlagInto(parentFlag, ownership.country);
+      parent.appendChild(parentFlag);
+    }
+    const label = document.createElement('span');
+    label.textContent = ownership.company
+      ? `Détenue par ${ownership.company}`
+      : `Groupe propriétaire : ${countryNameFr(ownership.country)}`;
+    parent.appendChild(label);
     section.appendChild(parent);
   }
 
@@ -134,12 +163,28 @@ export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict, product:
   setFlagInto(brandFlag, verdict.brand?.country);
   badge.appendChild(brandFlag);
 
+  if (hasForeignOwnership(verdict)) {
+    const sep = document.createElement('span');
+    sep.className = 'cocarde-badge__sep';
+    sep.textContent = '·';
+    badge.appendChild(sep);
+    const ownerFlag = document.createElement('span');
+    ownerFlag.className = 'cocarde-badge__owner-flag';
+    setFlagInto(ownerFlag, verdict.brand?.parentCountry);
+    badge.appendChild(ownerFlag);
+  }
+
   const tooltip = document.createElement('div');
   tooltip.className = 'cocarde-tooltip';
   tooltip.setAttribute('role', 'tooltip');
   tooltip.id = `cocarde-tooltip-${++tooltipIdCounter}`;
   badge.setAttribute('aria-describedby', tooltip.id);
-  tooltip.appendChild(renderSection('Marque', verdict.brand, verdict.brand?.parentCompany));
+  tooltip.appendChild(
+    renderSection('Marque', verdict.brand, {
+      company: verdict.brand?.parentCompany,
+      country: verdict.brand?.parentCountry,
+    }),
+  );
   tooltip.appendChild(renderSection('Fabrication', verdict.manufacturing, undefined));
   tooltip.appendChild(renderReportLink(verdict, product));
   badge.appendChild(tooltip);

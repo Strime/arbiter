@@ -7,4 +7,10 @@ export interface OriginVerdict {
   readonly manufacturing?: ManufacturingOrigin;
   readonly brandRegion: OriginRegion;
   readonly manufacturingRegion: OriginRegion;
+  /**
+   * Région du propriétaire ultime de la marque. Signal séparé : il ne
+   * renverse jamais brandRegion (une marque FR à capitaux étrangers reste
+   * affichée FR, l'actionnariat est montré à côté).
+   */
+  readonly ownershipRegion: OriginRegion;
 }
