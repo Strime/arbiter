@@ -75,8 +75,10 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
       15 août 2026 : toujours bloqués par captcha Datadome en session
       automatisée — à capturer manuellement si souhaité. À compléter si
       possible : un cliché de la popup et du tooltip.
-- [ ] Icône 128 px : générée (`scripts/generate-icons.py`) — remplacer par un
-      vrai branding si souhaité, AVANT la 1re soumission.
+- [x] Icône 128 px : « cocarde à crête » (17 août 2026) — la cocarde tricolore
+      avec crête de coq, dessin littéral du nom Coquade. Générée par
+      `scripts/generate-icons.py` ; assets landing (favicon, apple-touch,
+      og-image) alignés via `scripts/generate-landing-assets.py`.
 - [ ] Email de contact vérifié sur le dashboard CWS.
 
 ## Par store
