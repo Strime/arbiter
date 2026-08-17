@@ -4,7 +4,7 @@
 
 /* ---------- Pastille ---------- */
 
-.cocarde-badge {
+.coquade-badge {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -23,35 +23,35 @@
   cursor: help;
   outline: none;
   transition: transform 120ms ease, box-shadow 120ms ease;
-  animation: cocarde-badge-enter 120ms ease-out;
+  animation: coquade-badge-enter 120ms ease-out;
 }
 
-@keyframes cocarde-badge-enter {
+@keyframes coquade-badge-enter {
   from {
     opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cocarde-badge {
+  .coquade-badge {
     animation: none;
     transition: none;
   }
 }
 
-.cocarde-badge:hover,
-.cocarde-badge:focus-visible {
+.coquade-badge:hover,
+.coquade-badge:focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.15) inset;
 }
 
-.cocarde-badge--fr { background: #1e40af; }
-.cocarde-badge--eu { background: #0369a1; }
-.cocarde-badge--us { background: #b91c1c; }
-.cocarde-badge--other { background: #6b7280; }
-.cocarde-badge--unknown { background: #9ca3af; }
+.coquade-badge--fr { background: #1e40af; }
+.coquade-badge--eu { background: #0369a1; }
+.coquade-badge--us { background: #b91c1c; }
+.coquade-badge--other { background: #6b7280; }
+.coquade-badge--unknown { background: #9ca3af; }
 
-.cocarde-badge__flag {
+.coquade-badge__flag {
   display: inline-flex;
   width: 18px;
   height: 13px;
@@ -61,20 +61,20 @@
   flex: 0 0 auto;
 }
 
-.cocarde-badge__flag svg {
+.coquade-badge__flag svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.cocarde-badge__sep {
+.coquade-badge__sep {
   opacity: 0.7;
   font-size: 10px;
   line-height: 1;
 }
 
 /* Mini-drapeau du propriétaire ultime (capital étranger d'une marque FR/EU). */
-.cocarde-badge__owner-flag {
+.coquade-badge__owner-flag {
   display: inline-flex;
   width: 14px;
   height: 10px;
@@ -85,7 +85,7 @@
   flex: 0 0 auto;
 }
 
-.cocarde-badge__owner-flag svg {
+.coquade-badge__owner-flag svg {
   display: block;
   width: 100%;
   height: 100%;
@@ -93,7 +93,7 @@
 
 /* ---------- Tooltip ---------- */
 
-.cocarde-tooltip {
+.coquade-tooltip {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
@@ -115,7 +115,7 @@
   z-index: 1;
 }
 
-.cocarde-tooltip::before {
+.coquade-tooltip::before {
   content: '';
   position: absolute;
   top: -5px;
@@ -127,22 +127,22 @@
   box-shadow: -1px -1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
-.cocarde-badge:hover .cocarde-tooltip,
-.cocarde-badge:focus-visible .cocarde-tooltip,
-.cocarde-badge:focus-within .cocarde-tooltip,
-.cocarde-badge--open .cocarde-tooltip {
+.coquade-badge:hover .coquade-tooltip,
+.coquade-badge:focus-visible .coquade-tooltip,
+.coquade-badge:focus-within .coquade-tooltip,
+.coquade-badge--open .coquade-tooltip {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.cocarde-tooltip__section + .cocarde-tooltip__section {
+.coquade-tooltip__section + .coquade-tooltip__section {
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.cocarde-tooltip__header {
+.coquade-tooltip__header {
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -151,7 +151,7 @@
   margin-bottom: 5px;
 }
 
-.cocarde-tooltip__country {
+.coquade-tooltip__country {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -160,7 +160,7 @@
   color: #f9fafb;
 }
 
-.cocarde-tooltip__country-flag {
+.coquade-tooltip__country-flag {
   width: 18px;
   height: 13px;
   border-radius: 2px;
@@ -169,13 +169,13 @@
   flex: 0 0 auto;
 }
 
-.cocarde-tooltip__country-flag svg {
+.coquade-tooltip__country-flag svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.cocarde-tooltip__parent {
+.coquade-tooltip__parent {
   margin-top: 3px;
   display: flex;
   align-items: center;
@@ -184,7 +184,7 @@
   color: #d1d5db;
 }
 
-.cocarde-tooltip__parent-flag {
+.coquade-tooltip__parent-flag {
   width: 14px;
   height: 10px;
   border-radius: 2px;
@@ -193,20 +193,20 @@
   flex: 0 0 auto;
 }
 
-.cocarde-tooltip__parent-flag svg {
+.coquade-tooltip__parent-flag svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.cocarde-tooltip__confidence {
+.coquade-tooltip__confidence {
   margin-top: 7px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.cocarde-tooltip__bar {
+.coquade-tooltip__bar {
   flex: 1;
   height: 4px;
   background: rgba(255, 255, 255, 0.12);
@@ -214,18 +214,18 @@
   overflow: hidden;
 }
 
-.cocarde-tooltip__bar-fill {
+.coquade-tooltip__bar-fill {
   height: 100%;
   border-radius: 2px;
   background: #34d399;
   transition: width 200ms ease;
 }
 
-.cocarde-tooltip__bar-fill--low {
+.coquade-tooltip__bar-fill--low {
   background: #f59e0b;
 }
 
-.cocarde-tooltip__confidence-value {
+.coquade-tooltip__confidence-value {
   font-size: 10px;
   font-weight: 600;
   color: #d1d5db;
@@ -233,26 +233,26 @@
   text-align: right;
 }
 
-.cocarde-tooltip__source {
+.coquade-tooltip__source {
   margin-top: 5px;
   font-size: 10px;
   color: #9ca3af;
 }
 
-.cocarde-tooltip__estimated {
+.coquade-tooltip__estimated {
   margin-top: 2px;
   font-size: 10px;
   font-style: italic;
   color: #fbbf24;
 }
 
-.cocarde-tooltip__unknown {
+.coquade-tooltip__unknown {
   font-size: 12px;
   font-style: italic;
   color: #9ca3af;
 }
 
-.cocarde-tooltip__report {
+.coquade-tooltip__report {
   display: inline-block;
   margin-top: 10px;
   font-size: 10px;
@@ -261,7 +261,7 @@
   cursor: pointer;
 }
 
-.cocarde-tooltip__report:hover,
-.cocarde-tooltip__report:focus-visible {
+.coquade-tooltip__report:hover,
+.coquade-tooltip__report:focus-visible {
   color: #bfdbfe;
 }

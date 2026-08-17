@@ -4,7 +4,7 @@ import { OffCache } from '../off-cache';
 import type { OffProductModel } from '../../../models/off-product-model';
 
 // Constantes miroir de l'implémentation (off-cache.ts).
-const NAMESPACE = 'cocarde.off-cache';
+const NAMESPACE = 'coquade.off-cache';
 const TTL_MS = 7 * 24 * 60 * 60 * 1000;
 const MAX_ENTRIES = 2_000;
 
@@ -80,14 +80,14 @@ describe('OffCache', () => {
       const now = Date.now();
       await seedEntry('old', now - TTL_MS - 1_000);
       await seedEntry('fresh', now);
-      await fakeBrowser.storage.local.set({ 'cocarde.preferences': { theme: 'dark' } });
+      await fakeBrowser.storage.local.set({ 'coquade.preferences': { theme: 'dark' } });
 
       await cache.purge();
 
       const all = await fakeBrowser.storage.local.get(null);
       expect(all[storageKey('old')]).toBeUndefined();
       expect(all[storageKey('fresh')]).toBeDefined();
-      expect(all['cocarde.preferences']).toBeDefined();
+      expect(all['coquade.preferences']).toBeDefined();
     });
 
     it(`plafonne à ${MAX_ENTRIES} entrées en évinçant les plus anciennes`, async () => {

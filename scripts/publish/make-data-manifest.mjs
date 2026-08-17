@@ -99,7 +99,7 @@ const main = async () => {
   // Jekyll (GitHub Pages) ne convertit en HTML que les fichiers portant un
   // front matter YAML — sans lui, les .md sont servis bruts et /PRIVACY.html
   // n'existe pas. Thème Primer natif Pages pour un rendu lisible.
-  await writeFile(join(OUT_DIR, '_config.yml'), 'theme: jekyll-theme-primer\ntitle: Cocarde\n', 'utf-8');
+  await writeFile(join(OUT_DIR, '_config.yml'), 'theme: jekyll-theme-primer\ntitle: Coquade\n', 'utf-8');
   // brands.json est dérivé à ~92 % de DeTrumpez-vous (GPL-3.0) : le dataset
   // publié porte la GPL-3.0 (copyleft), le code de l'extension reste MIT
   // (agrégat, GPLv3 §5).
@@ -107,19 +107,19 @@ const main = async () => {
   const privacy = await readFile(join(ROOT, 'PRIVACY.md'), 'utf-8');
   await writeFile(
     join(OUT_DIR, 'PRIVACY.md'),
-    `---\ntitle: Politique de confidentialité — Cocarde\n---\n\n${privacy}`,
+    `---\ntitle: Politique de confidentialité — Coquade\n---\n\n${privacy}`,
     'utf-8',
   );
   await writeFile(
     join(OUT_DIR, 'index.md'),
     [
       '---',
-      'title: Cocarde — données publiques',
+      'title: Coquade — données publiques',
       '---',
       '',
-      '# Cocarde — données publiques',
+      '# Coquade — données publiques',
       '',
-      "Site de données de l'extension Cocarde (badge d'origine des produits",
+      "Site de données de l'extension Coquade (badge d'origine des produits",
       'sur les drives français).',
       '',
       '- [Politique de confidentialité](PRIVACY.html)',
@@ -133,7 +133,7 @@ const main = async () => {
       '[GNU GPL v3.0](https://github.com/Sacha213/detrumpez-vous/blob/main/LICENSE).',
       "Environ 92 % des entrées en proviennent ; elles ont été filtrées, remappées et",
       'fusionnées avec d autres sources (Wikidata CC0, ajouts manuels) par le projet',
-      'Cocarde — modifications 2026. Conformément à la GPL v3, `data/brands.json`',
+      'Coquade — modifications 2026. Conformément à la GPL v3, `data/brands.json`',
       'est distribué sous licence **GPL-3.0** ([LICENSE-DATA](LICENSE-DATA)).',
       "Les données d'origine de fabrication proviennent en partie",
       "d'[OpenFoodFacts](https://world.openfoodfacts.org) (© les contributeurs",

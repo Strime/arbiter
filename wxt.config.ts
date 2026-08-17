@@ -5,7 +5,7 @@ export default defineConfig({
   srcDir: 'src',
   modules: ['@wxt-dev/module-react'],
   manifest: ({ browser }) => ({
-    name: 'Cocarde',
+    name: 'Coquade',
     description:
       "Affiche l'origine (marque et fabrication — FR, EU, US) des produits sur les drives français, pour des achats éclairés.",
     permissions: ['storage', 'alarms'],

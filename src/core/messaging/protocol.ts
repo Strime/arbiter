@@ -9,7 +9,7 @@ export const RequestOriginPayloadSchema = z.object({
 });
 
 export const RequestOriginMessageSchema = z.object({
-  type: z.literal('cocarde/request-origin'),
+  type: z.literal('coquade/request-origin'),
   payload: RequestOriginPayloadSchema,
 });
 
@@ -48,16 +48,16 @@ export const OriginVerdictPayloadSchema = z.object({
 });
 
 export const OriginResponseMessageSchema = z.object({
-  type: z.literal('cocarde/origin-response'),
+  type: z.literal('coquade/origin-response'),
   payload: OriginVerdictPayloadSchema,
 });
 
 export const GetStatsMessageSchema = z.object({
-  type: z.literal('cocarde/get-stats'),
+  type: z.literal('coquade/get-stats'),
 });
 
 export const StatsResponseMessageSchema = z.object({
-  type: z.literal('cocarde/stats-response'),
+  type: z.literal('coquade/stats-response'),
   payload: z.object({
     badgeCount: z.number().int().nonnegative(),
   }),

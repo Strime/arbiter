@@ -23,7 +23,7 @@ export default defineContentScript({
       if (!parsed.success) return false;
 
       const response: StatsResponseMessage = {
-        type: 'cocarde/stats-response',
+        type: 'coquade/stats-response',
         payload: { badgeCount: countBadgeHosts() },
       };
       sendResponse(response);
@@ -33,10 +33,10 @@ export default defineContentScript({
     const container = buildContentContainer();
     const adapter = container.resolveAdapter.call(location.href);
     if (!adapter) {
-      console.debug('[cocarde] no adapter matches', location.href);
+      console.debug('[coquade] no adapter matches', location.href);
       return;
     }
-    console.info('[cocarde] adapter active:', adapter.id);
+    console.info('[coquade] adapter active:', adapter.id);
 
     let teardown: (() => void) | null = null;
 
@@ -62,7 +62,7 @@ export default defineContentScript({
     const initial = await container.getPreferences.call();
     if (watchFired) return;
     if (initial.enabled) start();
-    else console.info('[cocarde] disabled by user preferences');
+    else console.info('[coquade] disabled by user preferences');
   },
 });
 
@@ -84,7 +84,7 @@ function attachAdapter(container: ContentContainer, adapter: SiteAdapter): () =>
     } catch (error) {
       if (adapterListenerFailureLogged) return;
       adapterListenerFailureLogged = true;
-      console.debug('[cocarde] card processing failed (extension context invalidated?)', error);
+      console.debug('[coquade] card processing failed (extension context invalidated?)', error);
     }
   });
 }

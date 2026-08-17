@@ -2,34 +2,34 @@
    Fond ET couleur de texte explicites, avec variante sombre. */
 
 :root {
-  --cocarde-bg: #ffffff;
-  --cocarde-fg: #111827;
-  --cocarde-muted: #6b7280;
-  --cocarde-border: #e5e7eb;
-  --cocarde-surface: #f3f4f6;
-  --cocarde-link: #1d4ed8;
-  --cocarde-ok: #15803d;
+  --coquade-bg: #ffffff;
+  --coquade-fg: #111827;
+  --coquade-muted: #6b7280;
+  --coquade-border: #e5e7eb;
+  --coquade-surface: #f3f4f6;
+  --coquade-link: #1d4ed8;
+  --coquade-ok: #15803d;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --cocarde-bg: #111827;
-    --cocarde-fg: #f9fafb;
-    --cocarde-muted: #9ca3af;
-    --cocarde-border: #374151;
-    --cocarde-surface: #1f2937;
-    --cocarde-link: #93c5fd;
-    --cocarde-ok: #4ade80;
+    --coquade-bg: #111827;
+    --coquade-fg: #f9fafb;
+    --coquade-muted: #9ca3af;
+    --coquade-border: #374151;
+    --coquade-surface: #1f2937;
+    --coquade-link: #93c5fd;
+    --coquade-ok: #4ade80;
   }
 }
 
 body {
   margin: 0;
-  background: var(--cocarde-bg);
-  color: var(--cocarde-fg);
+  background: var(--coquade-bg);
+  color: var(--coquade-fg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 a {
-  color: var(--cocarde-link);
+  color: var(--coquade-link);
 }

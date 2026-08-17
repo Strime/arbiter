@@ -30,8 +30,8 @@ export interface ReportDetails {
 export function buildReportMailtoUrl(details: ReportDetails = {}): string {
   const subject =
     details.brand !== undefined
-      ? `[Cocarde] Signalement d'erreur — ${details.brand}`
-      : '[Cocarde] Signalement de problème';
+      ? `[Coquade] Signalement d'erreur — ${details.brand}`
+      : '[Coquade] Signalement de problème';
 
   const lines: string[] = [];
   if (details.brand !== undefined) lines.push(`Marque : ${details.brand}`);

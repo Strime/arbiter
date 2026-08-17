@@ -2,7 +2,7 @@ import { OffResponseSchema } from './off-schemas';
 import type { OffProductModel } from '../../models/off-product-model';
 
 const OFF_BASE = 'https://world.openfoodfacts.org/api/v2/product';
-const APP_IDENTITY = 'Cocarde/0.1.0 (https://github.com/Strime/arbiter)';
+const APP_IDENTITY = 'Coquade/0.1.0 (https://github.com/Strime/arbiter)';
 const FETCH_TIMEOUT_MS = 6_000;
 const MAX_CONCURRENT_REQUESTS = 4;
 const MIN_DISPATCH_INTERVAL_MS = 150;

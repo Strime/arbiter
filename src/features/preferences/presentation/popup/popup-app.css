@@ -14,14 +14,14 @@
 .popup__subtitle {
   margin: 4px 0 14px;
   font-size: 12px;
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
 }
 
 .popup__status {
   margin: 0 0 14px;
   padding: 10px 12px;
   border-radius: 8px;
-  background: var(--cocarde-surface);
+  background: var(--coquade-surface);
   font-size: 13px;
   line-height: 1.4;
 }
@@ -38,24 +38,24 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--cocarde-muted);
+  background: var(--coquade-muted);
 }
 
 .popup__dot--active {
-  background: var(--cocarde-ok);
+  background: var(--coquade-ok);
 }
 
 .popup__count {
   margin: 6px 0 0;
   font-size: 12px;
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
 }
 
 .popup__sites {
   margin: 6px 0 0;
   padding-left: 18px;
   font-size: 12px;
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
 }
 
 .popup__sites li {
@@ -71,14 +71,14 @@
 }
 
 .popup__muted {
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
   font-size: 13px;
 }
 
 .popup__links {
   margin-top: 14px;
   padding-top: 12px;
-  border-top: 1px solid var(--cocarde-border);
+  border-top: 1px solid var(--coquade-border);
   display: flex;
   flex-wrap: wrap;
   gap: 4px 12px;
@@ -90,7 +90,7 @@
   border: none;
   padding: 0;
   font: inherit;
-  color: var(--cocarde-link);
+  color: var(--coquade-link);
   text-decoration: underline;
   cursor: pointer;
 }
@@ -98,5 +98,5 @@
 .popup__footer {
   margin-top: 12px;
   font-size: 10px;
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
 }

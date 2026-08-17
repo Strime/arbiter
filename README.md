@@ -1,4 +1,4 @@
-# Cocarde
+# Coquade
 
 Extension cross-browser qui affiche l'origine des produits (marque + fabrication) sur les sites de drive français — Carrefour, Intermarché, Auchan, Leclerc, Lidl. But : favoriser FR/EU, éviter US.
 

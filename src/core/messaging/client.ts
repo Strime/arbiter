@@ -9,7 +9,7 @@ import {
 
 export class MessagingClient {
   async requestOrigin(payload: RequestOriginMessage['payload']): Promise<OriginResponseMessage['payload'] | null> {
-    const message: RequestOriginMessage = { type: 'cocarde/request-origin', payload };
+    const message: RequestOriginMessage = { type: 'coquade/request-origin', payload };
     let response: unknown;
     try {
       response = await browser.runtime.sendMessage(message);
@@ -27,7 +27,7 @@ export class MessagingClient {
    * si la réponse est invalide.
    */
   async requestTabStats(tabId: number): Promise<StatsResponseMessage['payload'] | null> {
-    const message: GetStatsMessage = { type: 'cocarde/get-stats' };
+    const message: GetStatsMessage = { type: 'coquade/get-stats' };
     let response: unknown;
     try {
       response = await browser.tabs.sendMessage(tabId, message);

@@ -7,7 +7,7 @@ import type { BrandsFile } from '../schemas';
 
 const MANIFEST_URL = 'https://strime.github.io/arbiter-data/data/brands-manifest.json';
 const DATA_URL = 'https://strime.github.io/arbiter-data/data/brands.json';
-const BUNDLED_URL = 'chrome-extension://cocarde/data/brands.json';
+const BUNDLED_URL = 'chrome-extension://coquade/data/brands.json';
 
 const sha256Of = (text: string): string => createHash('sha256').update(text, 'utf8').digest('hex');
 
@@ -85,7 +85,7 @@ describe('runBrandsDbUpdate', () => {
   beforeEach(() => {
     fakeBrowser.reset();
     fakeBrowser.runtime.getURL = ((path: string) =>
-      `chrome-extension://cocarde${path}`) as typeof fakeBrowser.runtime.getURL;
+      `chrome-extension://coquade${path}`) as typeof fakeBrowser.runtime.getURL;
     fakeBrowser.runtime.getManifest = (() => ({
       version: '0.1.0',
     })) as typeof fakeBrowser.runtime.getManifest;

@@ -1,8 +1,8 @@
-# Politique de confidentialité — Cocarde
+# Politique de confidentialité — Coquade
 
 *Dernière mise à jour : 13 août 2026*
 
-Cocarde est une extension de navigateur qui affiche l'origine (marque et fabrication)
+Coquade est une extension de navigateur qui affiche l'origine (marque et fabrication)
 des produits sur les sites de drive français. Elle est conçue pour fonctionner
 **entièrement en local**.
 

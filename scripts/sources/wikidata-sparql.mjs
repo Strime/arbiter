@@ -6,7 +6,7 @@ import { createHash } from 'node:crypto';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const CACHE_DIR = join(__dirname, 'wikidata-cache');
 const SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql';
-const USER_AGENT = 'cocarde-brand-db-builder/0.1 (+https://github.com/Gaetan-S/arbiter)';
+const USER_AGENT = 'arbiter-brand-db-builder/0.1 (+https://github.com/Gaetan-S/arbiter)';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 

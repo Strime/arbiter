@@ -1,9 +1,16 @@
-# Landing page Cocarde
+# Landing page Coquade
 
 Site vitrine statique — aucun build, aucune dépendance.
 
 **En ligne : https://cocarde-extension.web.app** (Firebase Hosting, projet
 `cocarde-extension` — le même projet portera Auth/Firestore/Functions en V1).
+
+> **Renommage Coquade (17 août 2026)** : la marque visible est « Coquade » ;
+> les noms techniques ne bougent pas (décision du 17 août : projet Firebase
+> `cocarde-extension`, repos GitHub `arbiter` / `arbiter-data`, package
+> `arbiter`). Une fois coquade.fr enregistré : le brancher en domaine custom
+> sur ce site Hosting, mettre à jour canonical/og:url/sitemap/robots dans ces
+> fichiers, et laisser l'URL web.app rediriger.
 
 ## Déployer
 
@@ -31,7 +38,7 @@ landing/
 ├── css/
 │   ├── tokens.css      # design tokens — SEULE source de vérité (couleurs, typo, rythme)
 │   ├── base.css        # reset léger, @font-face, typographie, utilitaires
-│   ├── components.css  # boutons, chips, cartes, réplique du badge Cocarde
+│   ├── components.css  # boutons, chips, cartes, réplique du badge Coquade
 │   └── sections.css    # mise en page section par section + responsive
 ├── js/
 │   └── main.js         # amélioration progressive (header, reveal, tap des badges)

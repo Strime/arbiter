@@ -47,7 +47,7 @@ function StatusPanel(props: { readonly status: ActiveTabStatus; readonly enabled
       <section className="popup__status">
         <p className="popup__status-line">
           <span className="popup__dot" aria-hidden="true" />
-          <span>Drive supporté, mais Cocarde est désactivée.</span>
+          <span>Drive supporté, mais Coquade est désactivée.</span>
         </p>
         <p className="popup__count">Activez-le ci-dessous pour afficher les badges.</p>
       </section>
@@ -78,7 +78,7 @@ export function PopupApp(props: PopupAppProps): JSX.Element {
 
   return (
     <main className="popup">
-      <h1 className="popup__title">Cocarde</h1>
+      <h1 className="popup__title">Coquade</h1>
       <p className="popup__subtitle">Origine des produits sur le drive</p>
 
       {!loading && <StatusPanel status={status} enabled={preferences.enabled} />}

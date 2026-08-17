@@ -1,5 +1,5 @@
 {
-  "name": "cocarde",
+  "name": "arbiter",
   "description": "Extension navigateur qui affiche l'origine (marque + fabrication) des produits sur les drives français",
   "private": true,
   "version": "0.1.0",

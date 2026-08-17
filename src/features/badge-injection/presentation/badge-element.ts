@@ -13,11 +13,11 @@ export interface BadgeProductInfo {
 }
 
 const REGION_CLASS: Record<OriginRegion, string> = {
-  FR: 'cocarde-badge--fr',
-  EU: 'cocarde-badge--eu',
-  US: 'cocarde-badge--us',
-  OTHER: 'cocarde-badge--other',
-  UNKNOWN: 'cocarde-badge--unknown',
+  FR: 'coquade-badge--fr',
+  EU: 'coquade-badge--eu',
+  US: 'coquade-badge--us',
+  OTHER: 'coquade-badge--other',
+  UNKNOWN: 'coquade-badge--unknown',
 };
 
 const LOW_CONFIDENCE_THRESHOLD = 0.5;
@@ -57,25 +57,25 @@ function renderSection(
   ownership: OwnershipInfo | undefined,
 ): HTMLElement {
   const section = document.createElement('section');
-  section.className = 'cocarde-tooltip__section';
+  section.className = 'coquade-tooltip__section';
 
   const header = document.createElement('div');
-  header.className = 'cocarde-tooltip__header';
+  header.className = 'coquade-tooltip__header';
   header.textContent = title;
   section.appendChild(header);
 
   if (!origin) {
     const unknown = document.createElement('div');
-    unknown.className = 'cocarde-tooltip__unknown';
+    unknown.className = 'coquade-tooltip__unknown';
     unknown.textContent = 'Origine inconnue';
     section.appendChild(unknown);
     return section;
   }
 
   const country = document.createElement('div');
-  country.className = 'cocarde-tooltip__country';
+  country.className = 'coquade-tooltip__country';
   const flag = document.createElement('span');
-  flag.className = 'cocarde-tooltip__country-flag';
+  flag.className = 'coquade-tooltip__country-flag';
   setFlagInto(flag, origin.country);
   country.appendChild(flag);
   const name = document.createElement('span');
@@ -85,10 +85,10 @@ function renderSection(
 
   if (ownership && (ownership.company || ownership.country)) {
     const parent = document.createElement('div');
-    parent.className = 'cocarde-tooltip__parent';
+    parent.className = 'coquade-tooltip__parent';
     if (ownership.country) {
       const parentFlag = document.createElement('span');
-      parentFlag.className = 'cocarde-tooltip__parent-flag';
+      parentFlag.className = 'coquade-tooltip__parent-flag';
       setFlagInto(parentFlag, ownership.country);
       parent.appendChild(parentFlag);
     }
@@ -101,45 +101,45 @@ function renderSection(
   }
 
   const confidenceWrap = document.createElement('div');
-  confidenceWrap.className = 'cocarde-tooltip__confidence';
+  confidenceWrap.className = 'coquade-tooltip__confidence';
   const bar = document.createElement('div');
-  bar.className = 'cocarde-tooltip__bar';
+  bar.className = 'coquade-tooltip__bar';
   const fill = document.createElement('div');
   const isLow = origin.confidence < LOW_CONFIDENCE_THRESHOLD;
   fill.className = isLow
-    ? 'cocarde-tooltip__bar-fill cocarde-tooltip__bar-fill--low'
-    : 'cocarde-tooltip__bar-fill';
+    ? 'coquade-tooltip__bar-fill coquade-tooltip__bar-fill--low'
+    : 'coquade-tooltip__bar-fill';
   fill.style.width = `${Math.round(origin.confidence * 100)}%`;
   bar.appendChild(fill);
   confidenceWrap.appendChild(bar);
   const value = document.createElement('span');
-  value.className = 'cocarde-tooltip__confidence-value';
+  value.className = 'coquade-tooltip__confidence-value';
   value.textContent = `${Math.round(origin.confidence * 100)} %`;
   confidenceWrap.appendChild(value);
   section.appendChild(confidenceWrap);
 
   if (isLow) {
     const estimated = document.createElement('div');
-    estimated.className = 'cocarde-tooltip__estimated';
+    estimated.className = 'coquade-tooltip__estimated';
     estimated.textContent = 'estimation';
     section.appendChild(estimated);
   }
 
   const source = document.createElement('div');
-  source.className = 'cocarde-tooltip__source';
+  source.className = 'coquade-tooltip__source';
   source.textContent = `source : ${SOURCE_LABEL_FR[origin.source]}`;
   section.appendChild(source);
 
   return section;
 }
 
-const OPEN_CLASS = 'cocarde-badge--open';
+const OPEN_CLASS = 'coquade-badge--open';
 
 let tooltipIdCounter = 0;
 
 function renderReportLink(verdict: OriginVerdict, product: BadgeProductInfo): HTMLAnchorElement {
   const link = document.createElement('a');
-  link.className = 'cocarde-tooltip__report';
+  link.className = 'coquade-tooltip__report';
   link.href = buildReportMailtoUrl({
     brand: product.brand,
     ean: product.ean,
@@ -150,34 +150,34 @@ function renderReportLink(verdict: OriginVerdict, product: BadgeProductInfo): HT
 }
 
 export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict, product: BadgeProductInfo): void {
-  shadow.querySelectorAll('.cocarde-badge').forEach((n) => n.remove());
+  shadow.querySelectorAll('.coquade-badge').forEach((n) => n.remove());
 
   const badge = document.createElement('div');
-  badge.className = `cocarde-badge ${REGION_CLASS[verdict.brandRegion]}`;
+  badge.className = `coquade-badge ${REGION_CLASS[verdict.brandRegion]}`;
   badge.tabIndex = 0;
   badge.setAttribute('role', 'img');
   badge.setAttribute('aria-label', ariaLabel(verdict));
 
   const brandFlag = document.createElement('span');
-  brandFlag.className = 'cocarde-badge__flag';
+  brandFlag.className = 'coquade-badge__flag';
   setFlagInto(brandFlag, verdict.brand?.country);
   badge.appendChild(brandFlag);
 
   if (hasForeignOwnership(verdict)) {
     const sep = document.createElement('span');
-    sep.className = 'cocarde-badge__sep';
+    sep.className = 'coquade-badge__sep';
     sep.textContent = '·';
     badge.appendChild(sep);
     const ownerFlag = document.createElement('span');
-    ownerFlag.className = 'cocarde-badge__owner-flag';
+    ownerFlag.className = 'coquade-badge__owner-flag';
     setFlagInto(ownerFlag, verdict.brand?.parentCountry);
     badge.appendChild(ownerFlag);
   }
 
   const tooltip = document.createElement('div');
-  tooltip.className = 'cocarde-tooltip';
+  tooltip.className = 'coquade-tooltip';
   tooltip.setAttribute('role', 'tooltip');
-  tooltip.id = `cocarde-tooltip-${++tooltipIdCounter}`;
+  tooltip.id = `coquade-tooltip-${++tooltipIdCounter}`;
   badge.setAttribute('aria-describedby', tooltip.id);
   tooltip.appendChild(
     renderSection('Marque', verdict.brand, {

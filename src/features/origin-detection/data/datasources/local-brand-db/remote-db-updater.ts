@@ -3,7 +3,7 @@ import { BrandsFileSchema, SUPPORTED_BRANDS_SCHEMA_VERSION } from './schemas';
 import { fetchBundledBrandsFile } from './brand-db-provider';
 import { readOverlay, readStoredEtag, writeOverlay } from './overlay-storage';
 
-export const BRANDS_DB_UPDATE_ALARM = 'cocarde.brands-db.update';
+export const BRANDS_DB_UPDATE_ALARM = 'coquade.brands-db.update';
 export const BRANDS_DB_UPDATE_PERIOD_MINUTES = 24 * 60;
 export const BRANDS_DB_UPDATE_MAX_JITTER_MINUTES = 60;
 
@@ -131,13 +131,13 @@ export async function runBrandsDbUpdate(): Promise<void> {
     const { manifest, etag } = fetched;
 
     if (manifest.schemaVersion !== SUPPORTED_BRANDS_SCHEMA_VERSION) {
-      console.debug('[cocarde] brands-db update skipped: unsupported schemaVersion', manifest.schemaVersion);
+      console.debug('[coquade] brands-db update skipped: unsupported schemaVersion', manifest.schemaVersion);
       return;
     }
 
     const extensionVersion = browser.runtime.getManifest().version;
     if (compareExtensionVersions(manifest.minExtensionVersion, extensionVersion) > 0) {
-      console.debug('[cocarde] brands-db update skipped: requires extension', manifest.minExtensionVersion);
+      console.debug('[coquade] brands-db update skipped: requires extension', manifest.minExtensionVersion);
       return;
     }
 
@@ -147,32 +147,32 @@ export async function runBrandsDbUpdate(): Promise<void> {
 
     const bytes = await downloadCapped(manifest.url);
     if (bytes === null) {
-      console.debug('[cocarde] brands-db update skipped: download failed or exceeded cap');
+      console.debug('[coquade] brands-db update skipped: download failed or exceeded cap');
       return;
     }
 
     const hash = await sha256Hex(bytes);
     if (hash !== manifest.sha256) {
-      console.debug('[cocarde] brands-db update skipped: sha256 mismatch');
+      console.debug('[coquade] brands-db update skipped: sha256 mismatch');
       return;
     }
 
     if (bytes.byteLength !== manifest.sizeBytes) {
-      console.debug('[cocarde] brands-db update skipped: sizeBytes mismatch');
+      console.debug('[coquade] brands-db update skipped: sizeBytes mismatch');
       return;
     }
 
     const json: unknown = JSON.parse(new TextDecoder().decode(bytes));
     const parsed = BrandsFileSchema.safeParse(json);
     if (!parsed.success) {
-      console.debug('[cocarde] brands-db update skipped: invalid brands file', parsed.error);
+      console.debug('[coquade] brands-db update skipped: invalid brands file', parsed.error);
       return;
     }
 
     // La version interne du fichier téléchargé doit être égale au schemaVersion
     // annoncé par le manifest : refuse tout écart.
     if (parsed.data.version !== manifest.schemaVersion) {
-      console.debug('[cocarde] brands-db update skipped: file/manifest version mismatch');
+      console.debug('[coquade] brands-db update skipped: file/manifest version mismatch');
       return;
     }
 
@@ -182,13 +182,13 @@ export async function runBrandsDbUpdate(): Promise<void> {
     const bundledCount = bundled?.brands.length ?? 0;
     const previousCount = overlay?.file.brands.length ?? 0;
     if (parsed.data.brands.length < MIN_PLAUSIBLE_RATIO * Math.max(bundledCount, previousCount)) {
-      console.debug('[cocarde] brands-db update skipped: implausible entry count', parsed.data.brands.length);
+      console.debug('[coquade] brands-db update skipped: implausible entry count', parsed.data.brands.length);
       return;
     }
 
     await writeOverlay(manifest.dataVersion, parsed.data, etag);
-    console.debug('[cocarde] brands-db overlay applied', manifest.dataVersion);
+    console.debug('[coquade] brands-db overlay applied', manifest.dataVersion);
   } catch (error) {
-    console.debug('[cocarde] brands-db update failed', error);
+    console.debug('[coquade] brands-db update failed', error);
   }
 }

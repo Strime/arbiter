@@ -3,7 +3,7 @@ import type { UserPreferences } from '../../domain/entities/user-preferences';
 import { DEFAULT_PREFERENCES } from '../../domain/entities/user-preferences';
 import type { PreferencesRepository } from '../../domain/repositories/preferences-repository';
 
-const STORAGE_KEY = 'cocarde.preferences.v1';
+const STORAGE_KEY = 'coquade.preferences.v1';
 
 const PreferencesSchema = z.object({
   enabled: z.boolean(),

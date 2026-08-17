@@ -1,7 +1,7 @@
 import badgeStyles from './badge.css?inline';
 
-const SHADOW_HOST_TAG = 'cocarde-badge-host';
-const SHADOW_HOST_MARKER = 'data-cocarde-badge';
+const SHADOW_HOST_TAG = 'coquade-badge-host';
+const SHADOW_HOST_MARKER = 'data-coquade-badge';
 
 interface InjectedHost {
   readonly card: HTMLElement;

@@ -1,4 +1,4 @@
-# Cocarde
+# Coquade
 
 > Extension navigateur (Chrome, Firefox) qui affiche l'origine des produits —
 > FR, EU, US — sur les drives français : Carrefour, Intermarché, Auchan,

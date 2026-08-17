@@ -22,7 +22,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
 }
 
 .options__toggle {
@@ -34,7 +34,7 @@
 }
 
 .options__muted {
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
   font-size: 13px;
 }
 
@@ -52,7 +52,7 @@
 .options__footer {
   margin-top: 32px;
   padding-top: 12px;
-  border-top: 1px solid var(--cocarde-border);
+  border-top: 1px solid var(--coquade-border);
   font-size: 12px;
-  color: var(--cocarde-muted);
+  color: var(--coquade-muted);
 }

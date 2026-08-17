@@ -1,6 +1,6 @@
 import { BrandsFileSchema, SUPPORTED_BRANDS_SCHEMA_VERSION, type BrandsFile } from './schemas';
 
-const NAMESPACE = 'cocarde.brands-db';
+const NAMESPACE = 'coquade.brands-db';
 
 export const OVERLAY_VERSION_KEY = `${NAMESPACE}:version`;
 export const OVERLAY_DATA_KEY = `${NAMESPACE}:data`;

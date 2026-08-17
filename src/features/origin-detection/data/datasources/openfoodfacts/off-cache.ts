@@ -2,10 +2,10 @@ import type { OffProductModel } from '../../models/off-product-model';
 import type { OffFetchResult } from './off-client';
 
 const TTL_MS = 7 * 24 * 60 * 60 * 1000;
-const NAMESPACE = 'cocarde.off-cache';
+const NAMESPACE = 'coquade.off-cache';
 const MAX_ENTRIES = 2_000;
 
-export const OFF_CACHE_PURGE_ALARM = 'cocarde.off-cache.purge';
+export const OFF_CACHE_PURGE_ALARM = 'coquade.off-cache.purge';
 export const OFF_CACHE_PURGE_PERIOD_MINUTES = 6 * 60;
 
 interface CacheEntry {
