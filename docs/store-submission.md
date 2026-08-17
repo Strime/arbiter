@@ -12,8 +12,10 @@ Checklist et textes prêts à coller pour Chrome Web Store, Firefox AMO, Edge Ad
   Vérifications du 17 août 2026 : domaines coquade.fr / .com / .app / .io
   **libres** (RDAP AFNIC/Verisign) ; AMO : 0 résultat exact ; rien sur le
   Chrome Web Store ; aucune marque trouvée en recherche web.
-  Reste AVANT soumission : recherche d'antériorité INPI/TMview (classes 9,
-  35, 42) + **enregistrer coquade.fr et coquade.com** + Edge au moment venu.
+  Recherche d'antériorité INPI (data.inpi.fr, 17 août 2026) : **0 résultat**
+  sur « Coquade », toutes catégories (entreprises, marques, brevets, dessins
+  et modèles). Reste AVANT soumission : **enregistrer coquade.fr et
+  coquade.com** + Edge au moment venu.
   (Historique : l'audit complet du 14 août 2026 portait sur « Arbiter » —
   AMO vide, deux homonymes confidentiels sur Chrome, marques US éloignées.)
 - **Nom de fiche recommandé** : « Coquade — Origine des produits (FR/EU/US) »
