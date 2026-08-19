@@ -15,6 +15,12 @@ Site vitrine statique — aucun build, aucune dépendance.
 > - `cocarde-extension.web.app` — site historique, conservé le temps de la
 >   transition.
 >
+> Il existe aussi un **ancien projet Firebase « Arbiter »** (`arbiter-extension`,
+> d'avant le renommage d'août 2026) : son URL `arbiter-extension.web.app` fait
+> un 301 vers arbiter-landing (déployé le 17 août 2026 depuis une config
+> minimale hors repo — redirects `** → https://arbiter-landing.web.app`).
+> À terme : rediriger vers coquade.fr, ou supprimer le projet.
+>
 > Une fois coquade.fr actif : mettre à jour canonical/og:url/sitemap/robots
 > dans ces fichiers, puis faire rediriger les URLs web.app.
 
