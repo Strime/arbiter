@@ -15,7 +15,7 @@ Chaque dimension est affichée avec un indice de confiance et sa source.
 
 ## Pages
 
-- [Accueil](https://cocarde-extension.web.app/) : présentation, démo du badge,
+- [Accueil](https://coquade.fr/) : présentation, démo du badge,
   captures réelles, FAQ.
 - [Politique de confidentialité](https://strime.github.io/arbiter-data/PRIVACY.html)
 

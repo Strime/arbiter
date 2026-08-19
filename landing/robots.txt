@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cocarde-extension.web.app/sitemap.xml
+Sitemap: https://coquade.fr/sitemap.xml

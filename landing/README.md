@@ -2,27 +2,23 @@
 
 Site vitrine statique — aucun build, aucune dépendance.
 
-**En ligne : https://cocarde-extension.web.app** (Firebase Hosting, projet
-`cocarde-extension` — le même projet portera Auth/Firestore/Functions en V1).
+**En ligne : https://coquade.fr** (Firebase Hosting, projet `cocarde-extension`,
+site `arbiter-landing` — le même projet portera Auth/Firestore/Functions en V1).
 
-> **Renommage Coquade (17 août 2026)** : la marque visible est « Coquade » ;
-> les noms techniques restent sur `arbiter` (repos GitHub, package). Le projet
-> Firebase `cocarde-extension` héberge deux sites servis à l'identique par
-> `firebase deploy --only hosting` (cibles dans `.firebaserc`, config dupliquée
-> par cible dans `firebase.json` — garder les deux blocs synchronisés) :
-> - `arbiter-landing.web.app` — site au nom technique, **c'est ici qu'il faut
->   brancher coquade.fr en domaine custom** (console Firebase → Hosting) ;
-> - `cocarde-extension.web.app` — site historique, conservé le temps de la
->   transition.
+> **Identité (19 août 2026)** : la marque visible est « Coquade » ; les noms
+> techniques restent sur `arbiter` (repos GitHub, package). Domaine coquade.fr
+> actif depuis le 19 août 2026, branché sur le site Hosting `arbiter-landing`
+> (canonical/og/sitemap/robots pointent dessus). Cibles de déploiement dans
+> `.firebaserc` / `firebase.json` :
+> - cible `arbiter` → site `arbiter-landing` : **sert coquade.fr** (et
+>   arbiter-landing.web.app, même contenu — Firebase ne permet pas de
+>   rediriger la seule URL web.app d'un site qui porte le domaine) ;
+> - cible `cocarde` → site `cocarde-extension` : 301 vers coquade.fr
+>   (chemins préservés).
 >
-> Il existe aussi un **ancien projet Firebase « Arbiter »** (`arbiter-extension`,
-> d'avant le renommage d'août 2026) : son URL `arbiter-extension.web.app` fait
-> un 301 vers arbiter-landing (déployé le 17 août 2026 depuis une config
-> minimale hors repo — redirects `** → https://arbiter-landing.web.app`).
-> À terme : rediriger vers coquade.fr, ou supprimer le projet.
->
-> Une fois coquade.fr actif : mettre à jour canonical/og:url/sitemap/robots
-> dans ces fichiers, puis faire rediriger les URLs web.app.
+> L'**ancien projet Firebase « Arbiter »** (`arbiter-extension`, d'avant le
+> renommage d'août 2026) fait aussi un 301 vers coquade.fr — déployé depuis
+> une config minimale hors repo. À terme : supprimer ce projet.
 
 ## Déployer
 
