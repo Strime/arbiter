@@ -27,7 +27,7 @@ Checklist et textes prêts à coller pour Chrome Web Store, Firefox AMO, Edge Ad
 
 ## Description courte (les 3 stores)
 
-> Affiche l'origine (marque et fabrication — FR, EU, US) des produits sur les
+> Affiche l'origine (marque et fabrication) des produits sur les
 > drives français, pour des achats éclairés.
 
 Ton factuel volontaire : l'extension **affiche** une information, elle ne

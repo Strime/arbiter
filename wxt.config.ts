@@ -7,7 +7,7 @@ export default defineConfig({
   manifest: ({ browser }) => ({
     name: 'Coquade',
     description:
-      "Affiche l'origine (marque et fabrication — FR, EU, US) des produits sur les drives français, pour des achats éclairés.",
+      "Affiche l'origine (marque et fabrication) des produits sur les drives français, pour des achats éclairés.",
     permissions: ['storage', 'alarms'],
     host_permissions: [
       'https://*.carrefour.fr/*',
