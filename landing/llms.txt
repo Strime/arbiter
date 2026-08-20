@@ -17,6 +17,7 @@ Chaque dimension est affichée avec un indice de confiance et sa source.
 
 - [Accueil](https://coquade.fr/) : présentation, démo du badge,
   captures réelles, FAQ.
+- [Installer (Chrome Web Store)](https://chromewebstore.google.com/detail/ceohpidjkdopmbhkanleijicbmioekdf)
 - [Politique de confidentialité](https://strime.github.io/arbiter-data/PRIVACY.html)
 
 ## Contact

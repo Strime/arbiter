@@ -92,6 +92,9 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 ## Par store
 
 ### Chrome Web Store
+- **Publiée le 20 août 2026** :
+  https://chromewebstore.google.com/detail/ceohpidjkdopmbhkanleijicbmioekdf
+  (liens « Ajouter à Chrome » de la landing branchés dessus).
 - Compte développeur (5 $ une fois), fiche + formulaire données + privacy URL.
 - Upload : `npm run zip` → `.output/arbiter-<version>-chrome.zip`.
 
