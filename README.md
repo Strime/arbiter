@@ -39,6 +39,22 @@ npm run compile
 
 Charger l'extension en dev : `chrome://extensions` → "Load unpacked" → `output/chrome-mv3/`.
 
+## Build de production (reproduction exacte — revue AMO)
+
+Environnement : tout OS (build de référence : macOS 15, arm64). Prérequis :
+[Node.js](https://nodejs.org/) ≥ 22 (build de référence : Node 25.6.1,
+npm 11.9.0). Aucune variable d'environnement ni secret requis.
+
+```bash
+npm ci                 # installe les dépendances exactes (package-lock.json)
+npm run zip:firefox    # → output/arbiter-<version>-firefox.zip
+npm run zip            # → output/arbiter-<version>-chrome.zip
+```
+
+`npm ci` exécute `wxt prepare` (postinstall, génère `.wxt/`) ; le build
+bundle et minifie via WXT/Vite. Le contenu du zip est reproductible à
+l'identique, seuls les timestamps des entrées zip diffèrent.
+
 ## Architecture — Feature-first Clean Architecture
 
 ```

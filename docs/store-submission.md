@@ -108,7 +108,10 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
   Firefox Android (`data_collection_permissions` y requiert 142), sans objet
   puisque Android est décoché à la soumission.
 - **Notes reviewer à coller telles quelles** :
-  > Build reproductible : Node 22, `npm ci && npm run zip:firefox` (WXT/Vite).
+  > Build reproductible : Node ≥ 22 (référence : Node 25.6.1, npm 11.9.0,
+  > macOS 15 arm64), `npm ci && npm run zip:firefox` (WXT/Vite) — recette
+  > détaillée dans le README du zip de sources, section « Build de
+  > production ». Sortie : `output/arbiter-<version>-firefox.zip`.
   > Les warnings du linter proviennent des bibliothèques bundlées, pas du code
   > applicatif : `DANGEROUS_EVAL` (Function constructor) vient de Zod v4
   > (parsing optimisé) et `UNSAFE_VAR_ASSIGNMENT` (innerHTML) de react-dom —
