@@ -4,6 +4,14 @@ import { defineConfig } from 'wxt';
 export default defineConfig({
   srcDir: 'src',
   modules: ['@wxt-dev/module-react'],
+  // « output » plutôt que « .output » (défaut WXT) : les dossiers à point
+  // sont invisibles dans le Finder, or on y récupère les zips à soumettre.
+  outDir: 'output',
+  zip: {
+    // Le zip de sources (revue AMO) ne doit pas embarquer les builds,
+    // sinon sa taille gonfle à chaque build (il finit par s'auto-inclure).
+    excludeSources: ['output/**'],
+  },
   manifest: ({ browser }) => ({
     name: 'Coquade',
     description:
