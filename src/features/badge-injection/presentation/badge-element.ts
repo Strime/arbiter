@@ -189,6 +189,21 @@ export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict, product:
   tooltip.appendChild(renderReportLink(verdict, product));
   badge.appendChild(tooltip);
 
+  // Capture sur document : les sites qui stoppent la propagation du clic
+  // n'empêchent pas la fermeture. S'auto-détache une fois fermé (et donc
+  // aussi au premier clic suivant si la pastille a été retirée du DOM).
+  const closeOnOutsideClick = (event: Event): void => {
+    if (event.composedPath().includes(badge)) return;
+    close();
+  };
+
+  function close(): void {
+    badge.classList.remove(OPEN_CLASS);
+    // Sans blur, :focus-within maintiendrait le tooltip visible.
+    badge.blur();
+    document.removeEventListener('click', closeOnOutsideClick, true);
+  }
+
   // Toggle au clic/tap (tactile), en plus du hover/focus gérés en CSS.
   // stopPropagation/preventDefault : la carte produit est souvent un lien.
   badge.addEventListener('click', (event) => {
@@ -200,13 +215,17 @@ export function renderBadge(shadow: ShadowRoot, verdict: OriginVerdict, product:
     }
     event.preventDefault();
     event.stopPropagation();
-    badge.classList.toggle(OPEN_CLASS);
+    if (badge.classList.contains(OPEN_CLASS)) {
+      close();
+    } else {
+      badge.classList.add(OPEN_CLASS);
+      document.addEventListener('click', closeOnOutsideClick, true);
+    }
   });
 
   badge.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
-    badge.classList.remove(OPEN_CLASS);
-    badge.blur();
+    close();
   });
 
   shadow.appendChild(badge);

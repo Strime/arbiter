@@ -136,6 +136,22 @@
   pointer-events: auto;
 }
 
+/* Pont invisible couvrant l'écart de 8px entre la pastille et le tooltip :
+   sans lui, le :hover est perdu pendant la traversée et le tooltip disparaît
+   avant qu'on puisse cliquer « Signaler une erreur ». Largeur alignée sur
+   celle du tooltip (220px, ancré à droite). N'existe que tooltip visible,
+   pour ne pas intercepter les clics destinés à la carte produit. */
+.coquade-badge:hover::after,
+.coquade-badge:focus-within::after,
+.coquade-badge--open::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 220px;
+  height: 8px;
+}
+
 .coquade-tooltip__section + .coquade-tooltip__section {
   margin-top: 10px;
   padding-top: 10px;
