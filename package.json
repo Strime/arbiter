@@ -2,7 +2,7 @@
   "name": "arbiter",
   "description": "Extension navigateur qui affiche l'origine (marque + fabrication) des produits sur les drives français",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
     "dev": "wxt",
