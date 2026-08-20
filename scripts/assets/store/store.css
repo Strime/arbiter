@@ -1,0 +1,192 @@
+/* Styles partagés des frames store (1280×800), rendues par Chrome headless.
+   Palette : bleu/rouge du badge produit, pastilles de région de badge.css. */
+
+:root {
+  --paper: #f6f7f9;
+  --ink: #14181d;
+  --muted: #4a5560;
+  --line: #e3e8ee;
+  --blue: #0055a4;
+  --red: #ef4135;
+  --pill-fr: #1e40af;
+  --pill-eu: #0369a1;
+  --pill-us: #b91c1c;
+  --tip-bg: #1f2937;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1280px;
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  color: var(--ink);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Marque ---------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.brand svg { display: block; }
+
+/* ---------- Lisérés tricolores en pied ---------- */
+
+.bars::before,
+.bars::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 12px;
+  width: 390px;
+}
+
+.bars::before { left: 0; background: var(--blue); }
+.bars::after { right: 0; background: var(--red); }
+
+/* ---------- Bandeau des frames capture ---------- */
+
+.band {
+  padding: 40px 64px 34px;
+  background: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.band__text { max-width: 900px; }
+
+.band h1 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin-bottom: 10px;
+}
+
+.band p {
+  font-size: 23px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.band .brand { font-size: 22px; gap: 10px; flex: 0 0 auto; padding-bottom: 4px; }
+
+.capture {
+  display: block;
+  width: 1280px;
+  height: 636px;
+  object-fit: cover;
+  object-position: 50% 100%;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Pastille badge (réplique de l'extension) ---------- */
+
+.ab {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  vertical-align: middle;
+}
+
+.ab--fr { background: var(--pill-fr); }
+.ab--eu { background: var(--pill-eu); }
+.ab--us { background: var(--pill-us); }
+
+.ab svg {
+  display: block;
+  width: 24px;
+  height: 17px;
+  border-radius: 3px;
+}
+
+.ab--inline { transform: translateY(-2px); padding: 5px 9px; }
+.ab--inline svg { width: 20px; height: 14px; }
+
+/* ---------- Tooltip (réplique de l'extension) ---------- */
+
+.tip {
+  background: var(--tip-bg);
+  color: #f9fafb;
+  border-radius: 14px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.3);
+  padding: 22px;
+  text-align: left;
+}
+
+.tip__section + .tip__section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tip__header {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.tip__country {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.tip__country svg {
+  width: 26px;
+  height: 19px;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.tip__parent {
+  margin-top: 5px;
+  font-size: 15px;
+  color: #d1d5db;
+}
+
+.tip__meter {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.tip__bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.tip__fill { height: 100%; border-radius: 3px; background: #34d399; }
+
+.tip__pct {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d1d5db;
+  min-width: 44px;
+  text-align: right;
+}
+
+.tip__source { margin-top: 7px; font-size: 14px; color: #9ca3af; }

@@ -70,13 +70,19 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ## Assets à produire avant soumission
 
-- [x] Screenshots 1280×800 : 3 produits (docs/store-assets/screenshot-carrefour.png
-      — 15 août 2026 —, screenshot-auchan.png, screenshot-lidl.png — badges
-      réels calculés depuis brands.json, injectés avec le rendu exact du badge
-      sur les pages live). Intermarché et Leclerc Drive re-testés le
-      15 août 2026 : toujours bloqués par captcha Datadome en session
-      automatisée — à capturer manuellement si souhaité. À compléter si
-      possible : un cliché de la popup et du tooltip.
+- [x] Screenshots 1280×800 (20 août 2026) : **jeu annoté à uploader dans
+      l'ordre** — docs/store-assets/store-01-hero.png (frame d'ouverture),
+      store-02-carrefour.png et store-03-auchan.png (captures réelles +
+      bandeau explicatif), store-04-detail.png (tooltip marque/fabrication +
+      confidentialité). Générés par `scripts/generate-store-screenshots.sh`
+      depuis `scripts/assets/store/*.html` (Chrome headless ×2, même pipeline
+      que l'og-image) — modifier les HTML puis relancer le script.
+      Les captures brutes restent les sources : screenshot-carrefour.png,
+      screenshot-auchan.png (badges réels calculés depuis brands.json sur les
+      pages live, 15 août 2026), screenshot-lidl.png (non annotée, en réserve).
+      screenshot-onboarding.png est OBSOLÈTE (marque « Arbiter ») — ne plus
+      l'uploader. Intermarché et Leclerc Drive : toujours bloqués par captcha
+      Datadome en session automatisée.
 - [x] Icône 128 px : « cocarde à crête » (17 août 2026) — la cocarde tricolore
       avec crête de coq, dessin littéral du nom Coquade. Générée par
       `scripts/generate-icons.py` ; assets landing (favicon, apple-touch,

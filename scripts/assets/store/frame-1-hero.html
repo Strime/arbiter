@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="store.css">
+<style>
+  body { background: var(--paper); }
+
+  .hero {
+    height: 788px;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 0 72px;
+  }
+
+  .hero__left { flex: 1 1 0; }
+
+  .hero__left .brand { margin-bottom: 42px; }
+
+  h1 {
+    font-size: 62px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.06;
+    margin-bottom: 24px;
+  }
+
+  .sub {
+    font-size: 26px;
+    line-height: 1.4;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 34px;
+  }
+
+  .pills { display: flex; gap: 12px; margin-bottom: 40px; }
+
+  .pill {
+    padding: 9px 18px;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .pill--fr { background: var(--pill-fr); }
+  .pill--eu { background: var(--pill-eu); }
+  .pill--us { background: var(--pill-us); }
+  .pill--more { background: #e9edf2; color: var(--muted); letter-spacing: 0.08em; }
+
+  .trust { list-style: none; display: flex; gap: 26px; }
+
+  .trust li {
+    font-size: 19px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .trust li::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+
+  /* Carte produit de démo */
+
+  .demo { flex: 0 0 430px; position: relative; }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(16, 34, 61, 0.14);
+    padding: 22px;
+    width: 360px;
+  }
+
+  .card__media {
+    background: #f0f3f6;
+    border-radius: 12px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card__media svg { width: 170px; height: 170px; }
+
+  .card__badge { position: absolute; top: 10px; right: 58px; }
+
+  .card__name { margin-top: 18px; font-size: 21px; font-weight: 600; line-height: 1.3; }
+
+  .card__price { margin-top: 8px; font-size: 24px; font-weight: 800; }
+
+  .demo .tip {
+    position: absolute;
+    top: 66px;
+    right: -16px;
+    width: 300px;
+  }
+
+  .tip::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 40px;
+    width: 13px;
+    height: 13px;
+    background: var(--tip-bg);
+    transform: rotate(45deg);
+  }
+</style>
+</head>
+<body class="bars">
+  <div class="hero">
+    <div class="hero__left">
+      <div class="brand">
+        <svg width="52" height="52" viewBox="0 0 128 128" aria-hidden="true">
+          <circle cx="40" cy="30" r="13" fill="#EF4135"/>
+          <circle cx="64" cy="19" r="16" fill="#EF4135"/>
+          <circle cx="88" cy="30" r="13" fill="#EF4135"/>
+          <circle cx="64" cy="76" r="50" fill="#EF4135"/>
+          <circle cx="64" cy="76" r="31" fill="#fff"/>
+          <circle cx="64" cy="76" r="15.5" fill="#0055A4"/>
+        </svg>
+        Coquade
+      </div>
+      <h1>Qui possède la marque.<br>Où c’est fabriqué.</h1>
+      <p class="sub">Un badge d’origine sur les produits de votre drive —
+      Carrefour, Intermarché, Auchan, Leclerc et Lidl.</p>
+      <div class="pills">
+        <span class="pill pill--fr">FR</span>
+        <span class="pill pill--us">US</span>
+        <span class="pill pill--eu">ES</span>
+        <span class="pill pill--more">…</span>
+      </div>
+      <ul class="trust">
+        <li>Gratuit</li>
+        <li>100&nbsp;% local</li>
+        <li>Aucune donnée collectée</li>
+      </ul>
+    </div>
+
+    <div class="demo">
+      <div class="card">
+        <div class="card__media" aria-hidden="true">
+          <svg viewBox="0 0 96 96">
+            <ellipse cx="48" cy="84" rx="26" ry="4" fill="#e2e7ee"/>
+            <path d="M20 46v14a28 12 0 0 0 56 0V46Z" fill="#ead9b5"/>
+            <ellipse cx="48" cy="46" rx="28" ry="12" fill="#f6efdb"/>
+            <ellipse cx="48" cy="46" rx="21" ry="8.5" fill="#efe5c9"/>
+            <circle cx="48" cy="45" r="6" fill="#d64545"/>
+          </svg>
+        </div>
+        <div class="card__name">Camembert de Normandie AOP au lait cru</div>
+        <div class="card__price">3,45&nbsp;€</div>
+      </div>
+      <span class="ab ab--fr card__badge">
+        <svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#0055A4"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#EF4135"/></svg>
+      </span>
+      <div class="tip">
+        <div class="tip__section">
+          <div class="tip__header">Marque</div>
+          <div class="tip__country">
+            <svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#0055A4"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#EF4135"/></svg>
+            France
+          </div>
+          <div class="tip__meter"><span class="tip__bar"><span class="tip__fill" style="width:100%"></span></span><span class="tip__pct">100&nbsp;%</span></div>
+          <div class="tip__source">source&nbsp;: Vérifié manuellement</div>
+        </div>
+        <div class="tip__section">
+          <div class="tip__header">Fabrication</div>
+          <div class="tip__country">
+            <svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#0055A4"/><rect x="8" width="8" height="18" fill="#fff"/><rect x="16" width="8" height="18" fill="#EF4135"/></svg>
+            France
+          </div>
+          <div class="tip__meter"><span class="tip__bar"><span class="tip__fill" style="width:90%"></span></span><span class="tip__pct">90&nbsp;%</span></div>
+          <div class="tip__source">source&nbsp;: OpenFoodFacts</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

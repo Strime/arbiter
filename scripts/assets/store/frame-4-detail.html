@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="store.css">
+<style>
+  body { background: var(--paper); }
+
+  .detail {
+    height: 788px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 0 84px;
+  }
+
+  .detail .tip { flex: 0 0 400px; padding: 30px; border-radius: 18px; }
+
+  .detail__text { flex: 1 1 0; }
+
+  .detail__text .brand { margin-bottom: 38px; }
+
+  h1 {
+    font-size: 54px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 30px;
+  }
+
+  .points { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+
+  .points li {
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--muted);
+    padding-left: 30px;
+    position: relative;
+  }
+
+  .points li strong { color: var(--ink); }
+
+  .points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--blue);
+  }
+
+  .privacy {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 22px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .privacy svg { width: 24px; height: 24px; flex: 0 0 auto; }
+</style>
+</head>
+<body class="bars">
+  <div class="detail">
+    <div class="tip">
+      <div class="tip__section">
+        <div class="tip__header">Marque</div>
+        <div class="tip__country">
+          <svg viewBox="0 0 24 18"><rect width="24" height="18" fill="#B22234"/><rect y="2" width="24" height="1.4" fill="#fff"/><rect y="5" width="24" height="1.4" fill="#fff"/><rect y="8" width="24" height="1.4" fill="#fff"/><rect y="11" width="24" height="1.4" fill="#fff"/><rect y="14" width="24" height="1.4" fill="#fff"/><rect width="10" height="9.7" fill="#3C3B6E"/></svg>
+          États-Unis
+        </div>
+        <div class="tip__parent">Procter &amp; Gamble</div>
+        <div class="tip__meter"><span class="tip__bar"><span class="tip__fill" style="width:95%"></span></span><span class="tip__pct">95&nbsp;%</span></div>
+        <div class="tip__source">source&nbsp;: Vérifié manuellement</div>
+      </div>
+      <div class="tip__section">
+        <div class="tip__header">Fabrication</div>
+        <div class="tip__country">
+          <svg viewBox="0 0 24 18"><rect width="8" height="18" fill="#000"/><rect x="8" width="8" height="18" fill="#FAE042"/><rect x="16" width="8" height="18" fill="#ED2939"/></svg>
+          Belgique
+        </div>
+        <div class="tip__meter"><span class="tip__bar"><span class="tip__fill" style="width:70%"></span></span><span class="tip__pct">70&nbsp;%</span></div>
+        <div class="tip__source">source&nbsp;: OpenFoodFacts</div>
+      </div>
+    </div>
+
+    <div class="detail__text">
+      <div class="brand">
+        <svg width="40" height="40" viewBox="0 0 128 128" aria-hidden="true">
+          <circle cx="40" cy="30" r="13" fill="#EF4135"/>
+          <circle cx="64" cy="19" r="16" fill="#EF4135"/>
+          <circle cx="88" cy="30" r="13" fill="#EF4135"/>
+          <circle cx="64" cy="76" r="50" fill="#EF4135"/>
+          <circle cx="64" cy="76" r="31" fill="#fff"/>
+          <circle cx="64" cy="76" r="15.5" fill="#0055A4"/>
+        </svg>
+        Coquade
+      </div>
+      <h1>Marque et fabrication,<br>mesurées séparément</h1>
+      <ul class="points">
+        <li><strong>La marque</strong>&nbsp;: la nationalité de l’entreprise propriétaire — groupes inclus.</li>
+        <li><strong>La fabrication</strong>&nbsp;: le lieu physique de production.</li>
+        <li>Chaque information avec <strong>sa source</strong> et son <strong>indice de confiance</strong>.</li>
+      </ul>
+      <span class="privacy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0055a4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        100&nbsp;% local — aucune donnée ne quitte votre navigateur
+      </span>
+    </div>
+  </div>
+</body>
+</html>
