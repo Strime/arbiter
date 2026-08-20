@@ -96,12 +96,17 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
   https://chromewebstore.google.com/detail/ceohpidjkdopmbhkanleijicbmioekdf
   (liens « Ajouter à Chrome » de la landing branchés dessus).
 - Compte développeur (5 $ une fois), fiche + formulaire données + privacy URL.
-- Upload : `npm run zip` → `.output/arbiter-<version>-chrome.zip`.
+- Upload : `npm run zip` → `output/arbiter-<version>-chrome.zip`.
 
 ### Firefox AMO
 - `npm run zip:firefox` → zip + `-sources.zip` (obligatoire, build minifié).
 - Pré-validé par `npx web-ext lint` (14 août 2026) : **0 erreur, 7 warnings**,
   tous attendus — voir notes reviewer ci-dessous.
+- Validation AMO à l'upload (20 août 2026, v0.1.1) : **0 erreur, 6 warnings** —
+  les 5 eval/innerHTML des libs bundlées (Zod v4, react-dom) + 1 nouveau
+  « strict_min_version requires Firefox for Android 140… » : ne concerne que
+  Firefox Android (`data_collection_permissions` y requiert 142), sans objet
+  puisque Android est décoché à la soumission.
 - **Notes reviewer à coller telles quelles** :
   > Build reproductible : Node 22, `npm ci && npm run zip:firefox` (WXT/Vite).
   > Les warnings du linter proviennent des bibliothèques bundlées, pas du code

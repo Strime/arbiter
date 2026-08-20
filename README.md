@@ -37,7 +37,7 @@ npm run zip:firefox
 npm run compile
 ```
 
-Charger l'extension en dev : `chrome://extensions` → "Load unpacked" → `.output/chrome-mv3/`.
+Charger l'extension en dev : `chrome://extensions` → "Load unpacked" → `output/chrome-mv3/`.
 
 ## Architecture — Feature-first Clean Architecture
 
