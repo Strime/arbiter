@@ -28,3 +28,6 @@ web-ext.config.ts
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets de soumission aux stores (wxt submit) — jamais commités
+.env.submit

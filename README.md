@@ -32,10 +32,19 @@ npm run build:firefox      # Firefox
 # Zip per store
 npm run zip
 npm run zip:firefox
+npm run zip:all            # les deux
+
+# Soumission aux stores (secrets dans .env.submit, cf. docs/store-submission.md)
+npm run submit:dry         # vérifie l'authentification, n'envoie rien
+npm run submit             # Chrome + Firefox
 
 # Type check
 npm run compile
 ```
+
+Publier une mise à jour : bump de `version` dans `package.json`, commit, puis
+tag `vX.Y.Z` — la CI build, zippe et soumet aux stores. Détail et obtention des
+secrets : [docs/store-submission.md](docs/store-submission.md).
 
 Charger l'extension en dev : `chrome://extensions` → "Load unpacked" → `output/chrome-mv3/`.
 

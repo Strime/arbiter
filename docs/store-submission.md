@@ -89,6 +89,70 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
       og-image) alignés via `scripts/generate-landing-assets.py`.
 - [ ] Email de contact vérifié sur le dashboard CWS.
 
+## Publication automatisée (`wxt submit`)
+
+WXT embarque [`publish-browser-extension`](https://github.com/aklinker1/publish-browser-extension)
+sous la commande `wxt submit` : upload + soumission en revue via les APIs
+officielles des stores. Pas besoin de Fastlane (mobile-only).
+
+### En local
+
+```bash
+npx wxt submit init      # walkthrough interactif -> écrit .env.submit (gitignoré)
+npm run zip:all          # zips chrome + firefox + sources, dans output/
+npm run submit:dry       # vérifie l'authentification, n'envoie rien
+npm run submit           # les deux stores
+npm run submit:chrome    # un seul store
+npm run submit:firefox
+```
+
+Les scripts construisent les chemins depuis `package.json`
+(`output/$npm_package_name-$npm_package_version-*.zip`) : rien à passer à la
+main, mais les zips doivent être ceux de la version courante — d'où
+`npm run zip:all` juste avant.
+
+Un store n'est soumis que si son zip est passé au CLI, et le CLI **exige alors
+tous les credentials de ce store** : c'est pourquoi il existe une variante par
+store, pour brancher Chrome d'abord et AMO plus tard.
+
+### Secrets à obtenir
+
+| Variable | Où la trouver |
+|---|---|
+| `CHROME_EXTENSION_ID` | `ceohpidjkdopmbhkanleijicbmioekdf` (fin de l'URL de la fiche CWS) |
+| `CHROME_CLIENT_ID` / `CHROME_CLIENT_SECRET` | Google Cloud console : projet dédié → activer **Chrome Web Store API** → identifiants OAuth de type « Desktop app » |
+| `CHROME_REFRESH_TOKEN` | échange du code OAuth (scope `https://www.googleapis.com/auth/chromewebstore`) — `wxt submit init` déroule l'échange |
+| `FIREFOX_EXTENSION_ID` | `gaetan@alpsan.fr` (= `browser_specific_settings.gecko.id`) |
+| `FIREFOX_JWT_ISSUER` / `FIREFOX_JWT_SECRET` | addons.mozilla.org → Tools → **Manage API Keys** (le secret n'est affiché qu'une fois) |
+
+### Dans la CI
+
+Le job `release` de [ci.yml](../.github/workflows/ci.yml) se déclenche sur tag
+`v*`, après le job `check` (compile + tests + builds) :
+
+1. refuse la release si le tag ≠ `package.json.version` — le manifest tient sa
+   version de `package.json`, une divergence produirait un zip incohérent avec
+   la release ;
+2. `npm run zip` + `zip:firefox`, uploadés en artefact `store-zips-<tag>` ;
+3. `npm run submit` avec les 7 secrets en secrets de dépôt GitHub. Si seuls les
+   secrets d'un store sont présents, il ne soumet que celui-là ; si aucun n'est
+   présent, il n'échoue pas et laisse les zips en artefact.
+
+Publier une version revient donc à : bump de `package.json`, commit, tag
+`vX.Y.Z`, push du tag.
+
+### Pièges
+
+- **Version strictement croissante** : les deux stores refusent le réupload
+  d'une version déjà en ligne. Un tag rejoué = release échouée.
+- **`gecko.id` figé** : le changer créerait un nouvel add-on AMO au lieu d'une
+  mise à jour.
+- **La revue reste humaine** des deux côtés : l'automatisation s'arrête à
+  « soumis ». Ajouter `--chrome-skip-submit-review` pour se contenter d'un
+  upload sans publication.
+- Le zip de sources reste obligatoire côté AMO tant que le build est bundlé ;
+  les notes reviewer, elles, restent à coller à la main au dashboard.
+
 ## Par store
 
 ### Chrome Web Store
@@ -96,10 +160,12 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
   https://chromewebstore.google.com/detail/ceohpidjkdopmbhkanleijicbmioekdf
   (liens « Ajouter à Chrome » de la landing branchés dessus).
 - Compte développeur (5 $ une fois), fiche + formulaire données + privacy URL.
-- Upload : `npm run zip` → `output/arbiter-<version>-chrome.zip`.
+- Upload : `npm run zip` → `output/arbiter-<version>-chrome.zip`,
+  ou `npm run submit:chrome` (cf. Publication automatisée).
 
 ### Firefox AMO
-- `npm run zip:firefox` → zip + `-sources.zip` (obligatoire, build minifié).
+- `npm run zip:firefox` → zip + `-sources.zip` (obligatoire, build minifié),
+  ou `npm run submit:firefox` (cf. Publication automatisée).
 - Pré-validé par `npx web-ext lint` (14 août 2026) : **0 erreur, 7 warnings**,
   tous attendus — voir notes reviewer ci-dessous.
 - Validation AMO à l'upload (20 août 2026, v0.1.1) : **0 erreur, 6 warnings** —

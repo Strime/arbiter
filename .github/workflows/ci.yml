@@ -32,12 +32,56 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+
+      # La version du manifest vient de package.json, pas du tag : si les deux
+      # divergent, on soumettrait un zip dont la version ne correspond pas à la
+      # release — et les stores refusent tout réupload d'une version déjà en
+      # ligne. Mieux vaut échouer ici qu'après un demi-upload.
+      - name: Vérifier que le tag correspond à package.json
+        run: |
+          tag_version="${GITHUB_REF_NAME#v}"
+          pkg_version="$(node -p "require('./package.json').version")"
+          if [ "$tag_version" != "$pkg_version" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} ≠ package.json ${pkg_version}"
+            exit 1
+          fi
+
       - run: npm run zip
       - run: npm run zip:firefox
       - uses: actions/upload-artifact@v4
         with:
           name: store-zips-${{ github.ref_name }}
-          path: .output/*.zip
+          path: output/*.zip
           if-no-files-found: error
-          # .output est un dossier caché : exclu par défaut par upload-artifact v4
-          include-hidden-files: true
+
+      # Soumission automatique (wxt submit -> publish-browser-extension).
+      # Chrome : upload puis publication à l'issue de la revue.
+      # Firefox : upload du zip + du zip de sources sur le canal « listed ».
+      # publish-extension lit les secrets depuis l'environnement.
+      - name: Soumettre aux stores
+        env:
+          CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+          FIREFOX_EXTENSION_ID: ${{ secrets.FIREFOX_EXTENSION_ID }}
+          FIREFOX_JWT_ISSUER: ${{ secrets.FIREFOX_JWT_ISSUER }}
+          FIREFOX_JWT_SECRET: ${{ secrets.FIREFOX_JWT_SECRET }}
+          FIREFOX_CHANNEL: listed
+        run: |
+          # Un store n'est soumis que si ses secrets sont là : le CLI exige les
+          # credentials de tout store dont on lui passe un zip. On peut donc
+          # brancher Chrome d'abord et AMO plus tard sans casser la release.
+          # Aucun secret (fork, repo fraîchement cloné) => on n'échoue pas, les
+          # zips restent téléchargeables dans l'artefact ci-dessus.
+          if [ -n "$CHROME_CLIENT_ID" ] && [ -n "$FIREFOX_JWT_ISSUER" ]; then
+            npm run submit
+          elif [ -n "$CHROME_CLIENT_ID" ]; then
+            echo "::warning::Secrets AMO absents — soumission Chrome seule."
+            npm run submit:chrome
+          elif [ -n "$FIREFOX_JWT_ISSUER" ]; then
+            echo "::warning::Secrets CWS absents — soumission Firefox seule."
+            npm run submit:firefox
+          else
+            echo "::warning::Aucun secret store configuré — soumission ignorée, voir l'artefact store-zips."
+          fi
