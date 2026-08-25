@@ -52,12 +52,36 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 
 ## Formulaire « données » (CWS Data Usage / AMO data_collection)
 
-- Collecte par le développeur : **aucune**.
-- `data_collection_permissions.required: ["none"]` (déjà dans le manifest Firefox).
-- CWS : déclarer la lecture de « website content » (cartes produits des drives,
-  traitée localement) et la requête sortante OpenFoodFacts (EAN, fallback
-  fonctionnel). URL de politique de confidentialité (servie par le repo public
-  arbiter-data) : `https://strime.github.io/arbiter-data/PRIVACY.html`.
+- Collecte automatique par le développeur : **aucune**. Un seul flux sortant
+  vers le projet, à l'initiative de l'utilisateur : le **signalement d'erreur**
+  (cf. docs/error-reporting.md).
+- Firefox : `data_collection_permissions = { required: ["none"], optional:
+  ["websiteContent"] }`. Vérifié contre `addons-linter` : `"none"` doit rester
+  **seul** dans `required` (`NONE_DATA_COLLECTION_IS_EXCLUSIVE`), n'est **pas**
+  admis dans `optional`, et `technicalAndInteraction` n'est valide qu'en
+  `optional`. La permission optionnelle n'est **jamais** accordée d'office :
+  l'extension appelle `permissions.request()` depuis la page d'options (geste
+  utilisateur sur une page d'extension obligatoire).
+  → l'écran d'installation continue d'annoncer « ne collecte aucune donnée ».
+- Pourquoi `websiteContent` et pas `technicalAndInteraction` : la catégorie se
+  choisit d'après le **contenu** de la charge utile, pas d'après le motif de
+  l'envoi. Marque et code-barres sont lus sur la page → contenu de site web.
+  Pas de `personallyIdentifyingInfo` : aucun champ de texte libre n'est proposé
+  (c'est la raison de ce choix de conception, à ne pas défaire à la légère).
+- CWS : aucune clé de manifest à ajouter, tout se déclare au dashboard
+  (Privacy practices). Cocher **Website content** — pour la lecture des cartes
+  produits ET pour le signalement. Ne PAS cocher « Web history » : l'URL de la
+  page n'est jamais transmise.
+- **Depuis le 1er août 2026** (CWS policy updates 2026), toute collecte doit
+  être « prominently disclosed » **dans l'interface du produit** — la fiche
+  store et la politique de confidentialité ne suffisent plus. C'est le rôle de
+  la ligne « Envoie la marque, le code-barres et le verdict affiché. Rien
+  d'autre. » affichée dans le panneau de signalement : ne pas la retirer.
+- Remote code : répondre **non**. Poster des données ne transmet aucune logique.
+- URL de politique de confidentialité (servie par le repo public
+  arbiter-data) : `https://strime.github.io/arbiter-data/PRIVACY.html`
+  — **à republier** après toute modification de PRIVACY.md ; une divergence
+  entre manifest, fiche store et politique est en soi un motif de rejet.
 
 ## Justification des permissions (formulaire reviewer)
 
@@ -67,6 +91,7 @@ prescrit pas (« évitez US » est réservé à la communication hors store).
 | `*.carrefour.fr`, `*.intermarche.com`, `*.auchan.fr`, `*.leclercdrive.fr`, `*.lidl.fr` | Injection du badge d'origine sur les cartes produits des drives. Domaines entiers requis : SPA à routage client, les chemins des pages produits ne sont pas stables. |
 | `world.openfoodfacts.org` | Requête produit par code-barres (EAN) en fallback quand l'origine n'est pas déterminable localement. |
 | `strime.github.io` | Téléchargement quotidien de la base de marques mise à jour (GitHub Pages du projet). Fichier statique versionné, identique pour tous les utilisateurs ; aucune donnée utilisateur envoyée. |
+| `coquade.fr` | Envoi d'un signalement d'erreur de données, déclenché uniquement par un clic explicite de l'utilisateur sur « Signaler une erreur ». Charge utile fermée (marque, code-barres, enseigne, verdict affiché, version) : ni URL, ni identifiant, ni texte libre. |
 
 ## Assets à produire avant soumission
 
@@ -183,11 +208,16 @@ Publier une version revient donc à : bump de `package.json`, commit, tag
   > (parsing optimisé) et `UNSAFE_VAR_ASSIGNMENT` (innerHTML) de react-dom —
   > le code applicatif ne fait aucune assignation innerHTML interpolée
   > (drapeaux construits via createElementNS, textes via textContent).
-  > Aucune collecte de données (`data_collection_permissions: ["none"]`),
-  > stockage 100 % local, deux endpoints réseau : world.openfoodfacts.org
-  > (lookup EAN en fallback) et strime.github.io (mise à jour quotidienne de
-  > la base de marques, fichier statique versionné).
-- Licence code : MIT (LICENSE à la racine).
+  > Aucune collecte automatique. `data_collection_permissions` déclare
+  > `required: ["none"]` et `optional: ["websiteContent"]` : cette dernière
+  > couvre le bouton « Signaler une erreur » d'une pastille, demandée par
+  > `permissions.request()` depuis la page d'options et refusable. Charge
+  > utile fermée, sans texte libre ni identifiant (détail dans PRIVACY.md),
+  > stockage 100 % local, trois endpoints réseau : world.openfoodfacts.org
+  > (lookup EAN en fallback), strime.github.io (mise à jour quotidienne de
+  > la base de marques, fichier statique versionné) et coquade.fr/api/report
+  > (signalement d'erreur, uniquement sur clic et après autorisation).
+- Licence code : GPL-3.0 (LICENSE à la racine).
 - Firefox Android : **décision V0 (14 août 2026) : exclu.** Non testé au
   tactile (le tooltip a un toggle au tap mais jamais validé sur mobile), sites
   drive en responsive non vérifiés — décocher la compatibilité Android à la
@@ -208,6 +238,8 @@ Publier une version revient donc à : bump de `package.json`, commit, tag
   est sous **GPL-3.0**, données incluses. Notre redistribution est autorisée
   avec : attribution (faite sur l'index d'arbiter-data), dataset dérivé publié
   sous GPL-3.0 (LICENSE-DATA sur le site de données), mention de modification.
-  Le code de l'extension reste MIT (agrégat, GPLv3 §5) — un fichier de données
-  statique lu à l'exécution ne contamine pas le code. Optionnel : issue de
-  courtoisie chez l'auteur pour le prévenir de la réutilisation.
+  Le code de l'extension est passé sous GPL-3.0 le 25 août 2026, en même temps
+  que l'ouverture du dépôt : la question de l'agrégat (GPLv3 §5) qui gardait le
+  code en MIT ne se pose donc plus, code et données sont sous la même licence.
+  Optionnel : issue de courtoisie chez l'auteur pour le prévenir de la
+  réutilisation.

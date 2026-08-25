@@ -72,6 +72,7 @@ src/
 │   ├── origin-detection/    # moteur — brand origin + manufacturing origin
 │   ├── site-adapters/       # plugins DOM par site (Carrefour, etc.)
 │   ├── badge-injection/     # rendu Shadow DOM du badge
+│   ├── error-reporting/     # signalement d'erreur en un clic (+ consentement)
 │   └── preferences/         # toggle on/off, popup, options
 ├── core/
 │   ├── messaging/           # protocole typé content ↔ background (Zod)
@@ -118,3 +119,16 @@ Le projet définit 4 agents dans [.claude/agents/](.claude/agents/) :
 - **[site-adapter-author](.claude/agents/site-adapter-author.md)** — auteur des scrapers DOM par site
 - **[origin-data-curator](.claude/agents/origin-data-curator.md)** — owner brand DB + OFF + heuristiques + dual signal
 - **[extension-reviewer](.claude/agents/extension-reviewer.md)** — review + git workflow (conventional commits) + cross-browser parity
+
+## Licence
+
+Code sous [GPL-3.0](LICENSE) : toute redistribution, modifiée ou non, doit
+rester sous la même licence et fournir ses sources.
+
+La base de marques est dérivée à ~92 % de
+[detrumpez-vous](https://github.com/Sacha213/detrumpez-vous) (GPL-3.0) et
+republiée sous GPL-3.0 dans
+[arbiter-data](https://github.com/Strime/arbiter-data). Les données de
+fabrication proviennent d'[OpenFoodFacts](https://world.openfoodfacts.org)
+(© les contributeurs, licence ODbL) — attribution requise en cas de
+réutilisation.

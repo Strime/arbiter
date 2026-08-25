@@ -2,7 +2,7 @@
 
 > Extension navigateur (Chrome, Firefox) qui affiche l'origine des produits —
 > FR, EU, US — sur les drives français : Carrefour, Intermarché, Auchan,
-> Leclerc et Lidl. Gratuite, open source (MIT), 100 % locale : aucune donnée
+> Leclerc et Lidl. Gratuite, open source (GPL-3.0), 100 % locale : aucune donnée
 > collectée, aucun tracker.
 
 L'origine est mesurée sur deux dimensions distinctes :
@@ -19,6 +19,7 @@ Chaque dimension est affichée avec un indice de confiance et sa source.
   captures réelles, FAQ.
 - [Installer (Chrome Web Store)](https://chromewebstore.google.com/detail/ceohpidjkdopmbhkanleijicbmioekdf)
 - [Installer (Firefox Add-ons)](https://addons.mozilla.org/fr/firefox/addon/coquade/)
+- [Code source](https://github.com/Strime/arbiter)
 - [Politique de confidentialité](https://strime.github.io/arbiter-data/PRIVACY.html)
 
 ## Contact
